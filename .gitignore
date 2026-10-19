@@ -147,3 +147,9 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Bavaria generated review artifacts
+deliverables/
+sabsus-source.zip
+__pycache__/
+*.pyc

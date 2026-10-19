@@ -1,0 +1,151 @@
+'use strict';
+const copy={
+ de:{skip:'Zum Inhalt',skipIntro:'Intro überspringen',navExperience:'Die Lounge',navMenu:'Die Karte',navOccasions:'Dein Anlass',navGallery:'Einblicke',reserve:'Tisch anfragen',hero1:'Die Nacht.',hero2:'Dein Revier.',heroLead:'Feine Drinks. Charaktervolle Shisha. Goldene Momente. Willkommen an dem Ort, an dem aus einem Abend eine Erinnerung wird.',heroCta:'Deinen Abend planen',exploreMenu:'Die Karte entdecken',hoursShort:'Täglich ab 12:00 · Open End',scroll:'ENTDECKEN ↓',experienceLabel:'THE BAVARIA EXPERIENCE',exp1:'Nicht einfach ausgehen.',exp2:'Ankommen.',expLead:'Ein guter Drink. Deine Lieblingsmenschen. Und kein Grund, schon zu gehen.',expCopy:'Mitten in Hildesheim treffen Lounge-Atmosphäre, Cocktails und Shisha-Kultur aufeinander. Für den entspannten Nachmittag, das Wiedersehen mit Freunden und die Nacht, die länger wird als geplant.',feature1:'Dein Geschmack. Dein Ritual.',feature1Copy:'Von fruchtig-frisch bis klassisch-intensiv. Entdecke deine nächste Lieblingssession.',feature2:'Ein Glas voller Charakter.',feature2Copy:'Cocktail-Klassiker, kräftige Shortdrinks und alkoholfreie Highlights.',feature3:'Der Sound deines Abends.',feature3Copy:'Deine Runde, deine Stimmung. Musikwünsche stimmen wir persönlich mit dir ab.',menuLabel:'GOOD TASTE. GREAT CHOICES.',menuTitle:'Eine Karte.',menuTitle2:'So viele Möglichkeiten.',menuLead:'Für jeden Geschmack ein Lieblingsmoment. Blättere durch unsere beispielhafte Auswahl.',spirits:'Spirits & Classics',zero:'Alkoholfrei',menuCollection:'AUSGEWÄHLT FÜR DEINEN ABEND',demoMenu:'Demonstrationskarte · Alle Produkte und Preise sind Beispiele, kein bestätigtes Angebot des Betriebs. Alkoholfreie Cocktails ohne Spirituosen; Allergene und Zutaten bitte vor Ort erfragen.',occasionLabel:'MAKE IT AN OCCASION',occasion1:'Dein Anlass.',occasion2:'Unser Lieblingsabend.',occasionLead:'Manche Momente verdienen mehr als einen Gruppenchat. Plane deinen besonderen Abend mit uns.',birthday:'Geburtstage',birthdayCopy:'Dein Tag. Deine Menschen. Drinks, Shisha und eine Runde, die etwas zu feiern hat.',bachelor:'Junggesellenabschied',bachelorCopy:'JGA oder Mädelsabend vor der Hochzeit — startet eure besondere Nacht im Bavaria.',private:'Private Feiern',privateCopy:'Jubiläum, Wiedersehen oder Teamabend. Wünsche und Möglichkeiten stimmen wir individuell ab.',music:'Musikwünsche',musicCopy:'Der passende Sound gehört dazu. Sag uns, welche Musik euren Abend besonders macht.',planNow:'Jetzt anfragen',galleryLabel:'A LITTLE LOOK INSIDE',gallery1:'Weniger erzählen.',gallery2:'Mehr erleben.',socialCopy:'Momente aus der Lounge. Noch mehr Einblicke und aktuelle Posts auf Instagram.',liveSocial:'Aktuelle Beiträge aus dem verbundenen Instagram-Account.',bookLabel:'YOUR NEXT GOOD NIGHT',book1:'Ein Tisch.',book2:'Deine Geschichte.',bookCopy:'Date Night, große Runde oder besonderer Anlass — bereite deine Anfrage vor und schicke sie dem Team auf Instagram.',bookNote:'Die Reservierung gilt erst nach persönlicher Bestätigung durch das Bavaria-Team.',name:'Dein Name',contact:'Telefon oder E-Mail',date:'Datum',time:'Uhrzeit',guests:'Gäste',occasion:'Dein Anlass',evening:'Ein schöner Abend',message:'Deine Wünsche',formPrivacy:'Dieses Formular bereitet nur einen Text vor. Deine Angaben werden nicht gespeichert oder automatisch versendet.',prepareRequest:'Anfrage vorbereiten',requestReady:'Deine Anfrage ist vorbereitet. Kopiere den Text und sende ihn dem Team über Instagram.',copy:'Text kopieren',copied:'Kopiert. Öffne Instagram und füge den Text in deine Nachricht ein.',copyFallback:'Bitte markiere den vorbereiteten Text und kopiere ihn manuell.',openInstagram:'Instagram öffnen ↗',findUs:'FIND YOUR WAY',contact1:'Mitten in Hildesheim.',contact2:'Mitten im Moment.',directions:'Route planen',addressLabel:'DU FINDEST UNS HIER',hoursLabel:'WIR SIND FÜR DICH DA',hours:'Montag – Sonntag\nAb 12:00 Uhr · Open End',backTop:'NACH OBEN ↑',draftNote:'Privater Designentwurf · Beispielkarte · Vor Veröffentlichung müssen Kontaktdaten, verbindliche Karte und Pflichtangaben vom Betreiber bestätigt und ergänzt werden.',galleryPause:'Galerie pausieren',galleryPlay:'Galerie automatisch abspielen',previous:'Zurück',next:'Weiter',close:'Schließen',effects:'Raucheffekte umschalten',openNav:'Menü öffnen',closeNav:'Menü schließen'},
+ en:{skip:'Skip to content',skipIntro:'Skip intro',navExperience:'The lounge',navMenu:'The menu',navOccasions:'Your occasion',navGallery:'Inside Bavaria',reserve:'Request a table',hero1:'The night.',hero2:'Your territory.',heroLead:'Beautiful drinks. Shisha with character. Golden moments. Welcome to the place where an evening becomes a memory.',heroCta:'Plan your evening',exploreMenu:'Explore the menu',hoursShort:'Daily from 12:00 · Open end',scroll:'EXPLORE ↓',experienceLabel:'THE BAVARIA EXPERIENCE',exp1:'More than going out.',exp2:'Feeling at home.',expLead:'A great drink. Your favourite people. And no reason to leave just yet.',expCopy:'In the heart of Hildesheim, lounge atmosphere meets cocktails and shisha culture. For a relaxed afternoon, a reunion with friends and a night that lasts longer than planned.',feature1:'Your flavour. Your ritual.',feature1Copy:'From fresh and fruity to bold and classic. Discover your next favourite session.',feature2:'A glass with character.',feature2Copy:'Cocktail classics, bold short drinks and alcohol-free highlights.',feature3:'The sound of your night.',feature3Copy:'Your people, your mood. Talk to us about music requests for your evening.',menuLabel:'GOOD TASTE. GREAT CHOICES.',menuTitle:'One menu.',menuTitle2:'So many possibilities.',menuLead:'A favourite moment for every taste. Browse our sample selection.',spirits:'Spirits & classics',zero:'Alcohol-free',menuCollection:'CURATED FOR YOUR EVENING',demoMenu:'Sample menu · All items and prices are illustrative, not the venue’s confirmed offering. Alcohol-free cocktails contain no spirits; ask the team about ingredients and allergens.',occasionLabel:'MAKE IT AN OCCASION',occasion1:'Your occasion.',occasion2:'Our favourite evening.',occasionLead:'Some moments deserve more than a group chat. Plan your special evening with us.',birthday:'Birthdays',birthdayCopy:'Your day. Your people. Drinks, shisha and a group with something to celebrate.',bachelor:'Stag & hen nights',bachelorCopy:'A stag party or a pre-wedding girls’ night — start your special evening at Bavaria.',private:'Private celebrations',privateCopy:'Anniversaries, reunions or team nights. We discuss your wishes and the possibilities personally.',music:'Music requests',musicCopy:'Every memorable night has a soundtrack. Tell us the music that makes it yours.',planNow:'Enquire now',galleryLabel:'A LITTLE LOOK INSIDE',gallery1:'Less telling.',gallery2:'More experiencing.',socialCopy:'Moments from the lounge. Find more impressions and current posts on Instagram.',liveSocial:'Recent posts from the connected Instagram account.',bookLabel:'YOUR NEXT GOOD NIGHT',book1:'One table.',book2:'Your story.',bookCopy:'Date night, your whole group or a special occasion — prepare an enquiry and send it to the team on Instagram.',bookNote:'A reservation is only valid after personal confirmation by the Bavaria team.',name:'Your name',contact:'Phone or email',date:'Date',time:'Time',guests:'Guests',occasion:'Your occasion',evening:'A great evening',message:'Your wishes',formPrivacy:'This form only prepares a message. Your details are not stored or sent automatically.',prepareRequest:'Prepare enquiry',requestReady:'Your enquiry is ready. Copy the message and send it to the team on Instagram.',copy:'Copy message',copied:'Copied. Open Instagram and paste the text into your message.',copyFallback:'Please select the prepared message and copy it manually.',openInstagram:'Open Instagram ↗',findUs:'FIND YOUR WAY',contact1:'Heart of Hildesheim.',contact2:'Heart of the moment.',directions:'Get directions',addressLabel:'FIND US HERE',hoursLabel:'HERE FOR YOUR EVENING',hours:'Monday – Sunday\nFrom 12:00 · Open end',backTop:'BACK TO TOP ↑',draftNote:'Private design draft · Sample menu · Before publishing, the operator must confirm the contact details and final menu and provide the required business information.',galleryPause:'Pause gallery',galleryPlay:'Play gallery automatically',previous:'Previous',next:'Next',close:'Close',effects:'Toggle smoke effects',openNav:'Open menu',closeNav:'Close menu'}
+};
+const menu={
+ cocktails:{title:['Cocktails','Cocktails'],description:['Fruchtig. Frisch. Unvergesslich.','Fruity. Fresh. Unforgettable.'],image:'cocktails.webp',items:[
+ ['Mojito','Rum · Limette · Minze · Soda','Rum · lime · mint · soda',9.5],['Passion Fruit Martini','Vanille-Wodka · Passionsfrucht · Limette','Vanilla vodka · passion fruit · lime',10.5],['Espresso Martini','Wodka · Kaffeelikör · Espresso','Vodka · coffee liqueur · espresso',10.5],['Piña Colada','Rum · Ananas · Kokos','Rum · pineapple · coconut',10],['Cosmopolitan','Wodka · Orangenlikör · Cranberry · Limette','Vodka · orange liqueur · cranberry · lime',10],['Margarita','Tequila · Orangenlikör · Limette','Tequila · orange liqueur · lime',10],['Aperol Spritz','Aperol · Prosecco · Soda · Orange','Aperol · prosecco · soda · orange',8.5],['Sex on the Beach','Wodka · Pfirsich · Orange · Cranberry','Vodka · peach · orange · cranberry',9.5],['Mai Tai','Rum · Curaçao · Limette · Mandel','Rum · curaçao · lime · almond',11],['Caipirinha','Cachaça · Limette · Rohrzucker','Cachaça · lime · cane sugar',9.5]]},
+ spirits:{title:['Spirits & Classics','Spirits & classics'],description:['Kräftig. Ausgewogen. Mit Charakter.','Bold. Balanced. Full of character.'],image:'bavaria-drink.webp',items:[['Old Fashioned','Bourbon · Bitters · Zucker · Orange','Bourbon · bitters · sugar · orange',11],['Negroni','Gin · Campari · roter Wermut','Gin · Campari · sweet vermouth',10.5],['Whiskey Sour','Whiskey · Zitrone · Zucker','Whiskey · lemon · sugar',10.5],['Long Island Iced Tea','Wodka · Gin · Rum · Tequila · Orange · Cola','Vodka · gin · rum · tequila · orange · cola',12],['Bourbon / Scotch','4 cl · auf Eis oder pur · Auswahl nach Absprache','4 cl · neat or on the rocks · ask for the selection',7],['Dark Rum','4 cl · auf Eis oder pur · Auswahl nach Absprache','4 cl · neat or on the rocks · ask for the selection',7]]},
+ zero:{title:['Ohne Alkohol','Alcohol-free'],description:['Voller Geschmack. Ganz ohne Spirituosen.','All the flavour. No spirits.'],image:'cocktail-neon.webp',items:[['Virgin Mojito','Limette · Minze · Rohrzucker · Soda','Lime · mint · cane sugar · soda',7],['Virgin Colada','Ananas · Kokos · Sahne','Pineapple · coconut · cream',7.5],['Ipanema','Limette · Maracuja · Ginger Ale','Lime · passion fruit · ginger ale',7],['Berry Fizz','Beeren · Zitrone · Soda','Berries · lemon · soda',7.5],['Mango Passion','Mango · Maracuja · Limette','Mango · passion fruit · lime',7.5],['Cucumber Cooler','Gurke · Limette · Minze · Tonic','Cucumber · lime · mint · tonic',7],['Ginger Lemon','Ingwer · Zitrone · Soda','Ginger · lemon · soda',6.5],['Peach Iced Tea','Pfirsich · Schwarztee · Zitrone','Peach · black tea · lemon',6],['Homemade Lemonade','Zitrone · frische Minze · Soda','Lemon · fresh mint · soda',6],['Softdrink / Wasser','0,33 l · Cola, Limonade oder Mineralwasser','0.33 l · cola, lemonade or mineral water',3.5]]},
+ shisha:{title:['Shisha Selection','Shisha selection'],description:['Bekannte Lieblingsrichtungen. Neu kombiniert.','Familiar favourites. Fresh combinations.'],image:'coal.webp',items:[['Traube · Minze','Süße Traube trifft frische Minze · Klassiker','Sweet grape meets cool mint · a classic',15],['Doppelapfel','Apfel mit charaktervoller Anisnote','Apple with a distinctive anise note',15],['Love 66 Style','Melone · Maracuja · frische Note','Melon · passion fruit · a fresh finish',16],['African Queen Style','Tropischer Fruchtmix mit Mango und Maracuja','Tropical fruit mix with mango and passion fruit',16],['Ice Kaktus','Kaktusfeige · frische Note','Prickly pear · cool finish',16],['Blaubeere · Minze','Dunkle Beeren mit frischem Ausklang','Dark berries with a fresh finish',15],['Wassermelone · Minze','Saftige Melone · frische Minze','Juicy watermelon · cool mint',15],['Pfirsich · Maracuja','Weicher Pfirsich · tropische Frucht','Soft peach · tropical fruit',16],['Zitrone · Minze','Zitrusfrisch · klar · klassisch','Bright citrus · mint · a clean classic',15],['Mango · Litschi','Exotisch-fruchtige Kombination','An exotic, fruity combination',16]]}
+};
+const gallery=[
+ {image:'lounge.webp',caption:['Die Lounge','The lounge']},
+ {image:'bar.webp',caption:['An der Bar','At the bar']},
+ {image:'bavaria-shisha.webp',caption:['The Shisha Ritual','The shisha ritual']},
+ {image:'cocktails.webp',caption:['Drinks mit Charakter','Drinks with character']},
+ {image:'interior.webp',caption:['Dein Platz im Bavaria','Your place at Bavaria']},
+ {image:'bavaria-drink.webp',caption:['Golden Moments','Golden moments']},
+ {image:'terrace.webp',caption:['Draußen ankommen','A seat outside']},
+ {image:'friends-table.webp',caption:['Zeit für deine Runde','Time for your people']},
+ {image:'lounge-night.webp',caption:['After Dark','After dark']}
+];
+// Public configuration contains no credentials. Enable only after a real server feed is connected.
+const socialConfig=Object.assign({enabled:false,endpoint:'/api/instagram-feed'},window.BAVARIA_SOCIAL_CONFIG||{});
+const script=document.currentScript||Array.from(document.scripts).find(s=>s.src.includes('/app.js'));
+const assetBase=window.BAVARIA_ASSET_BASE||(script?new URL('.',script.src).href:'./assets/');
+function asset(name){return window.BAVARIA_EMBEDDED_ASSETS?.[name]||assetBase+name;}
+let language='de';
+try{const saved=localStorage.getItem('bavaria-language');if(saved==='en'||saved==='de')language=saved;}catch{}
+const t=key=>copy[language][key]||copy.de[key]||key;
+const $=selector=>document.querySelector(selector);
+const $$=selector=>Array.from(document.querySelectorAll(selector));
+let category='cocktails',menuPage=0,activeGallery=gallery,liveFeed=false;
+Object.assign(copy.de,{contactSoon:'Kontakt folgt',bookCopy:'Date Night, große Runde oder besonderer Anlass — plane deinen nächsten Abend im Bavaria.',formPrivacy:'Online-Anfragen sind bald verfügbar. Plane hier schon deinen Abend.',prepareRequest:'Tisch anfragen'});
+Object.assign(copy.en,{contactSoon:'Contact coming soon',bookCopy:'Date night, your whole group or a special occasion — plan your next evening at Bavaria.',formPrivacy:'Online enquiries are coming soon. Start planning your evening here.',prepareRequest:'Request a table'});
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+let galleryMotion=null;
+function applyLanguage(next){
+ language=next;document.documentElement.lang=next;
+ try{localStorage.setItem('bavaria-language',next);}catch{}
+ $$('[data-i18n]').forEach(el=>{el.textContent=t(el.dataset.i18n);});
+ $$('[data-language]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.language===language)));
+ $('.main-nav').setAttribute('aria-label',language==='de'?'Hauptnavigation':'Main navigation');
+ $('.mobile-nav').setAttribute('aria-label',language==='de'?'Mobile Navigation':'Mobile navigation');
+ $('.nav-toggle').setAttribute('aria-label',t($('.nav-toggle').getAttribute('aria-expanded')==='true'?'closeNav':'openNav'));
+ $('#menu-prev').setAttribute('aria-label',t('previous'));$('#menu-next').setAttribute('aria-label',t('next'));
+ $('#close-lightbox').setAttribute('aria-label',t('close'));
+  $('.hero-image').alt=language==='de'?'Künstlerische Aufnahme: goldene Shisha und Cocktails im Rauch':'Creative hero photograph: a golden hookah and cocktails in smoke';
+  $('.lounge-photo img').alt=language==='de'?'Bavaria Lounge mit roten Sesseln und stimmungsvoller Beleuchtung':'Bavaria lounge with red armchairs and atmospheric lighting';
+  $('.booking-image img').alt=language==='de'?'Cocktails und Shisha auf einem Tisch der Bavaria Lounge':'Cocktails and shisha on a table in the Bavaria lounge';
+  $('.brand').setAttribute('aria-label',language==='de'?'Bavaria Startseite':'Bavaria home');
+  $('.menu-tabs').setAttribute('aria-label',language==='de'?'Menükategorien':'Menu categories');
+  $('#gallery-track').setAttribute('aria-label',language==='de'?'Bavaria Fotogalerie':'Bavaria photo gallery');
+  $('#lightbox').setAttribute('aria-label',language==='de'?'Bavaria Galerie':'Bavaria gallery');
+
+ document.title=language==='de'?'Bavaria | Cocktail Lounge · Shisha · Hildesheim':'Bavaria | Cocktail lounge · Shisha · Hildesheim';
+ const description=language==='de'?'Bavaria Cocktail Lounge in Hildesheim. Shisha, Cocktails und besondere Abende am Angoulemeplatz 3.':'Bavaria Cocktail Lounge in Hildesheim. Shisha, cocktails and memorable evenings at Angoulemeplatz 3.';
+ $('meta[name="description"]').content=description;
+ renderMenu();renderGallery();
+
+}
+function renderMenu(){
+ const data=menu[category],idx=language==='de'?0:1,total=Math.ceil(data.items.length/5);
+ menuPage=Math.min(menuPage,total-1);
+ $('#menu-category-title').textContent=data.title[idx];$('#menu-category-description').textContent=data.description[idx];
+ $('#menu-photo').src=asset(data.image);$('#menu-photo').alt=data.title[idx];
+ const list=$('#menu-items');list.replaceChildren();
+ const price=new Intl.NumberFormat(language==='de'?'de-DE':'en-IE',{style:'currency',currency:'EUR'});
+ data.items.slice(menuPage*5,menuPage*5+5).forEach(item=>{const article=document.createElement('article');article.className='menu-item';const h=document.createElement('h4');h.textContent=item[0];const p=document.createElement('p');p.textContent=item[language==='de'?1:2];const amount=document.createElement('span');amount.textContent=price.format(item[3]);article.append(h,amount,p);list.append(article);});
+ $('#menu-page-count').textContent=String(menuPage+1).padStart(2,'0')+' / '+String(total).padStart(2,'0');
+ $('#menu-prev').disabled=menuPage===0;$('#menu-next').disabled=menuPage===total-1;
+ $('#menu-panel').setAttribute('aria-labelledby','tab-'+category);
+ $$('[data-category]').forEach(button=>{const active=button.dataset.category===category;button.setAttribute('aria-selected',String(active));button.tabIndex=active?0:-1;});
+}
+$$('[data-category]').forEach(button=>{button.addEventListener('click',()=>{category=button.dataset.category;menuPage=0;renderMenu();});button.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const tabs=$$('[data-category]');let i=tabs.indexOf(button);i=event.key==='Home'?0:event.key==='End'?tabs.length-1:(i+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;tabs[i].click();tabs[i].focus();});});
+$('#menu-prev').addEventListener('click',()=>{if(menuPage>0){menuPage--;renderMenu();}});$('#menu-next').addEventListener('click',()=>{if(menuPage<Math.ceil(menu[category].items.length/5)-1){menuPage++;renderMenu();}});
+let touchStart=null;$('#menu-panel').addEventListener('touchstart',event=>{touchStart=[event.changedTouches[0].clientX,event.changedTouches[0].clientY];},{passive:true});$('#menu-panel').addEventListener('touchend',event=>{if(!touchStart)return;const dx=event.changedTouches[0].clientX-touchStart[0],dy=event.changedTouches[0].clientY-touchStart[1];if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5)$(dx<0?'#menu-next':'#menu-prev').click();touchStart=null;},{passive:true});
+$$('[data-language]').forEach(button=>button.addEventListener('click',()=>applyLanguage(button.dataset.language)));
+const navToggle=$('.nav-toggle');
+const header=$('.header');
+function closeNav(){
+ navToggle.setAttribute('aria-expanded','false');
+ navToggle.setAttribute('aria-label',t('openNav'));
+ $('#mobile-nav').hidden=true;
+ header.classList.remove('menu-open');
+}
+navToggle.addEventListener('click',()=>{
+ const open=navToggle.getAttribute('aria-expanded')!=='true';
+ navToggle.setAttribute('aria-expanded',String(open));
+ navToggle.setAttribute('aria-label',t(open?'closeNav':'openNav'));
+ $('#mobile-nav').hidden=!open;
+ header.classList.toggle('menu-open',open);
+});
+$('#mobile-nav').addEventListener('click',e=>{if(e.target.closest('a'))closeNav();});
+document.addEventListener('click',e=>{if(!e.target.closest('.header, #mobile-nav'))closeNav();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&navToggle.getAttribute('aria-expanded')==='true'){closeNav();navToggle.focus();}});
+let headerFrame=0;
+function updateHeader(){header.classList.toggle('is-scrolled',window.scrollY>24);headerFrame=0;}
+window.addEventListener('scroll',()=>{if(!headerFrame)headerFrame=requestAnimationFrame(updateHeader);},{passive:true});
+window.addEventListener('resize',()=>{if(window.innerWidth>1100)closeNav();});
+updateHeader();
+$$('[data-event]').forEach(link=>link.addEventListener('click',()=>{$('select[name="occasion"]').value=link.dataset.event;}));
+function safeUrl(raw,media=false){try{const u=new URL(raw,location.href);if(u.protocol!=='https:')return null;if(!media&&!['www.instagram.com','instagram.com'].includes(u.hostname))return null;return u.href;}catch{return null;}}
+function renderGallery(){
+ const track=$('#gallery-track'),progress=galleryMotion?.getProgress()||0;
+ galleryMotion?.destroy();track.replaceChildren();
+ const belt=document.createElement('div');belt.className='gallery-belt';
+ const repeats=Math.max(1,Math.ceil((innerWidth+330)/(Math.max(1,activeGallery.length)*278)));
+ let firstGroup;
+ for(let pass=0;pass<2;pass++){
+  const group=document.createElement('div');group.className='gallery-group';
+  if(pass)group.setAttribute('aria-hidden','true');else firstGroup=group;
+  for(let repeat=0;repeat<repeats;repeat++)activeGallery.forEach((item,index)=>{
+   const card=document.createElement(item.permalink?'a':'button');card.className='gallery-card';
+   if(item.permalink){card.href=item.permalink;card.target='_blank';card.rel='noopener noreferrer';}else card.type='button';
+   if(pass||repeat){card.tabIndex=-1;card.setAttribute('aria-hidden','true');}
+   const img=document.createElement('img');img.src=item.media_url||asset(item.image);img.alt=item.caption[language==='de'?0:1];img.loading=pass?'lazy':'eager';img.decoding='async';img.width=680;img.height=510;
+   const text=document.createElement('span'),label=document.createElement('span'),icon=document.createElement('i');label.textContent=img.alt;icon.textContent=item.permalink?'↗':'+';icon.setAttribute('aria-hidden','true');text.append(label,icon);card.append(img,text);
+   if(!item.permalink)card.addEventListener('click',()=>openLightbox(index,card));group.append(card);
+  });
+  belt.append(group);
+ }
+ track.append(belt);galleryMotion=BavariaMotion.createMarquee(track,belt,firstGroup,{speed:22,paused:false,draggable:false,progress});
+ $('#social-label').textContent=t(liveFeed?'liveSocial':'socialCopy');
+}
+let lightboxTrigger=null;function openLightbox(index,trigger){const item=activeGallery[index],dialog=$('#lightbox');lightboxTrigger=trigger;$('#lightbox-image').src=item.media_url||asset(item.image);$('#lightbox-image').alt=item.caption[language==='de'?0:1];$('#lightbox-caption').textContent=item.caption[language==='de'?0:1];if(typeof dialog.showModal==='function')dialog.showModal();}
+$('#close-lightbox').addEventListener('click',()=>$('#lightbox').close());$('#lightbox').addEventListener('click',event=>{if(event.target===$('#lightbox'))$('#lightbox').close();});$('#lightbox').addEventListener('close',()=>{lightboxTrigger?.focus({preventScroll:true});});
+async function refreshSocial(){
+ if(!socialConfig.enabled||document.hidden||location.protocol==='file:')return;
+ try{const endpoint=new URL(socialConfig.endpoint,location.href);if(endpoint.protocol!=='https:'&&endpoint.hostname!=='localhost')return;const response=await fetch(endpoint,{credentials:'omit',cache:'no-store',signal:AbortSignal.timeout(8000)});if(!response.ok)return;const payload=await response.json();if(!Array.isArray(payload.items))return;const items=payload.items.slice(0,12).map(p=>({media_url:safeUrl(p.thumbnail_url||p.media_url,true),permalink:safeUrl(p.permalink),caption:[String(p.caption||'Bavaria on Instagram').slice(0,90),String(p.caption||'Bavaria on Instagram').slice(0,90)]})).filter(p=>p.media_url&&p.permalink);if(items.length){activeGallery=items;liveFeed=true;renderGallery();}}catch{ /* Keep the real venue gallery on provider failure. */ }
+}
+const dateInput=$('input[name="date"]');const today=new Date();dateInput.min=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
+// Presentation-only booking form. No transport, personal address or test requests.
+$('#booking-form').addEventListener('submit',e=>{
+ e.preventDefault();const panel=$('#booking-feedback');
+ panel.textContent=language==='de'?'Online-Reservierungsanfragen sind bald verfügbar. Bis dahin erreichst du uns über Instagram oder telefonisch.':'Online reservation enquiries are coming soon. For now, contact us on Instagram or by phone.';
+ panel.hidden=false;panel.focus();
+});
+
+// CSS smoke is present in the authored HTML and starts even if JavaScript is unavailable.
+// The optional intro canvas adds detail; CSS owns the reveal and its four-second lifetime.
+setTimeout(()=>{$('#entrance').hidden=true;},5600);
+applyLanguage(language);refreshSocial();setInterval(refreshSocial,300000);
+
+// Progressive enhancement: content stays visible if observer support is missing.
+if('IntersectionObserver' in window&&!reduced.matches){
+ const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('is-revealed');observer.unobserve(entry.target);}}},{threshold:.08,rootMargin:'0px 0px -32px 0px'});
+ $$('.section-heading,.section-label,.experience-grid,.menu-book,.menu-tabs,.occasion-card,.gallery-track,.social-footer,.booking-copy,.booking-form,.contact-grid').forEach((el,index)=>{el.classList.add('smoke-reveal');el.style.setProperty('--reveal-delay',(index%3)*80+'ms');observer.observe(el);});
+ reduced.addEventListener('change',e=>{if(e.matches){observer.disconnect();$$('.smoke-reveal').forEach(el=>el.classList.add('is-revealed'));}});
+}
