@@ -40,6 +40,8 @@ assert.equal(canvas.width,1024);assert.equal(canvas.height,768);assert.equal(dra
 let nontransparent=0,maxAlpha=0;for(let i=3;i<spriteData.length;i+=4){if(spriteData[i]>15)nontransparent++;maxAlpha=Math.max(maxAlpha,spriteData[i]);}
 assert.ok(nontransparent>10000);assert.ok(maxAlpha>100);
 const initial=draws.map(d=>d.y);frames(3000,8);assert.ok(draws.every((d,i)=>d.y<initial[i]));
+fs.writeFileSync('/workspace/scratch/3383f65d1e89/smoke-sprite.rgba',spriteData);
+fs.writeFileSync('/workspace/scratch/3383f65d1e89/smoke-frame.json',JSON.stringify(draws));
 engine.setEnabled(false);assert.equal(canvas.style.display,'none');engine.setEnabled(true);assert.equal(canvas.style.display,'');assert.equal(draws.length,42);engine.stop();
 assert.ok(!fs.readFileSync(require.resolve('../assets/app.js'),'utf8').includes("sessionStorage.getItem('bavaria-intro')"));
 console.log(JSON.stringify({continuousSpeed:'22px/s at 30/60/120Hz',loopBoundary:'seamless modulo',pauseAndResume:'passed',smoke:'42 puffs drawn immediately, textured alpha visible, all puffs rise',intro:'session gate removed',status:'passed'}));

@@ -10,6 +10,33 @@ const menu={
  zero:{title:['Ohne Alkohol','Alcohol-free'],description:['Voller Geschmack. Ganz ohne Spirituosen.','All the flavour. No spirits.'],image:'cocktail-neon.webp',items:[['Virgin Mojito','Limette · Minze · Rohrzucker · Soda','Lime · mint · cane sugar · soda',7],['Virgin Colada','Ananas · Kokos · Sahne','Pineapple · coconut · cream',7.5],['Ipanema','Limette · Maracuja · Ginger Ale','Lime · passion fruit · ginger ale',7],['Berry Fizz','Beeren · Zitrone · Soda','Berries · lemon · soda',7.5],['Mango Passion','Mango · Maracuja · Limette','Mango · passion fruit · lime',7.5],['Cucumber Cooler','Gurke · Limette · Minze · Tonic','Cucumber · lime · mint · tonic',7],['Ginger Lemon','Ingwer · Zitrone · Soda','Ginger · lemon · soda',6.5],['Peach Iced Tea','Pfirsich · Schwarztee · Zitrone','Peach · black tea · lemon',6],['Homemade Lemonade','Zitrone · frische Minze · Soda','Lemon · fresh mint · soda',6],['Softdrink / Wasser','0,33 l · Cola, Limonade oder Mineralwasser','0.33 l · cola, lemonade or mineral water',3.5]]},
  shisha:{title:['Shisha Selection','Shisha selection'],description:['Bekannte Lieblingsrichtungen. Neu kombiniert.','Familiar favourites. Fresh combinations.'],image:'coal.webp',items:[['Traube · Minze','Süße Traube trifft frische Minze · Klassiker','Sweet grape meets cool mint · a classic',15],['Doppelapfel','Apfel mit charaktervoller Anisnote','Apple with a distinctive anise note',15],['Love 66 Style','Melone · Maracuja · frische Note','Melon · passion fruit · a fresh finish',16],['African Queen Style','Tropischer Fruchtmix mit Mango und Maracuja','Tropical fruit mix with mango and passion fruit',16],['Ice Kaktus','Kaktusfeige · frische Note','Prickly pear · cool finish',16],['Blaubeere · Minze','Dunkle Beeren mit frischem Ausklang','Dark berries with a fresh finish',15],['Wassermelone · Minze','Saftige Melone · frische Minze','Juicy watermelon · cool mint',15],['Pfirsich · Maracuja','Weicher Pfirsich · tropische Frucht','Soft peach · tropical fruit',16],['Zitrone · Minze','Zitrusfrisch · klar · klassisch','Bright citrus · mint · a clean classic',15],['Mango · Litschi','Exotisch-fruchtige Kombination','An exotic, fruity combination',16]]}
 };
+copy.uk={"skip": "До вмісту", "skipIntro": "Пропустити заставку", "navExperience": "Лаунж", "navMenu": "Меню", "navOccasions": "Ваше свято", "navGallery": "Галерея", "reserve": "Запит на столик", "hero1": "Ця ніч.", "hero2": "Твоя історія.", "heroLead": "Вишукані напої. Кальян із характером. Золоті миті. Місце, де вечір стає спогадом.", "heroCta": "Спланувати вечір", "exploreMenu": "Переглянути меню", "hoursShort": "Щодня з 12:00 · До останнього гостя", "scroll": "ВІДКРИВАЙ ↓", "experienceLabel": "АТМОСФЕРА BAVARIA", "exp1": "Більше ніж відпочинок.", "exp2": "Відчуй себе своїм.", "expLead": "Улюблений напій. Близькі люди. Вечір, який хочеться продовжити.", "expCopy": "У центрі Хільдесгайма поєднуються затишна атмосфера, коктейлі та культура кальяну. Для спокійного дня, зустрічі з друзями й незабутньої ночі.", "feature1": "Твій смак. Твій ритуал.", "feature1Copy": "Від свіжих фруктових поєднань до насиченої класики. Знайди свій улюблений смак.", "feature2": "Напій із характером.", "feature2Copy": "Класичні коктейлі, міцні напої та яскраві безалкогольні поєднання.", "feature3": "Музика твого вечора.", "feature3Copy": "Твоя компанія, твій настрій. Музичні побажання узгодимо особисто.", "menuLabel": "ВИШУКАНИЙ СМАК. ВЕЛИКИЙ ВИБІР.", "menuTitle": "Одне меню.", "menuTitle2": "Безліч можливостей.", "menuLead": "Обери напій, щоб побачити приклад його подачі. Меню та ціни демонстраційні.", "spirits": "Міцні напої", "zero": "Без алкоголю", "menuCollection": "ОБРАНО ДЛЯ ТВОГО ВЕЧОРА", "demoMenu": "Демонстраційне меню · Позиції, набори та ціни наведені для прикладу й не є підтвердженою пропозицією закладу. Зображення напоїв — згенеровані ілюстрації подачі. Склад та алергени уточнюйте в персоналу.", "occasionLabel": "ДЛЯ ОСОБЛИВИХ МОМЕНТІВ", "occasion1": "Ваше свято.", "occasion2": "Наш улюблений вечір.", "occasionLead": "Деякі моменти заслуговують на більше, ніж листування в чаті. Сплануйте особливий вечір із нами.", "birthday": "Дні народження", "birthdayCopy": "Ваш день. Ваші люди. Напої, кальян і привід відсвяткувати разом.", "bachelor": "Дівич-вечір і парубоцька вечірка", "bachelorCopy": "Розпочніть особливий вечір перед весіллям у Bavaria.", "private": "Приватні свята", "privateCopy": "Річниця, зустріч друзів чи вечір команди. Побажання й можливості узгодимо особисто.", "music": "Музичні побажання", "musicCopy": "У кожного вечора свій саундтрек. Розкажіть, яка музика створить ваш настрій.", "planNow": "Надіслати запит", "galleryLabel": "ПОГЛЯД УСЕРЕДИНУ", "gallery1": "Менше слів.", "gallery2": "Більше вражень.", "socialCopy": "Миті з життя лаунжу. Ще більше фото й актуальних дописів — в Instagram.", "liveSocial": "Нові дописи з підключеного Instagram.", "bookLabel": "ТВІЙ НАСТУПНИЙ ЧУДОВИЙ ВЕЧІР", "book1": "Один столик.", "book2": "Твоя історія.", "bookCopy": "Побачення, велика компанія чи особливий привід — сплануйте свій вечір у Bavaria.", "bookNote": "Столик вважається зарезервованим лише після особистого підтвердження командою Bavaria.", "name": "Ваше ім’я", "contact": "Телефон або email", "date": "Дата", "time": "Час", "guests": "Гостей", "occasion": "Привід", "evening": "Чудовий вечір", "message": "Ваші побажання", "formPrivacy": "Онлайн-запити незабаром будуть доступні. Поки сплануйте свій вечір тут.", "prepareRequest": "Запит на столик", "requestReady": "Запит підготовлено.", "copy": "Копіювати текст", "copied": "Скопійовано", "copyFallback": "Скопіюйте текст вручну.", "openInstagram": "Відкрити Instagram ↗", "findUs": "ЯК НАС ЗНАЙТИ", "contact1": "У серці Хільдесгайма.", "contact2": "У центрі подій.", "directions": "Прокласти маршрут", "addressLabel": "НАША АДРЕСА", "hoursLabel": "ЧЕКАЄМО НА ВАС", "hours": "Понеділок – неділя\nЗ 12:00 · До останнього гостя", "backTop": "НАГОРУ ↑", "draftNote": "Демонстраційне меню · Контакти, остаточне меню та обов’язкові відомості мають бути підтверджені власником закладу.", "galleryPause": "Призупинити галерею", "galleryPlay": "Запустити галерею", "previous": "Назад", "next": "Далі", "close": "Закрити", "effects": "Ефекти диму", "openNav": "Відкрити меню", "closeNav": "Закрити меню", "contactSoon": "Контакт незабаром", "party": "Для компанії", "previewImage": "Ілюстрація подачі", "bookingUnavailable": "Онлайн-запити незабаром будуть доступні. Зараз зв’яжіться з нами через Instagram або телефоном.", "cocktailsTab": "Коктейлі"};
+copy.de.cocktailsTab="Cocktails";copy.en.cocktailsTab="Cocktails";
+Object.assign(copy.de,{party:'Für die Runde',previewImage:'Serviervorschlag · Illustration',bookingUnavailable:'Online-Reservierungsanfragen sind bald verfügbar. Bis dahin erreichst du uns über Instagram oder telefonisch.',demoMenu:'Beispielkarte · Produkte, Pakete und Preise sind nicht vom Betrieb bestätigt. Getränkebilder sind generierte Servierbeispiele. Zutaten und Allergene bitte vor Ort erfragen.'});
+Object.assign(copy.en,{party:'For your group',previewImage:'Illustrative serving suggestion',bookingUnavailable:'Online reservation enquiries are coming soon. For now, contact us on Instagram or by phone.',demoMenu:'Sample menu · Items, packages and prices are not confirmed by the venue. Drink images are generated serving illustrations. Ask the team about ingredients and allergens.'});
+const ukDescriptions=[["Ром · лайм · м’ята · содова", "Ванільна горілка · маракуя · лайм", "Горілка · кавовий лікер · еспресо", "Ром · ананас · кокос", "Горілка · апельсиновий лікер · журавлина · лайм", "Текіла · апельсиновий лікер · лайм", "Aperol · просеко · содова · апельсин", "Горілка · персик · апельсин · журавлина", "Ром · кюрасао · лайм · мигдаль", "Кашаса · лайм · тростинний цукор"], ["Бурбон · бітер · цукор · апельсин", "Джин · Campari · червоний вермут", "Віскі · лимон · цукор", "Горілка · джин · ром · текіла · апельсин · кола", "4 cl · чистим або з льодом · вибір уточнюйте", "4 cl · чистим або з льодом · вибір уточнюйте"], ["Лайм · м’ята · цукор · содова", "Ананас · кокос · вершки", "Лайм · маракуя · імбирний ель", "Ягоди · лимон · содова", "Манго · маракуя · лайм", "Огірок · лайм · м’ята · тонік", "Імбир · лимон · содова", "Персик · чорний чай · лимон", "Лимон · свіжа м’ята · содова", "0,33 l · кола, лимонад або мінеральна вода"], ["Солодкий виноград і свіжа м’ята", "Яблуко з характерними анісовими нотами", "Диня · маракуя · свіжість", "Тропічний мікс із манго та маракуєю", "Опунція · свіжість", "Темні ягоди зі свіжим післясмаком", "Соковитий кавун · свіжа м’ята", "Ніжний персик · тропічні фрукти", "Цитрус · м’ята · класика", "Екзотичне фруктове поєднання"]];
+const shishaUkNames=['Виноград · м’ята','Подвійне яблуко','Love 66 Style','African Queen Style','Крижаний кактус','Чорниця · м’ята','Кавун · м’ята','Персик · маракуя','Лимон · м’ята','Манго · лічі'];
+function menuName(item,index){return language==='uk'&&category==='shisha'?shishaUkNames[index]:language==='uk'&&category==='party'?'Святковий набір':item[0];}
+const atlasOffsets={cocktails:0,spirits:10,zero:16,party:26};
+menu.cocktails.title.push('Коктейлі');menu.cocktails.description.push('Фруктово. Свіжо. Незабутньо.');menu.spirits.title.push('Міцні напої');menu.spirits.description.push('Насичені. Збалансовані. Із характером.');menu.zero.title.push('Без алкоголю');menu.zero.description.push('Яскравий смак без алкоголю.');menu.shisha.title.push('Кальянна колекція');menu.shisha.description.push('Улюблені смаки в нових поєднаннях.');
+['cocktails','spirits','zero','shisha'].forEach((key,k)=>menu[key].items.forEach((item,i)=>item.push(ukDescriptions[k][i])));
+menu.party={title:['Celebration Tray · 5 Personen','Celebration Tray · 5 people','Святковий набір · 5 осіб'],description:['Beispielpaket · 50 € gesamt · 1 Shisha inklusive','Sample package · €50 total · 1 shisha included','Приклад набору · 50 € загалом · 1 шиша у подарунок'],image:'friends-table.webp',items:[['Celebration Tray','Für 5: Obstschale + 5 Cocktails + 5 Spirituosen à 2 cl. Genau 1 Shisha pro Paket inklusive. Beispielangebot; nicht bestätigt.','For 5: fruit bowl + 5 cocktails + 5 spirits at 2 cl each. Exactly 1 shisha included per package. Illustrative, unconfirmed offer.',50,'На 5 осіб: фруктова чаша + 5 коктейлів + 5 міцних напоїв по 2 cl. Рівно 1 шиша на набір у подарунок. Демонстраційна, непідтверджена пропозиція.']]};
+// Distinct everyday soft drinks; replace the generic softdrink/water example.
+menu.zero.items.pop();
+menu.zero.items.push(['Coca-Cola','0,33 l · klassisch · gekühlt','0.33 l · classic · chilled',3.5,'0,33 л · класична · охолоджена'],['Sprite','0,33 l · Zitrone & Limette · gekühlt','0.33 l · lemon & lime · chilled',3.5,'0,33 л · лимон і лайм · охолоджений']);
+menu.party.items[0][3]=70;
+menu.party.description=['Beispielpaket · 70 € gesamt · 1 Shisha inklusive','Sample package · €70 total · 1 shisha included','Приклад набору · 70 € загалом · 1 шиша у подарунок'];
+Object.assign(copy.de,{beer:'Bier',shishaTab:'Shisha'});Object.assign(copy.en,{beer:'Beer',shishaTab:'Shisha'});Object.assign(copy.uk,{beer:'Пиво',shishaTab:'Кальяни'});
+menu.beer={title:['Bierauswahl','Beer selection','Пивна колекція'],description:['Klassiker und alkoholfreie Alternativen','Classics and alcohol-free alternatives','Класика й безалкогольні варіанти'],image:'beer-selection.webp',items:[
+ ['Corona Extra','0,33 l · Lager · mit Limette','0.33 l · lager · with lime',4.5,'0,33 л · лагер · з лаймом'],
+ ['Weißbier naturtrüb','0,5 l · unfiltriertes Weizenbier','0.5 l · unfiltered wheat beer',5.5,'0,5 л · нефільтроване пшеничне пиво'],
+ ["Beck’s Pils",'0,33 l · Pils','0.33 l · pilsner',4.5,'0,33 л · пільзнер'],
+ ['Jever Pilsener','0,33 l · Pils','0.33 l · pilsner',4.5,'0,33 л · пільзнер'],
+ ["Beck’s Blue",'0,33 l · alkoholfrei','0.33 l · alcohol-free',4.5,'0,33 л · безалкогольне'],
+ ['Jever Fun','0,33 l · alkoholfrei','0.33 l · alcohol-free',4.5,'0,33 л · безалкогольне'],
+ ['Weißbier alkoholfrei','0,5 l · naturtrüb · alkoholfrei','0.5 l · cloudy wheat beer · alcohol-free',5.5,'0,5 л · нефільтроване пшеничне · безалкогольне']
+]};
+const menuImageRegions={"drinks-premium-1.webp": {"width": 1254, "height": 1254, "cells": [[0, 0, 413, 392], [413, 0, 422, 392], [835, 0, 419, 392], [0, 392, 413, 395], [413, 392, 422, 395], [835, 392, 419, 395], [0, 787, 413, 467], [413, 787, 422, 467], [835, 787, 419, 467]]}, "drinks-premium-2.webp": {"width": 1254, "height": 1254, "cells": [[0, 0, 442, 402], [442, 0, 345, 402], [787, 0, 467, 402], [0, 402, 442, 413], [442, 402, 345, 413], [787, 402, 467, 413], [0, 815, 442, 439], [442, 815, 345, 439], [787, 815, 467, 439]]}, "drinks-premium-3.webp": {"width": 1254, "height": 1254, "cells": [[0, 0, 418, 423], [418, 0, 369, 423], [787, 0, 467, 423], [0, 423, 418, 393], [418, 423, 369, 393], [787, 423, 467, 393], [0, 816, 418, 438], [418, 816, 369, 438], [787, 816, 467, 438]]}, "beer-selection.webp": {"width": 1254, "height": 1254, "cells": [[0, 0, 375, 425], [375, 0, 456, 425], [831, 0, 423, 425], [0, 425, 375, 417], [375, 425, 456, 417], [831, 425, 423, 417], [0, 842, 375, 412], [375, 842, 456, 412], [831, 842, 423, 412]]}, "shisha-flavours-1.webp": {"width": 1536, "height": 1024, "cells": [[0, 0, 514, 518], [514, 0, 512, 518], [1026, 0, 510, 518], [0, 518, 514, 506], [514, 518, 512, 506], [1026, 518, 510, 506]]}, "shisha-flavours-2.webp": {"width": 1536, "height": 1024, "cells": [[0, 0, 499, 521], [499, 0, 504, 521], [1003, 0, 533, 521], [0, 521, 499, 503], [499, 521, 504, 503], [1003, 521, 533, 503]]}};
 const gallery=[
  {image:'lounge.webp',caption:['Die Lounge','The lounge']},
  {image:'bar.webp',caption:['An der Bar','At the bar']},
@@ -21,13 +48,14 @@ const gallery=[
  {image:'friends-table.webp',caption:['Zeit für deine Runde','Time for your people']},
  {image:'lounge-night.webp',caption:['After Dark','After dark']}
 ];
+gallery.forEach((item,i)=>item.caption.push(['Лаунж','Біля бару','Кальянний ритуал','Напої з характером','Твоє місце в Bavaria','Золоті миті','Тераса','Час для своєї компанії','Після заходу сонця'][i]));
 // Public configuration contains no credentials. Enable only after a real server feed is connected.
 const socialConfig=Object.assign({enabled:false,endpoint:'/api/instagram-feed'},window.BAVARIA_SOCIAL_CONFIG||{});
 const script=document.currentScript||Array.from(document.scripts).find(s=>s.src.includes('/app.js'));
 const assetBase=window.BAVARIA_ASSET_BASE||(script?new URL('.',script.src).href:'./assets/');
 function asset(name){return window.BAVARIA_EMBEDDED_ASSETS?.[name]||assetBase+name;}
 let language='de';
-try{const saved=localStorage.getItem('bavaria-language');if(saved==='en'||saved==='de')language=saved;}catch{}
+try{const saved=localStorage.getItem('bavaria-language');if(['en','de','uk'].includes(saved))language=saved;}catch{}
 const t=key=>copy[language][key]||copy.de[key]||key;
 const $=selector=>document.querySelector(selector);
 const $$=selector=>Array.from(document.querySelectorAll(selector));
@@ -57,17 +85,52 @@ function applyLanguage(next){
  document.title=language==='de'?'Bavaria | Cocktail Lounge · Shisha · Hildesheim':'Bavaria | Cocktail lounge · Shisha · Hildesheim';
  const description=language==='de'?'Bavaria Cocktail Lounge in Hildesheim. Shisha, Cocktails und besondere Abende am Angoulemeplatz 3.':'Bavaria Cocktail Lounge in Hildesheim. Shisha, cocktails and memorable evenings at Angoulemeplatz 3.';
  $('meta[name="description"]').content=description;
+ if(language==='uk'){
+ document.title='Bavaria | Коктейлі · Кальян · Хільдесгайм';$('meta[name="description"]').content='Bavaria у Хільдесгаймі: коктейлі, кальян і особливі вечори на Angoulemeplatz 3.';
+ $('.main-nav').setAttribute('aria-label','Головна навігація');$('.mobile-nav').setAttribute('aria-label','Мобільна навігація');$('.menu-tabs').setAttribute('aria-label','Категорії меню');$('#gallery-track').setAttribute('aria-label','Фотогалерея Bavaria');$('.brand').setAttribute('aria-label','Bavaria — головна');$('#lightbox').setAttribute('aria-label','Галерея Bavaria');
+ $('.hero-image').alt='Золотий кальян і коктейлі в атмосфері лаунжу';$('.lounge-photo img').alt='Інтер’єр Bavaria';$('.booking-image img').alt='Напої та кальян на столі Bavaria';
+ }
  renderMenu();renderGallery();
 
 }
+function paintMenuRegion(root,file,cell){
+ const meta=menuImageRegions[file],[left,top,width,height]=meta.cells[cell];
+ const ns='http://www.w3.org/2000/svg';
+ const make=(tag,attrs)=>{const el=document.createElementNS(ns,tag);for(const [key,value] of Object.entries(attrs))el.setAttribute(key,String(value));return el;};
+ const side=Math.max(width,height)*1.16,padX=(side-width)/2,padY=(side-height)/2;
+ const svg=make('svg',{viewBox:`0 0 ${side} ${side}`,preserveAspectRatio:'xMidYMid meet',class:'menu-art','aria-hidden':'true'});
+ const defs=make('defs',{}),clip=make('clipPath',{id:'menu-image-clip',clipPathUnits:'userSpaceOnUse'});
+ clip.append(make('rect',{x:padX,y:padY,width,height}));defs.append(clip);
+ const group=make('g',{'clip-path':'url(#menu-image-clip)'});
+ group.append(make('image',{href:asset(file),x:padX-left,y:padY-top,width:meta.width,height:meta.height}));
+ svg.append(defs,group);root.replaceChildren(svg);
+}
+function showMenuItem(item,index){
+ const preview=$('#drink-preview');preview.hidden=false;$('#menu-photo').hidden=true;
+ preview.classList.toggle('is-party',category==='party');
+ if(category==='party'){
+  const photo=document.createElement('img');photo.className='menu-single';photo.src=asset('celebration-tray.webp');photo.alt='';preview.replaceChildren(photo);
+ }else if(category==='shisha'){
+  paintMenuRegion(preview,'shisha-flavours-'+(index<6?'1':'2')+'.webp',index<6?index:index-6);
+ }else if(category==='beer'){
+  paintMenuRegion(preview,'beer-selection.webp',index);
+ }else{
+  const n=atlasOffsets[category]+index;paintMenuRegion(preview,'drinks-premium-'+(Math.floor(n/9)+1)+'.webp',n%9);
+ }
+ preview.setAttribute('aria-label',menuName(item,index)+' — '+t('previewImage'));
+ $('#menu-category-title').textContent=menuName(item,index);$('#menu-category-description').textContent=item[language==='de'?1:language==='uk'?4:2];
+}
 function renderMenu(){
- const data=menu[category],idx=language==='de'?0:1,total=Math.ceil(data.items.length/5);
+ const data=menu[category],idx=language==='de'?0:language==='uk'?2:1,total=Math.ceil(data.items.length/5);
  menuPage=Math.min(menuPage,total-1);
  $('#menu-category-title').textContent=data.title[idx];$('#menu-category-description').textContent=data.description[idx];
  $('#menu-photo').src=asset(data.image);$('#menu-photo').alt=data.title[idx];
  const list=$('#menu-items');list.replaceChildren();
- const price=new Intl.NumberFormat(language==='de'?'de-DE':'en-IE',{style:'currency',currency:'EUR'});
- data.items.slice(menuPage*5,menuPage*5+5).forEach(item=>{const article=document.createElement('article');article.className='menu-item';const h=document.createElement('h4');h.textContent=item[0];const p=document.createElement('p');p.textContent=item[language==='de'?1:2];const amount=document.createElement('span');amount.textContent=price.format(item[3]);article.append(h,amount,p);list.append(article);});
+ const price=new Intl.NumberFormat(language==='de'?'de-DE':language==='uk'?'uk-UA':'en-IE',{style:'currency',currency:'EUR'});
+ data.items.slice(menuPage*5,menuPage*5+5).forEach(item=>{const article=document.createElement('article');article.className='menu-item';article.tabIndex=0;article.setAttribute('role','button');article.setAttribute('aria-pressed','false');const h=document.createElement('h4');h.textContent=menuName(item,data.items.indexOf(item));const p=document.createElement('p');p.textContent=item[language==='de'?1:language==='uk'?4:2];const amount=document.createElement('span');amount.textContent=price.format(item[3]);article.append(h,amount,p);list.append(article);
+ const select=()=>{list.querySelectorAll('.menu-item').forEach(el=>el.setAttribute('aria-pressed',String(el===article)));showMenuItem(item,data.items.indexOf(item));};
+ article.addEventListener('click',select);article.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select();}});});
+ const first=data.items[menuPage*5];if(first){list.firstElementChild?.setAttribute('aria-pressed','true');showMenuItem(first,menuPage*5);}
  $('#menu-page-count').textContent=String(menuPage+1).padStart(2,'0')+' / '+String(total).padStart(2,'0');
  $('#menu-prev').disabled=menuPage===0;$('#menu-next').disabled=menuPage===total-1;
  $('#menu-panel').setAttribute('aria-labelledby','tab-'+category);
@@ -115,7 +178,7 @@ function renderGallery(){
    const card=document.createElement(item.permalink?'a':'button');card.className='gallery-card';
    if(item.permalink){card.href=item.permalink;card.target='_blank';card.rel='noopener noreferrer';}else card.type='button';
    if(pass||repeat){card.tabIndex=-1;card.setAttribute('aria-hidden','true');}
-   const img=document.createElement('img');img.src=item.media_url||asset(item.image);img.alt=item.caption[language==='de'?0:1];img.loading=pass?'lazy':'eager';img.decoding='async';img.width=680;img.height=510;
+   const img=document.createElement('img');img.src=item.media_url||asset(item.image);img.alt=item.caption[language==='de'?0:language==='uk'?2:1]||item.caption[0];img.loading=pass?'lazy':'eager';img.decoding='async';img.width=680;img.height=510;
    const text=document.createElement('span'),label=document.createElement('span'),icon=document.createElement('i');label.textContent=img.alt;icon.textContent=item.permalink?'↗':'+';icon.setAttribute('aria-hidden','true');text.append(label,icon);card.append(img,text);
    if(!item.permalink)card.addEventListener('click',()=>openLightbox(index,card));group.append(card);
   });
@@ -124,7 +187,7 @@ function renderGallery(){
  track.append(belt);galleryMotion=BavariaMotion.createMarquee(track,belt,firstGroup,{speed:22,paused:false,draggable:false,progress});
  $('#social-label').textContent=t(liveFeed?'liveSocial':'socialCopy');
 }
-let lightboxTrigger=null;function openLightbox(index,trigger){const item=activeGallery[index],dialog=$('#lightbox');lightboxTrigger=trigger;$('#lightbox-image').src=item.media_url||asset(item.image);$('#lightbox-image').alt=item.caption[language==='de'?0:1];$('#lightbox-caption').textContent=item.caption[language==='de'?0:1];if(typeof dialog.showModal==='function')dialog.showModal();}
+let lightboxTrigger=null;function openLightbox(index,trigger){const item=activeGallery[index],dialog=$('#lightbox');lightboxTrigger=trigger;$('#lightbox-image').src=item.media_url||asset(item.image);$('#lightbox-image').alt=item.caption[language==='de'?0:language==='uk'?2:1]||item.caption[0];$('#lightbox-caption').textContent=item.caption[language==='de'?0:language==='uk'?2:1]||item.caption[0];if(typeof dialog.showModal==='function')dialog.showModal();}
 $('#close-lightbox').addEventListener('click',()=>$('#lightbox').close());$('#lightbox').addEventListener('click',event=>{if(event.target===$('#lightbox'))$('#lightbox').close();});$('#lightbox').addEventListener('close',()=>{lightboxTrigger?.focus({preventScroll:true});});
 async function refreshSocial(){
  if(!socialConfig.enabled||document.hidden||location.protocol==='file:')return;
@@ -134,7 +197,7 @@ const dateInput=$('input[name="date"]');const today=new Date();dateInput.min=[to
 // Presentation-only booking form. No transport, personal address or test requests.
 $('#booking-form').addEventListener('submit',e=>{
  e.preventDefault();const panel=$('#booking-feedback');
- panel.textContent=language==='de'?'Online-Reservierungsanfragen sind bald verfügbar. Bis dahin erreichst du uns über Instagram oder telefonisch.':'Online reservation enquiries are coming soon. For now, contact us on Instagram or by phone.';
+ panel.textContent=t('bookingUnavailable');
  panel.hidden=false;panel.focus();
 });
 
@@ -149,3 +212,5 @@ if('IntersectionObserver' in window&&!reduced.matches){
  $$('.section-heading,.section-label,.experience-grid,.menu-book,.menu-tabs,.occasion-card,.gallery-track,.social-footer,.booking-copy,.booking-form,.contact-grid').forEach((el,index)=>{el.classList.add('smoke-reveal');el.style.setProperty('--reveal-delay',(index%3)*80+'ms');observer.observe(el);});
  reduced.addEventListener('change',e=>{if(e.matches){observer.disconnect();$$('.smoke-reveal').forEach(el=>el.classList.add('is-revealed'));}});
 }
+
+$$('a[href="#top"]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,left:0,behavior:reduced.matches?'instant':'smooth'});}));

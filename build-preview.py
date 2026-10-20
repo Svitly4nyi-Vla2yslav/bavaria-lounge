@@ -6,7 +6,7 @@ import re
 import zipfile
 
 root = Path(__file__).resolve().parent
-output = root / 'deliverables'
+output = root.parent / 'deliverables'
 output.mkdir(exist_ok=True)
 html = (root / 'pages/index.html').read_text()
 (root / 'index.html').write_text(html.replace('{{assets.base}}', 'assets'))
@@ -35,7 +35,7 @@ with zipfile.ZipFile(root / 'sabsus-source.zip', 'w', zipfile.ZIP_DEFLATED) as a
     archive.write(root / 'site.json', 'site.json')
 with zipfile.ZipFile(output / 'Bavaria_Premium_Source.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
     for file in sorted(root.rglob('*')):
-        if file.is_file() and not any(part in {'.git', 'deliverables', '__pycache__'} for part in file.relative_to(root).parts):
+        if file.is_file() and '__pycache__' not in file.parts:
             archive.write(file, Path('Bavaria') / file.relative_to(root))
     archive.write(preview, preview.name)
 print(json.dumps({'preview': str(preview), 'package': str(output / 'Bavaria_Premium_Source.zip')}))
