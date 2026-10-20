@@ -97,7 +97,7 @@ function paintMenuRegion(root,file,cell){
  const meta=menuImageRegions[file],[left,top,width,height]=meta.cells[cell];
  const ns='http://www.w3.org/2000/svg';
  const make=(tag,attrs)=>{const el=document.createElementNS(ns,tag);for(const [key,value] of Object.entries(attrs))el.setAttribute(key,String(value));return el;};
- const side=Math.max(width,height)*1.16,padX=(side-width)/2,padY=(side-height)/2;
+ const side=Math.max(width,height)*1.08,padX=(side-width)/2,padY=(side-height)/2;
  const svg=make('svg',{viewBox:`0 0 ${side} ${side}`,preserveAspectRatio:'xMidYMid meet',class:'menu-art','aria-hidden':'true'});
  const defs=make('defs',{}),clip=make('clipPath',{id:'menu-image-clip',clipPathUnits:'userSpaceOnUse'});
  clip.append(make('rect',{x:padX,y:padY,width,height}));defs.append(clip);

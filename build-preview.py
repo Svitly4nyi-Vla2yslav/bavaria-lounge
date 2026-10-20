@@ -8,11 +8,20 @@ import zipfile
 root = Path(__file__).resolve().parent
 output = root.parent / 'deliverables'
 output.mkdir(exist_ok=True)
-html = (root / 'pages/index.html').read_text()
-(root / 'index.html').write_text(html.replace('{{assets.base}}', 'assets'))
-css = (root / 'assets/style.css').read_text()
+html = (root / 'pages/index.html').read_text(encoding='utf-8')
+root_html = html.replace('{{assets.base}}', 'assets')
+# CSS custom-property URLs are resolved where the external stylesheet uses
+# them, so they must be relative to assets/style.css rather than index.html.
+# Normal src/href attributes remain rooted at the repository's assets folder.
+root_html = re.sub(
+    r"(--(?:smoke-texture|crest-mask):url\(['\"]?)assets/",
+    r"\1",
+    root_html,
+)
+(root / 'index.html').write_text(root_html, encoding='utf-8')
+css = (root / 'assets/style.css').read_text(encoding='utf-8')
 css = re.sub(r'@import url\([^\n]+\);\n', '', css, count=1)
-js = (root / 'assets/motion.js').read_text() + '\n' + (root / 'assets/app.js').read_text()
+js = (root / 'assets/motion.js').read_text(encoding='utf-8') + '\n' + (root / 'assets/app.js').read_text(encoding='utf-8')
 assets = {
     file.name: 'data:image/webp;base64,' + base64.b64encode(file.read_bytes()).decode()
     for file in (root / 'assets').glob('*.webp')
@@ -26,7 +35,7 @@ for name, data in assets.items():
 config = 'window.BAVARIA_ASSET_BASE="assets/";window.BAVARIA_EMBEDDED_ASSETS=' + json.dumps(assets) + ';'
 html = html.replace('</body>', '<script>' + config + '\n' + js + '</script></body>')
 preview = output / 'Bavaria_Readable_Gold.html'
-preview.write_text(html)
+preview.write_text(html, encoding='utf-8')
 with zipfile.ZipFile(root / 'sabsus-source.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
     for dirname in ['assets', 'pages', 'templates']:
         for file in sorted((root / dirname).rglob('*')):
