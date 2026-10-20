@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { createHandler } from './reservation.mjs';
+import { createHandler } from '../netlify/functions/reservation.mjs';
 
 const endpoint = 'http://localhost/.netlify/functions/reservation';
 const valid = { name: 'Ada Lovelace', contact: 'ada@example.test', date: '2027-02-14', time: '19:00', guests: 4, occasion: 'birthday', message: '<b>Please</b> & enjoy', website: '', language: 'en' };

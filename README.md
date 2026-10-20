@@ -30,7 +30,7 @@ Use the token created by BotFather and the numeric private-chat ID. Do not commi
 Unit tests do not contact Telegram:
 
 ```powershell
-node --test netlify/functions/reservation.test.mjs
+node --test checks/reservation-function.test.mjs
 node checks/booking.test.cjs
 node checks/motion.test.cjs
 python build-preview.py
