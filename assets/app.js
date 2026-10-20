@@ -62,6 +62,9 @@ const $$=selector=>Array.from(document.querySelectorAll(selector));
 let category='cocktails',menuPage=0,activeGallery=gallery,liveFeed=false;
 Object.assign(copy.de,{contactSoon:'Kontakt folgt',bookCopy:'Date Night, große Runde oder besonderer Anlass — plane deinen nächsten Abend im Bavaria.',formPrivacy:'Online-Anfragen sind bald verfügbar. Plane hier schon deinen Abend.',prepareRequest:'Tisch anfragen'});
 Object.assign(copy.en,{contactSoon:'Contact coming soon',bookCopy:'Date night, your whole group or a special occasion — plan your next evening at Bavaria.',formPrivacy:'Online enquiries are coming soon. Start planning your evening here.',prepareRequest:'Request a table'});
+Object.assign(copy.de,{formPrivacy:'Deine Anfrage wird an das Bavaria-Team gesendet. Reserviert ist erst nach persönlicher Bestätigung.',bookingLoading:'Anfrage wird gesendet…',bookingSuccess:'Danke! Deine Anfrage wurde gesendet. Das Bavaria-Team muss sie noch persönlich bestätigen.',bookingError:'Die Anfrage konnte nicht gesendet werden. Deine Eingaben bleiben erhalten — bitte versuche es erneut.',bookingRateLimited:'Zu viele Versuche. Bitte warte kurz und versuche es dann erneut.'});
+Object.assign(copy.en,{formPrivacy:'Your request is sent to the Bavaria team. It is reserved only after personal confirmation.',bookingLoading:'Sending request…',bookingSuccess:'Thank you! Your request was sent. The Bavaria team still needs to confirm it personally.',bookingError:'The request could not be sent. Your details are still here — please try again.',bookingRateLimited:'Too many attempts. Please wait a moment and try again.'});
+Object.assign(copy.uk,{formPrivacy:'Ваш запит буде надіслано команді Bavaria. Бронювання діє лише після особистого підтвердження.',bookingLoading:'Надсилаємо запит…',bookingSuccess:'Дякуємо! Запит надіслано. Команда Bavaria ще має підтвердити його особисто.',bookingError:'Не вдалося надіслати запит. Введені дані збережено — спробуйте ще раз.',bookingRateLimited:'Забагато спроб. Трохи зачекайте й повторіть надсилання.'});
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 let galleryMotion=null;
 function applyLanguage(next){
@@ -194,12 +197,21 @@ async function refreshSocial(){
  try{const endpoint=new URL(socialConfig.endpoint,location.href);if(endpoint.protocol!=='https:'&&endpoint.hostname!=='localhost')return;const response=await fetch(endpoint,{credentials:'omit',cache:'no-store',signal:AbortSignal.timeout(8000)});if(!response.ok)return;const payload=await response.json();if(!Array.isArray(payload.items))return;const items=payload.items.slice(0,12).map(p=>({media_url:safeUrl(p.thumbnail_url||p.media_url,true),permalink:safeUrl(p.permalink),caption:[String(p.caption||'Bavaria on Instagram').slice(0,90),String(p.caption||'Bavaria on Instagram').slice(0,90)]})).filter(p=>p.media_url&&p.permalink);if(items.length){activeGallery=items;liveFeed=true;renderGallery();}}catch{ /* Keep the real venue gallery on provider failure. */ }
 }
 const dateInput=$('input[name="date"]');const today=new Date();dateInput.min=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
-// Presentation-only booking form. No transport, personal address or test requests.
-$('#booking-form').addEventListener('submit',e=>{
- e.preventDefault();const panel=$('#booking-feedback');
- panel.textContent=t('bookingUnavailable');
- panel.hidden=false;panel.focus();
+const bookingForm=$('#booking-form'),bookingPanel=$('#booking-feedback'),bookingButton=bookingForm.querySelector('button[type="submit"]'),bookingButtonLabel=bookingButton.querySelector('[data-i18n="prepareRequest"]');
+const configuredApi=$('meta[name="bavaria-reservation-api"]')?.content||'';
+const localApi=['localhost','127.0.0.1'].includes(location.hostname)?'http://localhost:8787':'';
+const bookingApi=window.BAVARIA_RESERVATION_API_URL||configuredApi||localApi;
+const bookingSubmit=BavariaBooking.createSubmitHandler({
+ readData:()=>{const data=Object.fromEntries(new FormData(bookingForm));data.guests=Number(data.guests);data.language=language;return data;},
+ request:data=>BavariaBooking.requestReservation(data,{apiBase:bookingApi}),
+ setState:state=>{
+  bookingButton.disabled=state==='loading';bookingForm.setAttribute('aria-busy',String(state==='loading'));
+  bookingButtonLabel.textContent=t(state==='loading'?'bookingLoading':'prepareRequest');
+  if(state!=='loading'){bookingPanel.textContent=t(state==='success'?'bookingSuccess':state==='rateLimited'?'bookingRateLimited':'bookingError');bookingPanel.hidden=false;bookingPanel.focus();}
+ },
+ onSuccess:()=>bookingForm.reset(),
 });
+bookingForm.addEventListener('submit',async e=>{e.preventDefault();bookingPanel.hidden=true;try{await bookingSubmit();}catch{/* Localized retry state is rendered above; field values stay intact. */}});
 
 // CSS smoke is present in the authored HTML and starts even if JavaScript is unavailable.
 // The optional intro canvas adds detail; CSS owns the reveal and its four-second lifetime.
