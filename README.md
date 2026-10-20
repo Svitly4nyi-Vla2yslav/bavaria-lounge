@@ -1,99 +1,51 @@
 # Bavaria Cocktail Lounge
 
-Premium multilingual website for Bavaria Cocktail Lounge / Shisha Bar in Hildesheim.
+Multilingual static website with a Netlify Function that delivers reservation requests to a private Telegram chat. A request is not confirmed until the Bavaria team confirms it personally.
 
-**Live site:** https://bavaria.sabsus.site/de/  
-**GitHub Pages source:** this repository contains the website source and project assets.
+## How it works
 
-## Features
+The existing form keeps its design, German/English/Ukrainian text, and fields: name, contact, date, time, guests, occasion, wishes, language, and a hidden honeypot. The browser sends JSON to:
 
-- German, English and Ukrainian language controls.
-- Premium black-and-gold glass styling, responsive navigation and continuous background smoke.
-- Interactive menu, moving gallery and responsive booking form.
-- Separate email-backed reservation API with validation, CORS, rate limiting and bot protection.
-
-## Menu and reservation status
-
-Menu items, flavours and prices are examples for presentation and are not confirmed by the venue. A form submission is only a reservation request. The Bavaria team must confirm every request personally.
-
-## Run locally
-
-Start the static frontend:
-
-```sh
-python3 -m http.server 8000
+```text
+/.netlify/functions/reservation
 ```
 
-Open http://localhost:8000. On Windows, `python -m http.server 8000` may be required.
+The function reports success only after Telegram Bot API returns `ok: true`. Form values are cleared only on success and remain available after an error. The bot token and chat ID never enter frontend code.
 
-Install and start the separate API in another terminal:
+## Netlify configuration
 
-```sh
-cd backend
-npm install
-cp .env.example .env
-npm start
-```
-
-On Windows PowerShell, use `Copy-Item .env.example .env`. Fill `.env` before starting; it is ignored by Git. The API defaults to http://localhost:8787. `GET http://localhost:8787/health` should return `{"status":"ok"}`.
-
-## API environment
-
-`backend/.env` must contain:
+In **Netlify → Site configuration → Environment variables**, add:
 
 ```dotenv
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=465
-SMTP_SECURE=true
-SMTP_USER=the-gmail-account-that-sends-mail@gmail.com
-SMTP_APP_PASSWORD=your-google-app-password
-RESERVATION_TO_EMAIL=svetli4nuyvla2islav@gmail.com
-FRONTEND_ORIGINS=http://localhost:8000,http://127.0.0.1:8000,https://bavaria.sabsus.site
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_CHAT_ID=
 ```
 
-Use port `465` with `SMTP_SECURE=true`, or port `587` with `SMTP_SECURE=false`. `SMTP_USER` is the Gmail account used to send; it does not have to equal `RESERVATION_TO_EMAIL`. Never commit `.env` or put an app password in frontend code.
+Use the token created by BotFather and the numeric private-chat ID. Do not commit either value. The tracked `.env.example` contains empty placeholders only; `.env`, `backend/.env`, and other `.env.*` secret files are ignored by Git.
 
-For Gmail, enable 2-Step Verification on the sending Google account, create an App Password for the API, and place the generated value only in `SMTP_APP_PASSWORD` on the API host. Do not use the normal Gmail password.
+`netlify.toml` publishes the current static root and loads functions from `netlify/functions`. Production needs no running computer, terminal, open port, or separate Node server—Netlify supplies the HTTPS endpoint.
 
-## Frontend API address
+## Local verification
 
-The frontend remains static. `build-preview.py` reads `BAVARIA_RESERVATION_API_URL` and writes the API base URL into the generated root `index.html` and review build:
-
-```sh
-BAVARIA_RESERVATION_API_URL=https://api.example.com python3 build-preview.py
-```
-
-PowerShell equivalent:
+Unit tests do not contact Telegram:
 
 ```powershell
-$env:BAVARIA_RESERVATION_API_URL='https://api.example.com'
+node --test netlify/functions/reservation.test.mjs
+node checks/booking.test.cjs
+node checks/motion.test.cjs
 python build-preview.py
 ```
 
-For the authored SABSUS template, provide the same value as `reservation.apiBase`, or set `window.BAVARIA_RESERVATION_API_URL` before `assets/app.js` loads. The API must be deployed to a separate Node.js-capable host; GitHub Pages and other static hosts cannot run it. Add the final frontend origins to `FRONTEND_ORIGINS`. The repository is intentionally not tied to a hosting provider.
+To exercise the complete form locally, install the Netlify CLI or run `npx netlify-cli dev`, then open the local URL printed by Netlify. Put secrets only in an ignored local `.env` or use `netlify env:set`; never place them in `.env.example`.
 
-## Project files
+After deployment, open the deployed site, submit a test reservation, confirm that the UI reports success, and verify the Telegram message. A GET request to the endpoint should return HTTP 405:
 
-- `index.html` — generated local/static entry page.
-- `pages/index.html` — SABSUS page template.
-- `assets/` — frontend code, translations and image assets.
-- `backend/` — reservation API, SMTP integration and isolated Node dependencies.
-- `site.json`, `templates/` — SABSUS source contract.
-- `build-preview.py` — creates the root page, review HTML and source archive.
-- `checks/` — frontend behavior and motion tests.
-
-## Verify and prepare
-
-```sh
-node --check assets/app.js
-node --check assets/booking.js
-node --check assets/motion.js
-node checks/booking.test.cjs
-node checks/motion.test.cjs
-cd backend && npm test && npm audit --omit=dev && cd ..
-python3 build-preview.py
+```text
+https://YOUR-SITE.netlify.app/.netlify/functions/reservation
 ```
 
-API tests inject a fake mail transport and never contact Gmail. Do not use real SMTP credentials in tests. Generated archives and review deliverables are excluded from Git.
+## Security behavior
 
-The software is MIT licensed; project photos and generated visual assets may have separate reuse rights.
+The function limits requests to 16 KiB, caps field lengths, validates required values, rejects the honeypot, escapes Telegram HTML, applies an eight-second Telegram timeout, and handles malformed JSON, missing configuration, and Telegram failures with non-success HTTP responses. It logs neither tokens nor reservation details.
+
+No separate backend service is required. Do not deploy the site until its owner explicitly requests it.

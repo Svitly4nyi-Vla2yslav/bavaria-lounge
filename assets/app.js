@@ -199,11 +199,10 @@ async function refreshSocial(){
 const dateInput=$('input[name="date"]');const today=new Date();dateInput.min=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
 const bookingForm=$('#booking-form'),bookingPanel=$('#booking-feedback'),bookingButton=bookingForm.querySelector('button[type="submit"]'),bookingButtonLabel=bookingButton.querySelector('[data-i18n="prepareRequest"]');
 const configuredApi=$('meta[name="bavaria-reservation-api"]')?.content||'';
-const localApi=['localhost','127.0.0.1'].includes(location.hostname)?'http://localhost:8787':'';
-const bookingApi=window.BAVARIA_RESERVATION_API_URL||configuredApi||localApi;
+const bookingEndpoint=window.BAVARIA_RESERVATION_API_URL||configuredApi||'/.netlify/functions/reservation';
 const bookingSubmit=BavariaBooking.createSubmitHandler({
  readData:()=>{const data=Object.fromEntries(new FormData(bookingForm));data.guests=Number(data.guests);data.language=language;return data;},
- request:data=>BavariaBooking.requestReservation(data,{apiBase:bookingApi}),
+ request:data=>BavariaBooking.requestReservation(data,{endpoint:bookingEndpoint}),
  setState:state=>{
   bookingButton.disabled=state==='loading';bookingForm.setAttribute('aria-busy',String(state==='loading'));
   bookingButtonLabel.textContent=t(state==='loading'?'bookingLoading':'prepareRequest');

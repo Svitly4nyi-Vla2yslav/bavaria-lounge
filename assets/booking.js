@@ -5,25 +5,25 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
 
-  function normalizeBase(value) {
-    const base = String(value || '').trim();
-    if (!base || base.includes('{{')) return '';
-    return base.replace(/\/$/, '');
+  function normalizeEndpoint(value) {
+    const endpoint = String(value || '').trim();
+    if (!endpoint || endpoint.includes('{{')) return '/.netlify/functions/reservation';
+    return endpoint.replace(/\/$/, '');
   }
 
-  async function requestReservation(data, { apiBase, fetchFn = fetch, timeoutMs = 10000 } = {}) {
-    const base = normalizeBase(apiBase);
-    if (!base) throw Object.assign(new Error('API_NOT_CONFIGURED'), { code: 'API_NOT_CONFIGURED' });
+  async function requestReservation(data, { endpoint, fetchFn = fetch, timeoutMs = 10000 } = {}) {
+    const url = normalizeEndpoint(endpoint);
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const response = await fetchFn(`${base}/api/reservations`, {
+      const response = await fetchFn(url, {
         method: 'POST', credentials: 'omit', cache: 'no-store',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data), signal: controller.signal,
       });
-      if (!response.ok) throw Object.assign(new Error('REQUEST_FAILED'), { code: response.status === 429 ? 'RATE_LIMITED' : 'REQUEST_FAILED', status: response.status });
-      return response.json();
+      const result = await response.json().catch(() => null);
+      if (!response.ok || result?.ok !== true) throw Object.assign(new Error('REQUEST_FAILED'), { code: response.status === 429 ? 'RATE_LIMITED' : 'REQUEST_FAILED', status: response.status });
+      return result;
     } finally { clearTimeout(timeout); }
   }
 
@@ -40,5 +40,5 @@
     };
   }
 
-  return { createSubmitHandler, normalizeBase, requestReservation };
+  return { createSubmitHandler, normalizeEndpoint, requestReservation };
 });
