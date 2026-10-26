@@ -1,10 +1,28 @@
 {
   "hosting": {
-    "public": "public",
+    "public": ".",
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "backend/**",
+      "checks/**",
+      "deliverables/**",
+      "integration/**",
+      "netlify/**",
+      "pages/**",
+      "public/**",
+      "templates/**",
+      "*.zip",
+      "build-preview.py",
+      "firestore.indexes.json",
+      "firestore.rules",
+      "LICENSE",
+      "netlify.toml",
+      "README.md",
+      "site.json",
+      "skills-lock.json",
+      "verification.json"
     ],
     "rewrites": [
       {
