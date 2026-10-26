@@ -96,30 +96,34 @@ function applyLanguage(next){
  renderMenu();renderGallery();
 
 }
+let menuClipId=0;
 function paintMenuRegion(root,file,cell){
  const meta=menuImageRegions[file],[left,top,width,height]=meta.cells[cell];
  const ns='http://www.w3.org/2000/svg';
  const make=(tag,attrs)=>{const el=document.createElementNS(ns,tag);for(const [key,value] of Object.entries(attrs))el.setAttribute(key,String(value));return el;};
- const side=Math.max(width,height)*1.08,padX=(side-width)/2,padY=(side-height)/2;
+ const side=Math.max(width,height)*1.08,padX=(side-width)/2,padY=(side-height)/2,clipId=`menu-image-clip-${++menuClipId}`;
  const svg=make('svg',{viewBox:`0 0 ${side} ${side}`,preserveAspectRatio:'xMidYMid meet',class:'menu-art','aria-hidden':'true'});
- const defs=make('defs',{}),clip=make('clipPath',{id:'menu-image-clip',clipPathUnits:'userSpaceOnUse'});
+ const defs=make('defs',{}),clip=make('clipPath',{id:clipId,clipPathUnits:'userSpaceOnUse'});
  clip.append(make('rect',{x:padX,y:padY,width,height}));defs.append(clip);
- const group=make('g',{'clip-path':'url(#menu-image-clip)'});
+ const group=make('g',{'clip-path':`url(#${clipId})`});
  group.append(make('image',{href:asset(file),x:padX-left,y:padY-top,width:meta.width,height:meta.height}));
  svg.append(defs,group);root.replaceChildren(svg);
 }
+function paintMenuArtwork(root,index){
+ root.classList.toggle('is-party',category==='party');
+ if(category==='party'){
+  const photo=document.createElement('img');photo.className='menu-single';photo.src=asset('celebration-tray.webp');photo.alt='';root.replaceChildren(photo);
+ }else if(category==='shisha'){
+  paintMenuRegion(root,'shisha-flavours-'+(index<6?'1':'2')+'.webp',index<6?index:index-6);
+ }else if(category==='beer'){
+  paintMenuRegion(root,'beer-selection.webp',index);
+ }else{
+  const n=atlasOffsets[category]+index;paintMenuRegion(root,'drinks-premium-'+(Math.floor(n/9)+1)+'.webp',n%9);
+ }
+}
 function showMenuItem(item,index){
  const preview=$('#drink-preview');preview.hidden=false;$('#menu-photo').hidden=true;
- preview.classList.toggle('is-party',category==='party');
- if(category==='party'){
-  const photo=document.createElement('img');photo.className='menu-single';photo.src=asset('celebration-tray.webp');photo.alt='';preview.replaceChildren(photo);
- }else if(category==='shisha'){
-  paintMenuRegion(preview,'shisha-flavours-'+(index<6?'1':'2')+'.webp',index<6?index:index-6);
- }else if(category==='beer'){
-  paintMenuRegion(preview,'beer-selection.webp',index);
- }else{
-  const n=atlasOffsets[category]+index;paintMenuRegion(preview,'drinks-premium-'+(Math.floor(n/9)+1)+'.webp',n%9);
- }
+ paintMenuArtwork(preview,index);
  preview.setAttribute('aria-label',menuName(item,index)+' — '+t('previewImage'));
  $('#menu-category-title').textContent=menuName(item,index);$('#menu-category-description').textContent=item[language==='de'?1:language==='uk'?4:2];
 }
@@ -130,11 +134,10 @@ function renderMenu(){
  $('#menu-photo').src=asset(data.image);$('#menu-photo').alt=data.title[idx];
  const list=$('#menu-items');list.replaceChildren();
  const price=new Intl.NumberFormat(language==='de'?'de-DE':language==='uk'?'uk-UA':'en-IE',{style:'currency',currency:'EUR'});
- data.items.slice(menuPage*5,menuPage*5+5).forEach(item=>{const article=document.createElement('article');article.className='menu-item';article.tabIndex=0;article.setAttribute('role','button');article.setAttribute('aria-pressed','false');const h=document.createElement('h4');h.textContent=menuName(item,data.items.indexOf(item));const p=document.createElement('p');p.textContent=item[language==='de'?1:language==='uk'?4:2];const amount=document.createElement('span');amount.textContent=price.format(item[3]);article.append(h,amount,p);list.append(article);
- const select=()=>{list.querySelectorAll('.menu-item').forEach(el=>el.setAttribute('aria-pressed',String(el===article)));showMenuItem(item,data.items.indexOf(item));};
+ data.items.slice(menuPage*5,menuPage*5+5).forEach(item=>{const itemIndex=data.items.indexOf(item),article=document.createElement('article');article.className='menu-item';article.tabIndex=0;article.setAttribute('role','button');article.setAttribute('aria-pressed','false');article.setAttribute('aria-expanded','false');const thumb=document.createElement('div');thumb.className='menu-item-thumb';thumb.setAttribute('aria-hidden','true');paintMenuArtwork(thumb,itemIndex);const h=document.createElement('h4');h.textContent=menuName(item,itemIndex);const p=document.createElement('p');p.textContent=item[language==='de'?1:language==='uk'?4:2];const amount=document.createElement('span');amount.textContent=price.format(item[3]);const expanded=document.createElement('div');expanded.className='mobile-item-preview';expanded.setAttribute('aria-hidden','true');paintMenuArtwork(expanded,itemIndex);article.append(thumb,h,amount,p,expanded);list.append(article);
+ const select=()=>{const open=article.getAttribute('aria-expanded')!=='true';list.querySelectorAll('.menu-item').forEach(el=>{el.setAttribute('aria-pressed','false');el.setAttribute('aria-expanded','false');el.querySelector('.mobile-item-preview')?.setAttribute('aria-hidden','true');});if(open){article.setAttribute('aria-pressed','true');article.setAttribute('aria-expanded','true');expanded.setAttribute('aria-hidden','false');showMenuItem(item,itemIndex);}};
  article.addEventListener('click',select);article.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select();}});});
- const first=data.items[menuPage*5];if(first){list.firstElementChild?.setAttribute('aria-pressed','true');showMenuItem(first,menuPage*5);}
- $('#menu-page-count').textContent=String(menuPage+1).padStart(2,'0')+' / '+String(total).padStart(2,'0');
+ const first=data.items[menuPage*5];if(first)showMenuItem(first,menuPage*5); $('#menu-page-count').textContent=String(menuPage+1).padStart(2,'0')+' / '+String(total).padStart(2,'0');
  $('#menu-prev').disabled=menuPage===0;$('#menu-next').disabled=menuPage===total-1;
  $('#menu-panel').setAttribute('aria-labelledby','tab-'+category);
  $$('[data-category]').forEach(button=>{const active=button.dataset.category===category;button.setAttribute('aria-selected',String(active));button.tabIndex=active?0:-1;});
