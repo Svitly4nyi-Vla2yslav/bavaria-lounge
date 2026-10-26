@@ -216,3 +216,23 @@ body{font-size:16px}.muted{font-size:16px;line-height:1.8;color:#c4bfb3}
 .drink-preview .menu-single{display:block;position:static;width:100%;height:100%;max-width:100%;object-fit:contain;object-position:center;transform:none;filter:none}
 .drink-preview.is-party{width:100%;max-width:none;aspect-ratio:3/2;margin:0;background:#050505}
 @media(max-width:540px){.drink-preview{width:100%;max-width:none;margin:0}.drink-preview.is-party{width:100%;margin:0}}
+
+/* Mobile-first hero and navigation overlay. */
+body.nav-open{position:fixed;left:0;right:0;width:100%;overflow:hidden;overscroll-behavior:none}
+.hero>picture{position:absolute;inset:0;z-index:-3}
+.hero>picture .hero-image{position:static;width:100%;height:100%;object-fit:cover}
+@media(max-width:800px){
+ .mobile-nav:not([hidden]){position:fixed;top:82px;right:0;bottom:0;left:0;z-index:9;padding:34px 24px;overflow-y:auto;overscroll-behavior:contain;background:linear-gradient(180deg,#0b0d0ff7,#0b0d0ffc);border:0;border-top:1px solid #ead29c2e;border-radius:0;box-shadow:none}
+ .mobile-nav:not([hidden]) a{min-height:52px;display:flex;align-items:center;border-bottom:1px solid #ead29c1f}
+}
+@media(max-width:600px){
+ .hero-image{opacity:1;object-position:center center}
+ .hero-shade{background:linear-gradient(180deg,#050607b8 0%,#07080963 30%,#07080910 58%,#070809bf 100%),linear-gradient(90deg,#070809a8 0%,transparent 76%)}
+ .hero-content{padding-top:136px}
+ .hero h1{font-size:clamp(58px,17vw,82px)}
+ .hero-lead{max-width:315px;color:#f0e9dc;text-shadow:0 2px 14px #000}
+ .hero-details{color:#ddd2bf;text-shadow:0 2px 12px #000}
+ .hero-seal{display:none}
+ #smoke-atmosphere{opacity:.16}
+ #smoke-atmosphere .smoke-cloud:nth-child(n+5){display:none}
+}

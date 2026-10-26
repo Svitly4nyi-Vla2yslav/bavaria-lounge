@@ -145,11 +145,28 @@ let touchStart=null;$('#menu-panel').addEventListener('touchstart',event=>{touch
 $$('[data-language]').forEach(button=>button.addEventListener('click',()=>applyLanguage(button.dataset.language)));
 const navToggle=$('.nav-toggle');
 const header=$('.header');
+let navScrollY=0;
+function lockPageScroll(){
+ if(document.body.classList.contains('nav-open'))return;
+ navScrollY=window.scrollY;
+ document.body.style.top=`-${navScrollY}px`;
+ document.body.classList.add('nav-open');
+}
+function unlockPageScroll(){
+ if(!document.body.classList.contains('nav-open'))return;
+ document.body.classList.remove('nav-open');
+ document.body.style.top='';
+ const previousBehavior=document.documentElement.style.scrollBehavior;
+ document.documentElement.style.scrollBehavior='auto';
+ window.scrollTo(0,navScrollY);
+ document.documentElement.style.scrollBehavior=previousBehavior;
+}
 function closeNav(){
  navToggle.setAttribute('aria-expanded','false');
  navToggle.setAttribute('aria-label',t('openNav'));
  $('#mobile-nav').hidden=true;
  header.classList.remove('menu-open');
+ unlockPageScroll();
 }
 navToggle.addEventListener('click',()=>{
  const open=navToggle.getAttribute('aria-expanded')!=='true';
@@ -157,6 +174,7 @@ navToggle.addEventListener('click',()=>{
  navToggle.setAttribute('aria-label',t(open?'closeNav':'openNav'));
  $('#mobile-nav').hidden=!open;
  header.classList.toggle('menu-open',open);
+ if(open)lockPageScroll();else unlockPageScroll();
 });
 $('#mobile-nav').addEventListener('click',e=>{if(e.target.closest('a'))closeNav();});
 document.addEventListener('click',e=>{if(!e.target.closest('.header, #mobile-nav'))closeNav();});

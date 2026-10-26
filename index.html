@@ -6,7 +6,8 @@
   <meta name="theme-color" content="#0b0c0d">
   <meta name="description" content="Bavaria Cocktail Lounge in Hildesheim. Shisha, Cocktails und besondere Abende am Angoulemeplatz 3.">
   <title>Bavaria | Cocktail Lounge · Shisha · Hildesheim</title>
-  <link rel="preload" as="image" href="assets/hero.webp">
+  <link rel="preload" as="image" href="assets/hero-mobile.webp" media="(max-width: 600px)">
+  <link rel="preload" as="image" href="assets/hero.webp" media="(min-width: 601px)">
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/motion.js" defer></script>
   <script src="assets/booking.js" defer></script>
@@ -31,7 +32,10 @@
 
   <main id="main">
     <section class="hero" id="home">
-      <img class="hero-image" src="assets/hero.webp" alt="Goldene Shisha und Cocktails in einer atmosphärischen Rauchkomposition" fetchpriority="high" width="1672" height="941">
+      <picture>
+        <source media="(max-width: 600px)" srcset="assets/hero-mobile.webp">
+        <img class="hero-image" src="assets/hero.webp" alt="Goldene Shisha und Cocktails in einer atmosphärischen Rauchkomposition" fetchpriority="high" width="1672" height="941">
+      </picture>
       <div class="hero-shade"></div>
       <div class="hero-content wrap">
         <p class="eyebrow"><span class="diamond"></span> BAVARIA · HILDESHEIM <span class="eyebrow-line"></span></p>
