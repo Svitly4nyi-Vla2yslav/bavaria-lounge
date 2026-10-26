@@ -236,3 +236,10 @@ body.nav-open{position:fixed;left:0;right:0;width:100%;overflow:hidden;overscrol
  #smoke-atmosphere{opacity:.16}
  #smoke-atmosphere .smoke-cloud:nth-child(n+5){display:none}
 }
+/* Let menu artwork keep its intrinsic ratio on narrow screens. */
+@media(max-width:600px){
+ .menu-book .menu-visual{height:auto;min-height:0;overflow:visible}
+ .menu-book .drink-preview{height:auto;aspect-ratio:1;overflow:hidden}
+ .menu-book .drink-preview.is-party{aspect-ratio:3/2}
+ .menu-book .menu-visual>img{height:auto;max-height:none;aspect-ratio:1;object-fit:contain}
+}
