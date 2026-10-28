@@ -1,15 +1,10 @@
 <!doctype html>
 <html lang="de">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0b0c0d">
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="assets/favicon-512.png" sizes="512x512">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
-  <meta name="description"
-    content="Bavaria Cocktail Lounge in Hildesheim. Shisha, Cocktails und besondere Abende am Angoulemeplatz 3.">
+  <meta name="description" content="Bavaria Cocktail Lounge in Hildesheim. Shisha, Cocktails und besondere Abende am Angoulemeplatz 3.">
   <title>Bavaria | Cocktail Lounge · Shisha · Hildesheim</title>
   <link rel="preload" as="image" href="assets/hero-mobile.webp" media="(max-width: 600px)">
   <link rel="preload" as="image" href="assets/hero.webp" media="(min-width: 601px)">
@@ -19,348 +14,107 @@
   <script src="assets/app.js" defer></script>
   <meta name="bavaria-reservation-api" content="">
 </head>
-
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">Zum Inhalt</a>
-  <div id="smoke-atmosphere" aria-hidden="true" style="--smoke-texture:url('smoke-cloud.webp')"><span
-      class="smoke-cloud" style="--x:0vw;--drift:130px;--duration:42s;--delay:-8s;--size:470px"></span><span
-      class="smoke-cloud" style="--x:13vw;--drift:-110px;--duration:49s;--delay:-29s;--size:430px"></span><span
-      class="smoke-cloud" style="--x:25vw;--drift:160px;--duration:44s;--delay:-18s;--size:510px"></span><span
-      class="smoke-cloud" style="--x:40vw;--drift:-130px;--duration:51s;--delay:-39s;--size:460px"></span><span
-      class="smoke-cloud" style="--x:57vw;--drift:120px;--duration:46s;--delay:-10s;--size:500px"></span><span
-      class="smoke-cloud" style="--x:72vw;--drift:-150px;--duration:48s;--delay:-31s;--size:480px"></span><span
-      class="smoke-cloud" style="--x:88vw;--drift:100px;--duration:43s;--delay:-21s;--size:460px"></span><span
-      class="smoke-cloud" style="--x:-5vw;--drift:180px;--duration:52s;--delay:-42s;--size:540px"></span><span
-      class="smoke-cloud" style="--x:18vw;--drift:-120px;--duration:41s;--delay:-33s;--size:480px"></span><span
-      class="smoke-cloud" style="--x:35vw;--drift:140px;--duration:47s;--delay:-5s;--size:440px"></span><span
-      class="smoke-cloud" style="--x:52vw;--drift:-100px;--duration:50s;--delay:-25s;--size:520px"></span><span
-      class="smoke-cloud" style="--x:67vw;--drift:150px;--duration:45s;--delay:-39s;--size:460px"></span><span
-      class="smoke-cloud" style="--x:82vw;--drift:-120px;--duration:53s;--delay:-14s;--size:530px"></span></div>
+<div id="smoke-atmosphere" aria-hidden="true" style="--smoke-texture:url('smoke-cloud.webp')"><span class="smoke-cloud" style="--x:0vw;--drift:130px;--duration:42s;--delay:-8s;--size:470px"></span><span class="smoke-cloud" style="--x:13vw;--drift:-110px;--duration:49s;--delay:-29s;--size:430px"></span><span class="smoke-cloud" style="--x:25vw;--drift:160px;--duration:44s;--delay:-18s;--size:510px"></span><span class="smoke-cloud" style="--x:40vw;--drift:-130px;--duration:51s;--delay:-39s;--size:460px"></span><span class="smoke-cloud" style="--x:57vw;--drift:120px;--duration:46s;--delay:-10s;--size:500px"></span><span class="smoke-cloud" style="--x:72vw;--drift:-150px;--duration:48s;--delay:-31s;--size:480px"></span><span class="smoke-cloud" style="--x:88vw;--drift:100px;--duration:43s;--delay:-21s;--size:460px"></span><span class="smoke-cloud" style="--x:-5vw;--drift:180px;--duration:52s;--delay:-42s;--size:540px"></span><span class="smoke-cloud" style="--x:18vw;--drift:-120px;--duration:41s;--delay:-33s;--size:480px"></span><span class="smoke-cloud" style="--x:35vw;--drift:140px;--duration:47s;--delay:-5s;--size:440px"></span><span class="smoke-cloud" style="--x:52vw;--drift:-100px;--duration:50s;--delay:-25s;--size:520px"></span><span class="smoke-cloud" style="--x:67vw;--drift:150px;--duration:45s;--delay:-39s;--size:460px"></span><span class="smoke-cloud" style="--x:82vw;--drift:-120px;--duration:53s;--delay:-14s;--size:530px"></span></div>
   <div class="entrance" id="entrance" aria-hidden="true">
-
+    
     <div class="entrance-clouds" style="--smoke-texture:url('smoke-cloud.webp')"><i></i><i></i><i></i><i></i></div>
-    <div class="entrance-brand"><span class="crest-shimmer" style="--crest-mask:url('bavaria-royal-crest.webp')"
-        aria-hidden="true"><img class="bavaria-royal-crest" src="assets/bavaria-royal-crest.webp" width="1536"
-          height="1024" alt="" aria-hidden="true"></span><span class="entrance-location">HILDESHEIM · EST. FOR YOUR
-        NIGHT</span><span class="entrance-wordmark gold-text">BAVARIA</span><span class="entrance-subtitle">Shisha
-        Bar</span><span class="entrance-descriptor">COCKTAIL LOUNGE · SHISHA · MUSIC</span><span
-        class="entrance-ornament" aria-hidden="true">──── ✦ ────</span></div>
+    <div class="entrance-brand"><span class="crest-shimmer" style="--crest-mask:url('bavaria-royal-crest.webp')" aria-hidden="true"><img class="bavaria-royal-crest" src="assets/bavaria-royal-crest.webp" width="1536" height="1024" alt="" aria-hidden="true"></span><span class="entrance-location">HILDESHEIM · EST. FOR YOUR NIGHT</span><span class="entrance-wordmark gold-text">BAVARIA</span><span class="entrance-subtitle">Shisha Bar</span><span class="entrance-descriptor">COCKTAIL LOUNGE · SHISHA · MUSIC</span><span class="entrance-ornament" aria-hidden="true">──── ✦ ────</span></div>
   </div>
 
   <header class="header" id="top">
-    <a class="brand" href="#home" aria-label="Bavaria Startseite"><span class="crest-shimmer"
-        style="--crest-mask:url('bavaria-royal-crest.webp')" aria-hidden="true"><img class="bavaria-royal-crest"
-          src="assets/bavaria-royal-crest.webp" width="1536" height="1024" alt=""
-          aria-hidden="true"></span><span><strong class="brand-wordmark">BAVARIA</strong><small>COCKTAIL LOUNGE ·
-          SHISHA</small></span></a>
-    <nav class="main-nav" aria-label="Hauptnavigation"><a href="#experience" data-i18n="navExperience">Die Lounge</a><a
-        href="#menu" data-i18n="navMenu">Die Karte</a><a href="#occasions" data-i18n="navOccasions">Dein Anlass</a><a
-        href="#gallery" data-i18n="navGallery">Einblicke</a></nav>
-    <div class="header-actions">
-      <div class="language-switch" role="group" aria-label="Language"><button type="button" data-language="de"
-          aria-pressed="true">DE</button><span>/</span><button type="button" data-language="en"
-          aria-pressed="false">EN</button><span>/</span><button type="button" data-language="uk"
-          aria-pressed="false">UA</button></div><a class="button small gold-button" href="#booking"><span
-          data-i18n="reserve">Tisch anfragen</span><span aria-hidden="true">↗</span></a><button class="nav-toggle"
-        type="button" aria-label="Menü öffnen" aria-controls="mobile-nav"
-        aria-expanded="false"><span></span><span></span></button>
-    </div>
+    <a class="brand" href="#home" aria-label="Bavaria Startseite"><span class="crest-shimmer" style="--crest-mask:url('bavaria-royal-crest.webp')" aria-hidden="true"><img class="bavaria-royal-crest" src="assets/bavaria-royal-crest.webp" width="1536" height="1024" alt="" aria-hidden="true"></span><span><strong class="brand-wordmark">BAVARIA</strong><small>COCKTAIL LOUNGE · SHISHA</small></span></a>
+    <nav class="main-nav" aria-label="Hauptnavigation"><a href="#experience" data-i18n="navExperience">Die Lounge</a><a href="#events" data-i18n="navEvents">Events</a><a href="#menu" data-i18n="navMenu">Die Karte</a><a href="#occasions" data-i18n="navOccasions">Dein Anlass</a><a href="#gallery" data-i18n="navGallery">Einblicke</a></nav>
+    <div class="header-actions"><div class="language-switch" role="group" aria-label="Language"><button type="button" data-language="de" aria-pressed="true">DE</button><span>/</span><button type="button" data-language="en" aria-pressed="false">EN</button><span>/</span><button type="button" data-language="uk" aria-pressed="false">UA</button></div><a class="button small gold-button" href="#booking"><span data-i18n="reserve">Tisch anfragen</span><span aria-hidden="true">↗</span></a><button class="nav-toggle" type="button" aria-label="Menü öffnen" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span></button></div>
   </header>
-  <nav class="mobile-nav glass" id="mobile-nav" aria-label="Mobile Navigation" hidden><a href="#experience"
-      data-i18n="navExperience">Die Lounge</a><a href="#menu" data-i18n="navMenu">Die Karte</a><a href="#occasions"
-      data-i18n="navOccasions">Dein Anlass</a><a href="#gallery" data-i18n="navGallery">Einblicke</a><a href="#booking"
-      data-i18n="reserve">Tisch anfragen</a></nav>
+  <nav class="mobile-nav glass" id="mobile-nav" aria-label="Mobile Navigation" hidden><a href="#experience" data-i18n="navExperience">Die Lounge</a><a href="#events" data-i18n="navEvents">Events</a><a href="#menu" data-i18n="navMenu">Die Karte</a><a href="#occasions" data-i18n="navOccasions">Dein Anlass</a><a href="#gallery" data-i18n="navGallery">Einblicke</a><a href="#booking" data-i18n="reserve">Tisch anfragen</a></nav>
 
   <main id="main">
     <section class="hero" id="home">
       <picture>
         <source media="(max-width: 600px)" srcset="assets/hero-mobile.webp">
-        <img class="hero-image" src="assets/hero.webp"
-          alt="Goldene Shisha und Cocktails in einer atmosphärischen Rauchkomposition" fetchpriority="high" width="1672"
-          height="941">
+        <img class="hero-image" src="assets/hero.webp" alt="Goldene Shisha und Cocktails in einer atmosphärischen Rauchkomposition" fetchpriority="high" width="1672" height="941">
       </picture>
       <div class="hero-shade"></div>
       <div class="hero-content wrap">
         <p class="eyebrow"><span class="diamond"></span> BAVARIA · HILDESHEIM <span class="eyebrow-line"></span></p>
         <h1><span data-i18n="hero1">Die Nacht.</span><br><em class="gold-text" data-i18n="hero2">Dein Revier.</em></h1>
-        <p class="hero-lead" data-i18n="heroLead">Feine Drinks. Charaktervolle Shisha. Goldene Momente. Willkommen an
-          dem Ort, an dem aus einem Abend eine Erinnerung wird.</p>
-        <div class="hero-cta"><a class="button gold-button" href="#booking"><span data-i18n="heroCta">Deinen Abend
-              planen</span><span aria-hidden="true">↗</span></a><a class="button text-button" href="#menu"><span
-              data-i18n="exploreMenu">Die Karte entdecken</span><span aria-hidden="true">↓</span></a></div>
-        <div class="hero-details"><span><i></i><span data-i18n="hoursShort">Täglich ab 12:00 · Open End</span></span><a
-            class="address-link" href="https://maps.app.goo.gl/PhLM3pFMd387m4p6A" target="_blank"
-            rel="noopener noreferrer">Angoulemeplatz 3 · Hildesheim ↗</a></div>
+        <p class="hero-lead" data-i18n="heroLead">Feine Drinks. Charaktervolle Shisha. Goldene Momente. Willkommen an dem Ort, an dem aus einem Abend eine Erinnerung wird.</p>
+        <div class="hero-cta"><a class="button gold-button" href="#booking"><span data-i18n="heroCta">Deinen Abend planen</span><span aria-hidden="true">↗</span></a><a class="button text-button" href="#menu"><span data-i18n="exploreMenu">Die Karte entdecken</span><span aria-hidden="true">↓</span></a></div>
+        <div class="hero-details"><span><i></i><span data-i18n="hoursShort">Täglich ab 12:00 · Open End</span></span><a class="address-link" href="https://maps.app.goo.gl/PhLM3pFMd387m4p6A" target="_blank" rel="noopener noreferrer">Angoulemeplatz 3 · Hildesheim ↗</a></div>
       </div>
       <a class="hero-seal glass" href="#gallery"><span>SHISHA</span><strong>&</strong><span>GOLDEN NIGHTS</span></a>
-      <div class="hero-bottom wrap"><span>SHISHA CULTURE · COCKTAIL CRAFT · GOOD COMPANY</span><a href="#experience"
-          data-i18n="scroll">ENTDECKEN ↓</a></div>
+      <div class="hero-bottom wrap"><span>SHISHA CULTURE · COCKTAIL CRAFT · GOOD COMPANY</span><a href="#experience" data-i18n="scroll">ENTDECKEN ↓</a></div>
     </section>
 
-    <div class="brand-ribbon" aria-hidden="true"><span>STAY A LITTLE LONGER</span><i>✦</i><span>SIP. SMOKE.
-        REPEAT.</span><i>✦</i><span>THE BAVARIA FEELING</span><i>✦</i><span>GOOD NIGHTS. GREAT COMPANY.</span></div>
+    <div class="brand-ribbon" aria-hidden="true"><span>STAY A LITTLE LONGER</span><i>✦</i><span>SIP. SMOKE. REPEAT.</span><i>✦</i><span>THE BAVARIA FEELING</span><i>✦</i><span>GOOD NIGHTS. GREAT COMPANY.</span></div>
 
     <section class="section wrap experience" id="experience">
       <p class="section-label">01 <span></span> <span data-i18n="experienceLabel">THE BAVARIA EXPERIENCE</span></p>
-      <div class="section-heading">
-        <h2><span data-i18n="exp1">Nicht einfach ausgehen.</span><br><em class="gold-text"
-            data-i18n="exp2">Ankommen.</em></h2>
-        <div>
-          <p class="section-lead" data-i18n="expLead">Ein guter Drink. Deine Lieblingsmenschen. Und kein Grund, schon zu
-            gehen.</p>
-          <p class="muted" data-i18n="expCopy">Mitten in Hildesheim treffen Lounge-Atmosphäre, Cocktails und
-            Shisha-Kultur aufeinander. Für den entspannten Nachmittag, das Wiedersehen mit Freunden und die Nacht, die
-            länger wird als geplant.</p>
-        </div>
-      </div>
-      <div class="experience-grid">
-        <figure class="lounge-photo image-frame"><img src="assets/lounge.webp"
-            alt="Innenbereich der Bavaria Lounge mit roten Sesseln und stimmungsvoller Beleuchtung" loading="lazy"
-            width="680" height="510">
-          <figcaption><span>THE LOUNGE</span><span>HILDESHEIM ↗</span></figcaption>
-        </figure>
-        <div class="experience-stack">
-          <article class="glass feature"><span class="feature-icon">✧</span>
-            <div>
-              <h3 data-i18n="feature1">Dein Geschmack. Dein Ritual.</h3>
-              <p data-i18n="feature1Copy">Von fruchtig-frisch bis klassisch-intensiv. Entdecke deine nächste
-                Lieblingssession.</p>
-            </div><span class="feature-number">01</span>
-          </article>
-          <article class="glass feature"><span class="feature-icon">♧</span>
-            <div>
-              <h3 data-i18n="feature2">Ein Glas voller Charakter.</h3>
-              <p data-i18n="feature2Copy">Cocktail-Klassiker, kräftige Shortdrinks und alkoholfreie Highlights.</p>
-            </div><span class="feature-number">02</span>
-          </article>
-          <article class="glass feature"><span class="feature-icon">♫</span>
-            <div>
-              <h3 data-i18n="feature3">Der Sound deines Abends.</h3>
-              <p data-i18n="feature3Copy">Deine Runde, deine Stimmung. Musikwünsche stimmen wir persönlich mit dir ab.
-              </p>
-            </div><span class="feature-number">03</span>
-          </article>
-        </div>
-      </div>
+      <div class="section-heading"><h2><span data-i18n="exp1">Nicht einfach ausgehen.</span><br><em class="gold-text" data-i18n="exp2">Ankommen.</em></h2><div><p class="section-lead" data-i18n="expLead">Ein guter Drink. Deine Lieblingsmenschen. Und kein Grund, schon zu gehen.</p><p class="muted" data-i18n="expCopy">Mitten in Hildesheim treffen Lounge-Atmosphäre, Cocktails und Shisha-Kultur aufeinander. Für den entspannten Nachmittag, das Wiedersehen mit Freunden und die Nacht, die länger wird als geplant.</p></div></div>
+      <div class="experience-grid"><figure class="lounge-photo image-frame"><img src="assets/lounge.webp" alt="Innenbereich der Bavaria Lounge mit roten Sesseln und stimmungsvoller Beleuchtung" loading="lazy" width="680" height="510"><figcaption><span>THE LOUNGE</span><span>HILDESHEIM ↗</span></figcaption></figure><div class="experience-stack"><article class="glass feature"><span class="feature-icon">✧</span><div><h3 data-i18n="feature1">Dein Geschmack. Dein Ritual.</h3><p data-i18n="feature1Copy">Von fruchtig-frisch bis klassisch-intensiv. Entdecke deine nächste Lieblingssession.</p></div><span class="feature-number">01</span></article><article class="glass feature"><span class="feature-icon">♧</span><div><h3 data-i18n="feature2">Ein Glas voller Charakter.</h3><p data-i18n="feature2Copy">Cocktail-Klassiker, kräftige Shortdrinks und alkoholfreie Highlights.</p></div><span class="feature-number">02</span></article><article class="glass feature"><span class="feature-icon">♫</span><div><h3 data-i18n="feature3">Der Sound deines Abends.</h3><p data-i18n="feature3Copy">Deine Runde, deine Stimmung. Musikwünsche stimmen wir persönlich mit dir ab.</p></div><span class="feature-number">03</span></article></div></div>
     </section>
 
-    <section class="menu-section section" id="menu">
+    <section class="events-section section" id="events">
       <div class="wrap">
-        <p class="section-label">02 <span></span> <span data-i18n="menuLabel">GOOD TASTE. GREAT CHOICES.</span></p>
-        <div class="section-heading">
-          <h2><span data-i18n="menuTitle">Eine Karte.</span><br><em class="gold-text" data-i18n="menuTitle2">So viele
-              Möglichkeiten.</em></h2>
-          <p class="muted" data-i18n="menuLead">Für jeden Geschmack ein Lieblingsmoment. Blättere durch unsere
-            beispielhafte Auswahl.</p>
+        <p class="section-label">02 <span></span> <span data-i18n="eventsLabel">WHAT'S ON AT BAVARIA</span></p>
+        <div class="section-heading events-heading">
+          <h2><span data-i18n="eventsTitle">Heute neu.</span><br><em class="gold-text" data-i18n="eventsTitle2">Demnächst bei uns.</em></h2>
+          <div><p class="section-lead" data-i18n="eventsLead">Nächte, über die man noch am nächsten Morgen spricht.</p><p class="muted" data-i18n="eventsCopy">Partys, Karaoke und aktuelle News aus der Lounge — hier siehst du, was im Bavaria als Nächstes passiert.</p></div>
         </div>
-        <div class="menu-tabs" role="tablist" aria-label="Menükategorien"><button id="tab-cocktails" role="tab"
-            aria-controls="menu-panel" aria-selected="true" data-category="cocktails"
-            data-i18n="cocktailsTab">Cocktails</button><button id="tab-spirits" role="tab" aria-controls="menu-panel"
-            aria-selected="false" data-category="spirits" tabindex="-1" data-i18n="spirits">Spirits &
-            Classics</button><button id="tab-zero" role="tab" aria-controls="menu-panel" aria-selected="false"
-            data-category="zero" tabindex="-1" data-i18n="zero">Alkoholfrei</button><button id="tab-beer" role="tab"
-            aria-controls="menu-panel" aria-selected="false" data-category="beer" tabindex="-1"
-            data-i18n="beer">Bier</button><button id="tab-shisha" role="tab" aria-controls="menu-panel"
-            aria-selected="false" data-category="shisha" tabindex="-1" data-i18n="shishaTab">Shisha</button><button
-            id="tab-party" role="tab" aria-controls="menu-panel" aria-selected="false" data-category="party"
-            tabindex="-1" data-i18n="party">Für die Runde</button></div>
-        <div class="menu-book glass" id="menu-panel" role="tabpanel" aria-labelledby="tab-cocktails" tabindex="0">
-          <div class="menu-visual">
-            <div class="drink-preview" id="drink-preview" role="img" hidden></div><img id="menu-photo"
-              src="assets/cocktails.webp" alt="Cocktail-Auswahl" loading="lazy" width="382" height="510">
-            <div class="menu-visual-copy"><span class="small-label" data-i18n="previewImage">Serviervorschlag ·
-                Illustration</span>
-              <h3 class="gold-text" id="menu-category-title">Cocktails</h3><span id="menu-category-description"></span>
+        <div class="events-grid">
+          <article class="event-feature glass">
+            <figure class="event-feature-media"><button class="event-poster-button" type="button" data-poster="assets/events/halloween-karaoke-de.webp" data-caption-key="eventHalloween" aria-label="Halloween-Karaoke-Afisha vollständig öffnen"><img src="assets/events/halloween-karaoke-de.webp" alt="Bavaria Halloween Karaoke Party am 31. Oktober ab 22 Uhr" loading="lazy" width="1200" height="2138"><span class="event-zoom-hint"><span aria-hidden="true">＋</span><span data-i18n="eventOpenPoster">Afisha öffnen</span></span></button></figure>
+            <div class="event-feature-copy">
+              <div class="event-kicker"><span class="event-status" data-i18n="eventFeatured">FEATURED EVENT</span><time datetime="2026-10-31T22:00:00+01:00">31.10 · 22:00</time></div>
+              <h3 data-i18n="eventHalloween">Halloween Karaoke Party</h3>
+              <p data-i18n="eventHalloweenCopy">Eine Nacht zwischen goldener Lounge-Atmosphäre und Halloween-Vibes: Karaoke, Cocktails, Shisha und Musik aus verschiedenen Kulturen.</p>
+              <ul class="event-facts" aria-label="Event details"><li><span aria-hidden="true">♫</span><span data-i18n="eventMusic">Ukrainisch · Arabisch · Türkisch · Balkan · Kurdisch</span></li><li><span aria-hidden="true">⌖</span><span>Angoulemeplatz 3 · Hildesheim</span></li></ul>
+              <div class="event-actions"><a class="button gold-button" href="#booking"><span data-i18n="eventTable">Tisch anfragen</span><span aria-hidden="true">↗</span></a><a class="gold-link" href="https://www.instagram.com/bavaria_cocktail_lounge/" target="_blank" rel="noopener noreferrer"><span data-i18n="eventInstagram">Auf Instagram ansehen</span> ↗</a></div>
             </div>
-          </div>
-          <div class="menu-page">
-            <div class="menu-page-heading"><span class="small-label" data-i18n="menuCollection">AUSGEWÄHLT FÜR DEINEN
-                ABEND</span><span class="menu-watermark">B</span></div>
-            <div id="menu-items" aria-live="polite"></div>
-            <div class="menu-pagination"><button class="circle-button" id="menu-prev" type="button"
-                aria-label="Vorherige Menüseite">←</button><span id="menu-page-count" aria-live="polite">01 /
-                02</span><button class="circle-button" id="menu-next" type="button"
-                aria-label="Nächste Menüseite">→</button></div>
+          </article>
+          <div class="event-side-grid">
+            <article class="event-story glass">
+              <figure><button class="event-poster-button" type="button" data-poster="assets/events/halloween-karaoke-uk.webp" data-caption-key="eventUkrainian" aria-label="Відкрити українську афішу повністю"><img src="assets/events/halloween-karaoke-uk.webp" alt="Українська афіша Halloween Karaoke Party у Bavaria" loading="lazy" width="1200" height="2138"><span class="event-zoom-hint"><span aria-hidden="true">＋</span><span data-i18n="eventOpenPoster">Afisha öffnen</span></span></button><span class="event-story-tag">UA EDITION</span></figure>
+              <div><span class="small-label" data-i18n="eventMultilingual">FÜR UNSERE COMMUNITY</span><h3 data-i18n="eventUkrainian">Афіша українською</h3><p data-i18n="eventUkrainianCopy">Уся інформація про вечірку — також українською мовою.</p></div>
+            </article>
+            <article class="event-story glass">
+              <figure><button class="event-poster-button" type="button" data-poster="assets/events/opening-hours.webp" data-caption-key="eventHours" aria-label="Öffnungszeiten-Afisha vollständig öffnen"><img src="assets/events/opening-hours.webp" alt="Bavaria Shisha Bar aktuelle Öffnungszeiten" loading="lazy" width="1200" height="2186"><span class="event-zoom-hint"><span aria-hidden="true">＋</span><span data-i18n="eventOpenPoster">Afisha öffnen</span></span></button><span class="event-story-tag">LOUNGE NEWS</span></figure>
+              <div><span class="small-label" data-i18n="eventNews">AKTUELL IM BAVARIA</span><h3 data-i18n="eventHours">Öffnungszeiten & News</h3><p data-i18n="eventHoursCopy">Aktuelle Hinweise aus der Lounge und spontane Updates findest du hier und auf Instagram.</p></div>
+            </article>
           </div>
         </div>
-        <p class="demo-note"><span>✧</span> <span data-i18n="demoMenu">Demonstrationskarte · Alle Produkte und Preise
-            sind Beispiele, kein bestätigtes Angebot des Betriebs. Alkoholfreie Cocktails ohne Spirituosen; Allergene
-            und Zutaten bitte vor Ort erfragen.</span></p>
       </div>
     </section>
 
-    <section class="section wrap occasions" id="occasions">
-      <p class="section-label">03 <span></span> <span data-i18n="occasionLabel">MAKE IT AN OCCASION</span></p>
-      <div class="section-heading">
-        <h2><span data-i18n="occasion1">Dein Anlass.</span><br><em class="gold-text" data-i18n="occasion2">Unser
-            Lieblingsabend.</em></h2>
-        <p class="muted" data-i18n="occasionLead">Manche Momente verdienen mehr als einen Gruppenchat. Plane deinen
-          besonderen Abend mit uns.</p>
+    <section class="menu-section section" id="menu"><div class="wrap">
+      <p class="section-label">03 <span></span> <span data-i18n="menuLabel">GOOD TASTE. GREAT CHOICES.</span></p>
+      <div class="section-heading"><h2><span data-i18n="menuTitle">Eine Karte.</span><br><em class="gold-text" data-i18n="menuTitle2">So viele Möglichkeiten.</em></h2><p class="muted" data-i18n="menuLead">Für jeden Geschmack ein Lieblingsmoment. Blättere durch unsere beispielhafte Auswahl.</p></div>
+      <div class="menu-tabs" role="tablist" aria-label="Menükategorien"><button id="tab-cocktails" role="tab" aria-controls="menu-panel" aria-selected="true" data-category="cocktails" data-i18n="cocktailsTab">Cocktails</button><button id="tab-spirits" role="tab" aria-controls="menu-panel" aria-selected="false" data-category="spirits" tabindex="-1" data-i18n="spirits">Spirits & Classics</button><button id="tab-zero" role="tab" aria-controls="menu-panel" aria-selected="false" data-category="zero" tabindex="-1" data-i18n="zero">Alkoholfrei</button><button id="tab-beer" role="tab" aria-controls="menu-panel" aria-selected="false" data-category="beer" tabindex="-1" data-i18n="beer">Bier</button><button id="tab-shisha" role="tab" aria-controls="menu-panel" aria-selected="false" data-category="shisha" tabindex="-1" data-i18n="shishaTab">Shisha</button><button id="tab-party" role="tab" aria-controls="menu-panel" aria-selected="false" data-category="party" tabindex="-1" data-i18n="party">Für die Runde</button></div>
+      <div class="menu-book glass" id="menu-panel" role="tabpanel" aria-labelledby="tab-cocktails" tabindex="0">
+        <div class="menu-visual"><div class="drink-preview" id="drink-preview" role="img" hidden></div><img id="menu-photo" src="assets/cocktails.webp" alt="Cocktail-Auswahl" loading="lazy" width="382" height="510"><div class="menu-visual-copy"><span class="small-label" data-i18n="previewImage">Serviervorschlag · Illustration</span><h3 class="gold-text" id="menu-category-title">Cocktails</h3><span id="menu-category-description"></span></div></div>
+        <div class="menu-page"><div class="menu-page-heading"><span class="small-label" data-i18n="menuCollection">AUSGEWÄHLT FÜR DEINEN ABEND</span><span class="menu-watermark">B</span></div><div id="menu-items" aria-live="polite"></div><div class="menu-pagination"><button class="circle-button" id="menu-prev" type="button" aria-label="Vorherige Menüseite">←</button><span id="menu-page-count" aria-live="polite">01 / 02</span><button class="circle-button" id="menu-next" type="button" aria-label="Nächste Menüseite">→</button></div></div>
       </div>
-      <div class="occasion-grid">
-        <article class="occasion-card glass"><span class="occasion-icon">✷</span><span class="small-label">01 /
-            CELEBRATE</span>
-          <h3 data-i18n="birthday">Geburtstage</h3>
-          <p data-i18n="birthdayCopy">Dein Tag. Deine Menschen. Drinks, Shisha und eine Runde, die etwas zu feiern hat.
-          </p><a href="#booking" data-event="birthday" class="gold-link"><span data-i18n="planNow">Jetzt anfragen</span>
-            ↗</a>
-        </article>
-        <article class="occasion-card glass"><span class="occasion-icon">♧</span><span class="small-label">02 / LAST
-            NIGHT OUT</span>
-          <h3 data-i18n="bachelor">Junggesellenabschied</h3>
-          <p data-i18n="bachelorCopy">JGA oder Mädelsabend vor der Hochzeit — startet eure besondere Nacht im Bavaria.
-          </p><a href="#booking" data-event="bachelor" class="gold-link"><span data-i18n="planNow">Jetzt anfragen</span>
-            ↗</a>
-        </article>
-        <article class="occasion-card glass"><span class="occasion-icon">✦</span><span class="small-label">03 / YOUR
-            PEOPLE</span>
-          <h3 data-i18n="private">Private Feiern</h3>
-          <p data-i18n="privateCopy">Jubiläum, Wiedersehen oder Teamabend. Wünsche und Möglichkeiten stimmen wir
-            individuell ab.</p><a href="#booking" data-event="private" class="gold-link"><span data-i18n="planNow">Jetzt
-              anfragen</span> ↗</a>
-        </article>
-        <article class="occasion-card glass"><span class="occasion-icon">♫</span><span class="small-label">04 / YOUR
-            SOUND</span>
-          <h3 data-i18n="music">Musikwünsche</h3>
-          <p data-i18n="musicCopy">Der passende Sound gehört dazu. Sag uns, welche Musik euren Abend besonders macht.
-          </p><a href="#booking" data-event="music" class="gold-link"><span data-i18n="planNow">Jetzt anfragen</span>
-            ↗</a>
-        </article>
-      </div>
+      <p class="demo-note"><span>✧</span> <span data-i18n="demoMenu">Demonstrationskarte · Alle Produkte und Preise sind Beispiele, kein bestätigtes Angebot des Betriebs. Alkoholfreie Cocktails ohne Spirituosen; Allergene und Zutaten bitte vor Ort erfragen.</span></p>
+    </div></section>
+
+    <section class="section wrap occasions" id="occasions"><p class="section-label">04 <span></span> <span data-i18n="occasionLabel">MAKE IT AN OCCASION</span></p><div class="section-heading"><h2><span data-i18n="occasion1">Dein Anlass.</span><br><em class="gold-text" data-i18n="occasion2">Unser Lieblingsabend.</em></h2><p class="muted" data-i18n="occasionLead">Manche Momente verdienen mehr als einen Gruppenchat. Plane deinen besonderen Abend mit uns.</p></div>
+      <div class="occasion-grid"><article class="occasion-card glass"><span class="occasion-icon">✷</span><span class="small-label">01 / CELEBRATE</span><h3 data-i18n="birthday">Geburtstage</h3><p data-i18n="birthdayCopy">Dein Tag. Deine Menschen. Drinks, Shisha und eine Runde, die etwas zu feiern hat.</p><a href="#booking" data-event="birthday" class="gold-link"><span data-i18n="planNow">Jetzt anfragen</span> ↗</a></article><article class="occasion-card glass"><span class="occasion-icon">♧</span><span class="small-label">02 / LAST NIGHT OUT</span><h3 data-i18n="bachelor">Junggesellenabschied</h3><p data-i18n="bachelorCopy">JGA oder Mädelsabend vor der Hochzeit — startet eure besondere Nacht im Bavaria.</p><a href="#booking" data-event="bachelor" class="gold-link"><span data-i18n="planNow">Jetzt anfragen</span> ↗</a></article><article class="occasion-card glass"><span class="occasion-icon">✦</span><span class="small-label">03 / YOUR PEOPLE</span><h3 data-i18n="private">Private Feiern</h3><p data-i18n="privateCopy">Jubiläum, Wiedersehen oder Teamabend. Wünsche und Möglichkeiten stimmen wir individuell ab.</p><a href="#booking" data-event="private" class="gold-link"><span data-i18n="planNow">Jetzt anfragen</span> ↗</a></article><article class="occasion-card glass"><span class="occasion-icon">♫</span><span class="small-label">04 / YOUR SOUND</span><h3 data-i18n="music">Musikwünsche</h3><p data-i18n="musicCopy">Der passende Sound gehört dazu. Sag uns, welche Musik euren Abend besonders macht.</p><a href="#booking" data-event="music" class="gold-link"><span data-i18n="planNow">Jetzt anfragen</span> ↗</a></article></div>
     </section>
 
-    <section class="gallery-section section" id="gallery">
-      <div class="wrap">
-        <p class="section-label">04 <span></span> <span data-i18n="galleryLabel">A LITTLE LOOK INSIDE</span></p>
-        <div class="section-heading">
-          <h2><span data-i18n="gallery1">Weniger erzählen.</span><br><em class="gold-text" data-i18n="gallery2">Mehr
-              erleben.</em></h2>
-        </div>
-      </div>
+    <section class="gallery-section section" id="gallery"><div class="wrap"><p class="section-label">05 <span></span> <span data-i18n="galleryLabel">A LITTLE LOOK INSIDE</span></p><div class="section-heading"><h2><span data-i18n="gallery1">Weniger erzählen.</span><br><em class="gold-text" data-i18n="gallery2">Mehr erleben.</em></h2></div></div>
       <div class="gallery-track" id="gallery-track" role="region" aria-label="Bavaria Fotogalerie" tabindex="0"></div>
-      <div class="wrap social-footer">
-        <p class="muted" id="social-label" data-i18n="socialCopy">Momente aus der Lounge. Noch mehr Einblicke und
-          aktuelle Posts auf Instagram.</p><a class="gold-link"
-          href="https://www.instagram.com/bavaria_cocktail_lounge/" target="_blank"
-          rel="noopener noreferrer">@bavaria_cocktail_lounge ↗</a>
-      </div>
+      <div class="wrap social-footer"><p class="muted" id="social-label" data-i18n="socialCopy">Momente aus der Lounge. Noch mehr Einblicke und aktuelle Posts auf Instagram.</p><a class="gold-link" href="https://www.instagram.com/bavaria_cocktail_lounge/" target="_blank" rel="noopener noreferrer">@bavaria_cocktail_lounge ↗</a></div>
     </section>
 
-    <section class="booking-section section wrap" id="booking">
-      <p class="section-label">05 <span></span> <span data-i18n="bookLabel">YOUR NEXT GOOD NIGHT</span></p>
-      <div class="booking-grid">
-        <div class="booking-copy">
-          <h2><span data-i18n="book1">Ein Tisch.</span><br><em class="gold-text" data-i18n="book2">Deine
-              Geschichte.</em></h2>
-          <p class="muted" data-i18n="bookCopy">Date Night, große Runde oder besonderer Anlass — plane deinen nächsten
-            Abend im Bavaria.</p>
-          <div class="booking-note glass"><span>✦</span>
-            <p data-i18n="bookNote">Die Reservierung gilt erst nach persönlicher Bestätigung durch das Bavaria-Team.</p>
-          </div>
-          <figure class="booking-image image-frame"><img src="assets/friends-table.webp"
-              alt="Cocktails und Shisha auf einem Tisch der Bavaria Lounge" loading="lazy" width="680" height="366">
-          </figure>
-        </div>
-        <form class="booking-form glass" id="booking-form">
-          <div id="booking-fields">
-            <div class="form-row"><label><span data-i18n="name">Dein Name</span><input name="name" required
-                  autocomplete="name" minlength="2" maxlength="100"></label><label><span data-i18n="contact">Telefon
-                  oder E-Mail</span><input name="contact" required maxlength="150" autocomplete="email"></label></div>
-            <div class="form-row three"><label><span data-i18n="date">Datum</span><input name="date" type="date"
-                  required></label><label><span data-i18n="time">Uhrzeit</span><select name="time" required>
-                  <option>12:00</option>
-                  <option>14:00</option>
-                  <option>16:00</option>
-                  <option>18:00</option>
-                  <option selected>19:00</option>
-                  <option>20:00</option>
-                  <option>21:00</option>
-                  <option>22:00</option>
-                  <option>23:00</option>
-                </select></label><label><span data-i18n="guests">Gäste</span><input name="guests" type="number" min="1"
-                  max="30" value="2" required inputmode="numeric"></label></div><label><span data-i18n="occasion">Dein
-                Anlass</span><select name="occasion">
-                <option value="evening" data-i18n="evening">Ein schöner Abend</option>
-                <option value="birthday" data-i18n="birthday">Geburtstage</option>
-                <option value="bachelor" data-i18n="bachelor">Junggesellenabschied</option>
-                <option value="private" data-i18n="private">Private Feiern</option>
-                <option value="music" data-i18n="music">Musikwünsche</option>
-              </select></label><label><span data-i18n="message">Deine Wünsche</span><textarea name="message" rows="3"
-                maxlength="1000"></textarea></label><label class="booking-honeypot" aria-hidden="true">Website<input
-                name="website" tabindex="-1" autocomplete="off"></label>
-            <p class="form-hint" data-i18n="formPrivacy">Deine Anfrage wird an das Bavaria-Team gesendet und ist erst
-              nach persönlicher Bestätigung reserviert.</p><button class="button gold-button" type="submit"><span
-                data-i18n="prepareRequest">Tisch anfragen</span><span>↗</span></button>
-          </div>
-          <div class="booking-feedback" id="booking-feedback" role="status" tabindex="-1" hidden></div>
-        </form>
-      </div>
-    </section>
+    <section class="booking-section section wrap" id="booking"><p class="section-label">06 <span></span> <span data-i18n="bookLabel">YOUR NEXT GOOD NIGHT</span></p><div class="booking-grid"><div class="booking-copy"><h2><span data-i18n="book1">Ein Tisch.</span><br><em class="gold-text" data-i18n="book2">Deine Geschichte.</em></h2><p class="muted" data-i18n="bookCopy">Date Night, große Runde oder besonderer Anlass — plane deinen nächsten Abend im Bavaria.</p><div class="booking-note glass"><span>✦</span><p data-i18n="bookNote">Die Reservierung gilt erst nach persönlicher Bestätigung durch das Bavaria-Team.</p></div><figure class="booking-image image-frame"><img src="assets/friends-table.webp" alt="Cocktails und Shisha auf einem Tisch der Bavaria Lounge" loading="lazy" width="680" height="366"></figure></div>
+      <form class="booking-form glass" id="booking-form"><div id="booking-fields"><div class="form-row"><label><span data-i18n="name">Dein Name</span><input name="name" required autocomplete="name" minlength="2" maxlength="100"></label><label><span data-i18n="contact">Telefon oder E-Mail</span><input name="contact" required maxlength="150" autocomplete="email"></label></div><div class="form-row three"><label><span data-i18n="date">Datum</span><input name="date" type="date" required></label><label><span data-i18n="time">Uhrzeit</span><select name="time" required><option>12:00</option><option>14:00</option><option>16:00</option><option>18:00</option><option selected>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option><option>23:00</option></select></label><label><span data-i18n="guests">Gäste</span><input name="guests" type="number" min="1" max="30" value="2" required inputmode="numeric"></label></div><label><span data-i18n="occasion">Dein Anlass</span><select name="occasion"><option value="evening" data-i18n="evening">Ein schöner Abend</option><option value="birthday" data-i18n="birthday">Geburtstage</option><option value="bachelor" data-i18n="bachelor">Junggesellenabschied</option><option value="private" data-i18n="private">Private Feiern</option><option value="music" data-i18n="music">Musikwünsche</option></select></label><label><span data-i18n="message">Deine Wünsche</span><textarea name="message" rows="3" maxlength="1000"></textarea></label><label class="booking-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label><p class="form-hint" data-i18n="formPrivacy">Deine Anfrage wird an das Bavaria-Team gesendet und ist erst nach persönlicher Bestätigung reserviert.</p><button class="button gold-button" type="submit"><span data-i18n="prepareRequest">Tisch anfragen</span><span>↗</span></button></div><div class="booking-feedback" id="booking-feedback" role="status" tabindex="-1" hidden></div></form></div></section>
 
-    <section class="contact-section section">
-      <div class="wrap contact-grid">
-        <div>
-          <p class="section-label">06 <span></span> <span data-i18n="findUs">FIND YOUR WAY</span></p>
-          <h2><span data-i18n="contact1">Mitten in Hildesheim.</span><br><em class="gold-text"
-              data-i18n="contact2">Mitten im Moment.</em></h2><a class="button gold-button"
-            href="https://maps.app.goo.gl/PhLM3pFMd387m4p6A" target="_blank" rel="noopener noreferrer"><span
-              data-i18n="directions">Route planen</span> ↗</a>
-        </div>
-        <div class="contact-card glass">
-          <div><span class="small-label" data-i18n="addressLabel">DU FINDEST UNS HIER</span>
-            <p><a class="address-link" href="https://maps.app.goo.gl/PhLM3pFMd387m4p6A" target="_blank"
-                rel="noopener noreferrer">Angoulemeplatz 3<br>31134 Hildesheim <span aria-hidden="true">↗</span></a></p>
-          </div>
-          <div><span class="small-label" data-i18n="hoursLabel">WIR SIND FÜR DICH DA</span>
-            <p data-i18n="hours">Montag – Sonntag<br>Ab 12:00 Uhr · Open End</p>
-          </div>
-          <div class="social-links premium-social" aria-label="Social & contact"><a class="social-button"
-              href="https://www.instagram.com/bavaria_cocktail_lounge/" target="_blank" rel="noopener noreferrer"><svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <rect x="4" y="4" width="16" height="16" rx="5" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" />
-              </svg><span>Instagram</span></a><a class="social-button" href="https://www.facebook.com/BavariashishaBar/"
-              target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M14 21v-8h3l.5-4H14V7c0-1 .4-2 2-2h2V2.5L15.5 2C12 2 10 4 10 7v2H7v4h3v8" />
-              </svg><span>Facebook</span></a><a class="social-button" href="tel:+491749073926"><svg viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
-                aria-hidden="true">
-                <path d="m7 3 3 5-2 2c1.2 3 3 4.8 6 6l2-2 5 3c0 3-2 5-5 4C8 19 5 16 3 8 2 5 4 3 7 3Z" />
-              </svg><span>0174 9073926</span></a><button class="social-button social-placeholder" type="button"
-              aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 11.5a9 9 0 0 1-13.3 8L3 21l1.5-4.7A9 9 0 1 1 21 11.5Z" />
-                <path d="m8 7 2 3-1 1c.7 1.5 1.5 2.3 3 3l1-1 3 2c-.5 2-2 2-4 1-3-1-5-4-5-6 0-1 .4-2 1-3Z" />
-              </svg><span>WhatsApp<small data-i18n="contactSoon">Nummer folgt</small></span></button><button
-              class="social-button social-placeholder" type="button" aria-disabled="true"><svg viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
-                aria-hidden="true">
-                <rect x="3" y="5" width="18" height="14" rx="3" />
-                <path d="m4 7 8 6 8-6" />
-              </svg><span>Email<small data-i18n="contactSoon">Adresse folgt</small></span></button></div>
-        </div>
-      </div>
-    </section>
+    <section class="contact-section section"><div class="wrap contact-grid"><div><p class="section-label">07 <span></span> <span data-i18n="findUs">FIND YOUR WAY</span></p><h2><span data-i18n="contact1">Mitten in Hildesheim.</span><br><em class="gold-text" data-i18n="contact2">Mitten im Moment.</em></h2><a class="button gold-button" href="https://maps.app.goo.gl/PhLM3pFMd387m4p6A" target="_blank" rel="noopener noreferrer"><span data-i18n="directions">Route planen</span> ↗</a></div><div class="contact-card glass"><div><span class="small-label" data-i18n="addressLabel">DU FINDEST UNS HIER</span><p><a class="address-link" href="https://maps.app.goo.gl/PhLM3pFMd387m4p6A" target="_blank" rel="noopener noreferrer">Angoulemeplatz 3<br>31134 Hildesheim <span aria-hidden="true">↗</span></a></p></div><div><span class="small-label" data-i18n="hoursLabel">WIR SIND FÜR DICH DA</span><p data-i18n="hours">Montag – Sonntag<br>Ab 12:00 Uhr · Open End</p></div><div class="social-links premium-social" aria-label="Social & contact"><a class="social-button" href="https://www.instagram.com/bavaria_cocktail_lounge/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg><span>Instagram</span></a><a class="social-button" href="https://www.facebook.com/BavariashishaBar/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 21v-8h3l.5-4H14V7c0-1 .4-2 2-2h2V2.5L15.5 2C12 2 10 4 10 7v2H7v4h3v8"/></svg><span>Facebook</span></a><a class="social-button" href="tel:+491749073926"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 3 3 5-2 2c1.2 3 3 4.8 6 6l2-2 5 3c0 3-2 5-5 4C8 19 5 16 3 8 2 5 4 3 7 3Z"/></svg><span>0174 9073926</span></a><button class="social-button social-placeholder" type="button" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a9 9 0 0 1-13.3 8L3 21l1.5-4.7A9 9 0 1 1 21 11.5Z"/><path d="m8 7 2 3-1 1c.7 1.5 1.5 2.3 3 3l1-1 3 2c-.5 2-2 2-4 1-3-1-5-4-5-6 0-1 .4-2 1-3Z"/></svg><span>WhatsApp<small data-i18n="contactSoon">Nummer folgt</small></span></button><button class="social-button social-placeholder" type="button" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg><span>Email<small data-i18n="contactSoon">Adresse folgt</small></span></button></div></div></div></section>
   </main>
-  <footer class="footer"><a class="brand" href="#home"><span class="crest-shimmer"
-        style="--crest-mask:url('bavaria-royal-crest.webp')" aria-hidden="true"><img class="bavaria-royal-crest"
-          src="assets/bavaria-royal-crest.webp" width="1536" height="1024" alt=""
-          aria-hidden="true"></span><span><strong class="brand-wordmark">BAVARIA</strong><small>COCKTAIL LOUNGE ·
-          SHISHA</small></span></a><span>© 2026 BAVARIA · HILDESHEIM</span><a href="#top" class="gold-link"
-      data-i18n="backTop">NACH OBEN ↑</a>
-    <p class="footer-note" data-i18n="draftNote">Privater Designentwurf · Beispielkarte · Vor Veröffentlichung müssen
-      Kontaktdaten, verbindliche Karte und Pflichtangaben vom Betreiber bestätigt und ergänzt werden.</p>
-  </footer>
-  <dialog id="lightbox" aria-label="Bavaria Galerie"><button class="lightbox-close circle-button" id="close-lightbox"
-      aria-label="Galerie schließen" type="button">×</button><img id="lightbox-image" alt="">
-    <p id="lightbox-caption"></p>
-  </dialog>
-  <noscript>
-    <p style="padding:2rem;background:#292318;color:#fff">JavaScript ist für Sprachwechsel, die Beispielkarte und die
-      Anfrage-Vorbereitung erforderlich. / Enable JavaScript for the menu, language switch and enquiry builder.</p>
-  </noscript>
+  <footer class="footer"><a class="brand" href="#home"><span class="crest-shimmer" style="--crest-mask:url('bavaria-royal-crest.webp')" aria-hidden="true"><img class="bavaria-royal-crest" src="assets/bavaria-royal-crest.webp" width="1536" height="1024" alt="" aria-hidden="true"></span><span><strong class="brand-wordmark">BAVARIA</strong><small>COCKTAIL LOUNGE · SHISHA</small></span></a><span>© 2026 BAVARIA · HILDESHEIM</span><a href="#top" class="gold-link" data-i18n="backTop">NACH OBEN ↑</a><p class="footer-note" data-i18n="draftNote">Privater Designentwurf · Beispielkarte · Vor Veröffentlichung müssen Kontaktdaten, verbindliche Karte und Pflichtangaben vom Betreiber bestätigt und ergänzt werden.</p></footer>
+  <dialog id="lightbox" aria-label="Bavaria Galerie"><button class="lightbox-close circle-button" id="close-lightbox" aria-label="Galerie schließen" type="button">×</button><img id="lightbox-image" alt=""><p id="lightbox-caption"></p></dialog>
+  <noscript><p style="padding:2rem;background:#292318;color:#fff">JavaScript ist für Sprachwechsel, die Beispielkarte und die Anfrage-Vorbereitung erforderlich. / Enable JavaScript for the menu, language switch and enquiry builder.</p></noscript>
 </body>
 </html>

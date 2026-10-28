@@ -1,0 +1,10 @@
+{
+  "name": "bavaria-cocktail-lounge",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "python build-preview.py",
+    "deploy": "npx -y firebase-tools@latest deploy --only hosting",
+    "test": "node --test checks/reservation-function.test.mjs && node checks/booking.test.cjs && node checks/motion.test.cjs"
+  }
+}
