@@ -87,7 +87,7 @@ function applyLanguage(next){
  try{localStorage.setItem('bavaria-language',next);}catch{}
  $$('[data-i18n]').forEach(el=>{el.textContent=t(el.dataset.i18n);});
  $$('[data-language]').forEach(el=>el.setAttribute('aria-checked',String(el.dataset.language===language)));
- const activeLanguage=$(`[data-language="${language}"]`);$('#language-current-flag').textContent=activeLanguage?.dataset.flag||'🌐';$('#language-current-code').textContent=activeLanguage?.querySelector('small')?.textContent||language.toUpperCase();$('#language-menu summary').setAttribute('aria-label',t('languageLabel'));$('#language-menu').removeAttribute('open');
+ const activeLanguage=$(`[data-language="${language}"]`),currentFlag=$('#language-current-flag'),currentCode=$('#language-current-code'),languageSummary=$('#language-menu summary');if(currentFlag)currentFlag.textContent=activeLanguage?.dataset.flag||'🌐';if(currentCode)currentCode.textContent=activeLanguage?.querySelector('small')?.textContent||language.toUpperCase();if(languageSummary)languageSummary.setAttribute('aria-label',t('languageLabel'));$('#language-menu')?.removeAttribute('open');
  $('.main-nav').setAttribute('aria-label',language==='de'?'Hauptnavigation':'Main navigation');
  $('.mobile-nav').setAttribute('aria-label',language==='de'?'Mobile Navigation':'Mobile navigation');
  $('.nav-toggle').setAttribute('aria-label',t($('.nav-toggle').getAttribute('aria-expanded')==='true'?'closeNav':'openNav'));
@@ -162,7 +162,7 @@ $$('[data-category]').forEach(button=>{button.addEventListener('click',()=>{cate
 $('#menu-prev').addEventListener('click',()=>{if(menuPage>0){menuPage--;renderMenu();}});$('#menu-next').addEventListener('click',()=>{if(menuPage<Math.ceil(menu[category].items.length/5)-1){menuPage++;renderMenu();}});
 let touchStart=null;$('#menu-panel').addEventListener('touchstart',event=>{touchStart=[event.changedTouches[0].clientX,event.changedTouches[0].clientY];},{passive:true});$('#menu-panel').addEventListener('touchend',event=>{if(!touchStart)return;const dx=event.changedTouches[0].clientX-touchStart[0],dy=event.changedTouches[0].clientY-touchStart[1];if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5)$(dx<0?'#menu-next':'#menu-prev').click();touchStart=null;},{passive:true});
  $$('[data-language]').forEach(button=>button.addEventListener('click',()=>applyLanguage(button.dataset.language)));
- const languageMenu=$('#language-menu');document.addEventListener('click',event=>{if(languageMenu.open&&!languageMenu.contains(event.target))languageMenu.removeAttribute('open');});languageMenu.addEventListener('keydown',event=>{if(event.key==='Escape'){languageMenu.removeAttribute('open');languageMenu.querySelector('summary').focus();}});
+ const languageMenu=$('#language-menu');if(languageMenu){document.addEventListener('click',event=>{if(languageMenu.open&&!languageMenu.contains(event.target))languageMenu.removeAttribute('open');});languageMenu.addEventListener('keydown',event=>{if(event.key==='Escape'){languageMenu.removeAttribute('open');languageMenu.querySelector('summary')?.focus();}});}
 const navToggle=$('.nav-toggle');
 const header=$('.header');
 let navScrollY=0;
