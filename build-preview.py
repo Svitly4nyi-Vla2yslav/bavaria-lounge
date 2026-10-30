@@ -25,17 +25,18 @@ root_html = re.sub(
 (root / 'index.html').write_text(root_html, encoding='utf-8')
 css = (root / 'assets/style.css').read_text(encoding='utf-8')
 css = re.sub(r'@import url\([^\n]+\);\n', '', css, count=1)
-js = '\n'.join((root / path).read_text(encoding='utf-8') for path in ['assets/motion.js', 'assets/booking.js', 'assets/app.js'])
+js = '\n'.join((root / path).read_text(encoding='utf-8') for path in ['assets/motion.js', 'assets/booking.js', 'assets/menu.js', 'assets/app.js'])
 assets = {
-    file.name: 'data:image/webp;base64,' + base64.b64encode(file.read_bytes()).decode()
-    for file in (root / 'assets').glob('*.webp')
+    file.relative_to(root / 'assets').as_posix(): 'data:image/webp;base64,' + base64.b64encode(file.read_bytes()).decode()
+    for file in (root / 'assets').rglob('*.webp')
 }
 html = re.sub(r'  <link rel="preload"[^>]+>\n', '', html)
 html = html.replace('{{reservation.apiBase}}', html_module.escape(reservation_api_base, quote=True))
-html = html.replace('  <link rel="stylesheet" href="{{assets.base}}/style.css">', '<style>' + css + '</style>')
-html = html.replace('  <script src="{{assets.base}}/motion.js" defer></script>', '')
-html = html.replace('  <script src="{{assets.base}}/booking.js" defer></script>', '')
-html = html.replace('  <script src="{{assets.base}}/app.js" defer></script>', '')
+html = re.sub(r'  <link rel="stylesheet" href="{{assets.base}}/style\.css(?:\?[^"]*)?">', lambda _: '<style>' + css + '</style>', html)
+html = re.sub(r'  <script src="\{\{assets.base\}\}/(?:motion|booking|menu|app)\.js(?:\?[^"\n]*)?" defer></script>', '', html)
+pdf_path = root / 'assets/menu/bavaria-menu.pdf'
+if pdf_path.is_file():
+    html = html.replace('{{assets.base}}/menu/bavaria-menu.pdf', 'data:application/pdf;base64,' + base64.b64encode(pdf_path.read_bytes()).decode())
 for name, data in assets.items():
     html = html.replace('{{assets.base}}/' + name, data)
 config = 'window.BAVARIA_ASSET_BASE="assets/";window.BAVARIA_EMBEDDED_ASSETS=' + json.dumps(assets) + ';'
@@ -54,3 +55,4 @@ with zipfile.ZipFile(output / 'Bavaria_Premium_Source.zip', 'w', zipfile.ZIP_DEF
             archive.write(file, Path('Bavaria') / file.relative_to(root))
     archive.write(preview, preview.name)
 print(json.dumps({'preview': str(preview), 'package': str(output / 'Bavaria_Premium_Source.zip')}))
+

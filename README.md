@@ -27,6 +27,16 @@ Use the token created by BotFather and the numeric private-chat ID. Do not commi
 
 ## Local verification
 
+The current drinks, shisha and snacks menu is maintained in `assets/menu.js`,
+transcribed from the venue's October 2026 menu. It contains 129 entries in 15
+categories, with no prices. Category photos and the price-free PDF download
+live in `assets/menu/`. Match artwork explicitly to a product or use its
+category illustration; do not assign pictures by the product's list position.
+
+Both `pages/index.html` (source template) and the generated root `index.html`
+load the catalog before `assets/app.js`. Running the build keeps both versions
+consistent and retains the events section.
+
 Unit tests do not contact Telegram:
 
 ```powershell
@@ -49,3 +59,4 @@ https://YOUR-SITE.netlify.app/.netlify/functions/reservation
 The function limits requests to 16 KiB, caps field lengths, validates required values, rejects the honeypot, escapes Telegram HTML, applies an eight-second Telegram timeout, and handles malformed JSON, missing configuration, and Telegram failures with non-success HTTP responses. It logs neither tokens nor reservation details.
 
 No separate backend service is required. Do not deploy the site until its owner explicitly requests it.
+
