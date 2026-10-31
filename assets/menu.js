@@ -104,13 +104,13 @@
       ]),
     hot: section(['Heiße Getränke', 'Hot drinks', 'Гарячі напої'],
       ['Kaffee, Tee und Sahlab', 'Coffee, tea and sahlab', 'Кава, чай і сахлаб'], 'menu/hot.webp', [
-        item('Kaffee', 'Kaffee', 'Coffee', 'Кава'),
-        item('Espresso', 'Espresso', 'Espresso', 'Еспресо'),
-        item('Cappuccino', 'Kaffeespezialität mit Milch', 'Coffee speciality with milk', 'Кавовий напій із молоком'),
-        item('Latte Macchiato', 'Kaffeespezialität mit Milch', 'Coffee speciality with milk', 'Кавовий напій із молоком'),
-        item('Sahlab', 'Heißgetränk · Zutaten bitte vor Ort erfragen', 'Hot drink · Ask the team about ingredients', 'Гарячий напій · Склад уточнюйте у закладі'),
-        item('Schwarztee', 'Schwarzer Tee', 'Black tea', 'Чорний чай'),
-        item('Tee', 'Mehrere Sorten', 'Various varieties', 'Різні сорти')
+        item('Kaffee', 'Kaffee', 'Coffee', 'Кава', generated('hot-coffee')),
+        item('Espresso', 'Espresso · mit Wasser und Praline', 'Espresso · with water and a praline', 'Еспресо · з водою та цукеркою', generated('hot-espresso')),
+        item('Cappuccino', 'Espresso · Milch · Milchschaum', 'Espresso · milk · milk foam', 'Еспресо · молоко · молочна пінка', generated('hot-cappuccino')),
+        item('Latte Macchiato', 'Milch · Espresso · Milchschaum', 'Milk · espresso · milk foam', 'Молоко · еспресо · молочна пінка', generated('hot-latte-macchiato')),
+        item('Sahlab', 'Heißgetränk · geheimes Hausrezept', 'Hot drink · secret house recipe', 'Гарячий напій · секретний рецепт закладу', generated('hot-sahlab-secret')),
+        item('Schwarztee', 'Schwarzer Tee', 'Black tea', 'Чорний чай', generated('hot-black-tea')),
+        item('Tee', 'Früchte · Kräuter · Minze und weitere Sorten', 'Fruit · herbal · mint and other varieties', 'Фруктовий · трав’яний · м’ятний та інші сорти', generated('hot-tea-varieties'))
       ]),
     milkshakes: section(['Milchshakes', 'Milkshakes', 'Молочні коктейлі'],
       ['Fünf Sorten zur Auswahl', 'Five flavours to choose from', 'П’ять смаків на вибір'], 'menu/milkshakes.webp',
