@@ -50,12 +50,14 @@
       ]),
     spirits: section(['Spirituosen', 'Spirits', 'Міцні напої'],
       ['Die Auswahl aus unserer Karte · je 4 cl', 'The selection from our menu · 4 cl each', 'Напої з нашого меню · по 4 cl'], 'menu/bottles.webp',
-      ['Jack Daniel’s', 'Jim Beam', 'Absolut Vodka', 'Bombay Sapphire', 'Yeni Raki', 'Black Label'].map(name => item(name, '4 cl', '4 cl', '4 cl', name === 'Jack Daniel’s' ? generated('jack-daniels-shot-branded') : name === 'Jim Beam' ? generated('jim-beam-cola-branded') : name === 'Black Label' ? generated('black-label-cola-branded') : undefined))),
+      ['Jack Daniel’s', 'Jim Beam', 'Absolut Vodka', 'Bombay Sapphire', 'Yeni Raki', 'Black Label'].map(name => item(name, '4 cl · 40 ml', '4 cl · 40 ml', '4 cl · 40 мл',
+        name === 'Jack Daniel’s' ? generated('jack-daniels-shot-branded') : name === 'Jim Beam' ? generated('spirit-jim-beam-4cl') : name === 'Absolut Vodka' ? generated('spirit-absolut-4cl') : name === 'Bombay Sapphire' ? generated('spirit-bombay-4cl') : name === 'Yeni Raki' ? generated('spirit-yeni-raki-4cl') : generated('spirit-black-label-4cl')))),
     shots: section(['Shots', 'Shots', 'Шоти'],
       ['Kleine Gläser, große Auswahl', 'Small glasses, plenty of choice', 'Невеликі порції, великий вибір'], 'menu/shots.webp', [
-        ...['Baileys', 'Tequila', 'Sourz', 'Jägermeister', 'Vodka', 'Jack Daniel’s'].map(name => item(name, '2 cl', '2 cl', '2 cl', name === 'Jack Daniel’s' ? generated('jack-daniels-shot-branded') : undefined)),
-        item('Sambuca + Kaffeebohnen', '4 cl · mit Kaffeebohnen', '4 cl · with coffee beans', '4 cl · з кавовими зернами'),
-        item('Tequila Boom', '4 cl · Tequila · Sprite oder Tonic', '4 cl · tequila · Sprite or tonic', '4 cl · текіла · Sprite або тонік')
+        ...['Baileys', 'Tequila', 'Sourz', 'Jägermeister', 'Vodka', 'Jack Daniel’s'].map(name => item(name, '2 cl · 20 ml · mit Limette', '2 cl · 20 ml · with lime', '2 cl · 20 мл · з лаймом',
+          name === 'Baileys' ? generated('shot-baileys-2cl') : name === 'Tequila' ? generated('shot-tequila-2cl') : name === 'Sourz' ? generated('shot-sourz-2cl') : name === 'Jägermeister' ? generated('shot-jagermeister-2cl') : name === 'Vodka' ? generated('shot-vodka-2cl') : generated('shot-jack-daniels-2cl'))),
+        item('Sambuca + Kaffeebohnen', '4 cl · 40 ml · Kaffeebohnen · Limette', '4 cl · 40 ml · coffee beans · lime', '4 cl · 40 мл · кавові зерна · лайм', generated('shot-sambuca-4cl')),
+        item('Tequila Boom', '4 cl · 40 ml · Tequila · Sprite oder Tonic · Limette', '4 cl · 40 ml · tequila · Sprite or tonic · lime', '4 cl · 40 мл · текіла · Sprite або тонік · лайм', generated('shot-tequila-boom-4cl'))
       ]),
     beer: section(['Bier', 'Beer', 'Пиво'],
       ['Pils, Radler, Weizen und alkoholfreie Auswahl', 'Pilsner, radler, wheat beer and alcohol-free options', 'Пільзнер, радлер, пшеничне й безалкогольне'], 'menu/beer.webp', [
