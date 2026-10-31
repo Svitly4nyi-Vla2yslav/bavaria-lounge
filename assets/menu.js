@@ -8,11 +8,12 @@
   });
   const section = (title, description, image, items) => ({ title, description, image, items });
   const original = (file, cell) => ({ file, cell });
+  const generated = file => ({ file: `menu/generated/${file}.webp` });
   const menu = {
     cocktails: section(['Cocktails', 'Cocktails', 'Коктейлі'],
       ['Mit Alkohol · Klassiker und Bavaria-Spezialitäten', 'With alcohol · Classics and Bavaria specials', 'З алкоголем · Класика та фірмові коктейлі'], 'menu/cocktails.webp', [
         item('Long Island Iced Tea', 'Tequila · Wodka · Rum · Cointreau · Gin · Lime Juice · Cola', 'Tequila · vodka · rum · Cointreau · gin · lime juice · cola', 'Текіла · горілка · ром · Cointreau · джин · сік лайма · кола', original('drinks-premium-2.webp', 4)),
-        item('Blue Lagoon', 'Wodka · Sprite · Blue Curaçao', 'Vodka · Sprite · blue curaçao', 'Горілка · Sprite · блакитний кюрасао'),
+        item('Blue Lagoon', 'Wodka · Sprite · Blue Curaçao', 'Vodka · Sprite · blue curaçao', 'Горілка · Sprite · блакитний кюрасао', generated('blue-lagoon')),
         item('Mojito', 'Bio-Limette · Minze · brauner Rohrzucker · Soda · Rum · Lime Juice · Ginger Ale', 'Organic lime · mint · brown cane sugar · soda · rum · lime juice · ginger ale', 'Органічний лайм · м’ята · тростинний цукор · содова · ром · сік лайма · імбирний ель', original('drinks-premium-1.webp', 0)),
         item('Sunrise', 'Tequila · Orangensaft · Grenadine', 'Tequila · orange juice · grenadine', 'Текіла · апельсиновий сік · гренадин'),
         item('Piña Colada', 'Rum · Ananassaft · Sahne · Kokossirup', 'Rum · pineapple juice · cream · coconut syrup', 'Ром · ананасовий сік · вершки · кокосовий сироп', original('drinks-premium-1.webp', 3)),
@@ -24,17 +25,17 @@
       ]),
     zero: section(['Alkoholfreie Cocktails', 'Alcohol-free cocktails', 'Безалкогольні коктейлі'],
       ['Drei Alternativen ohne Alkohol', 'Three alcohol-free alternatives', 'Три варіанти без алкоголю'], 'menu/softdrinks.webp', [
-        item('Ipanema', 'Alkoholfreier Cocktail · Zutaten bitte vor Ort erfragen', 'Alcohol-free cocktail · Ask the team about ingredients', 'Безалкогольний коктейль · Склад уточнюйте у закладі'),
-        item('Solero', 'Alkoholfreier Cocktail · Zutaten bitte vor Ort erfragen', 'Alcohol-free cocktail · Ask the team about ingredients', 'Безалкогольний коктейль · Склад уточнюйте у закладі'),
-        item('Bumblebee', 'Karamellsirup · Orangensaft oder Tonic · Espresso', 'Caramel syrup · orange juice or tonic · espresso', 'Карамельний сироп · апельсиновий сік або тонік · еспресо')
+        item('Ipanema', 'Limette · Maracuja · Ginger Ale · Rohrzucker', 'Lime · passion fruit · ginger ale · cane sugar', 'Лайм · маракуя · імбирний ель · тростинний цукор', generated('ipanema')),
+        item('Solero', 'Maracuja · Orange · Mango · Vanille', 'Passion fruit · orange · mango · vanilla', 'Маракуя · апельсин · манго · ваніль', generated('solero')),
+        item('Bumblebee', 'Karamellsirup · Orangensaft oder Tonic · Espresso', 'Caramel syrup · orange juice or tonic · espresso', 'Карамельний сироп · апельсиновий сік або тонік · еспресо', generated('bumblebee'))
       ]),
     longdrinks: section(['Longdrinks', 'Long drinks', 'Лонгдрінки'],
       ['Spirituosen und ihre Begleiter', 'Spirits and their mixers', 'Міцні напої з міксерами'], 'menu/longdrinks.webp', [
-        item('Jack Daniel’s', 'Mit Cola', 'With cola', 'З колою'),
-        item('Jack Daniel’s (Single)', 'Mit Cola', 'With cola', 'З колою'),
-        item('Jim Beam', 'Mit Cola', 'With cola', 'З колою'),
-        item('Red Label', 'Mit Cola', 'With cola', 'З колою'),
-        item('Black Label', 'Mit Cola', 'With cola', 'З колою'),
+        item('Jack Daniel’s', 'Mit Cola', 'With cola', 'З колою', generated('jack-daniels-cola-branded')),
+        item('Jack Daniel’s (Single)', 'Mit Cola', 'With cola', 'З колою', generated('jack-daniels-cola-branded')),
+        item('Jim Beam', 'Mit Cola', 'With cola', 'З колою', generated('jim-beam-cola-branded')),
+        item('Red Label', 'Mit Cola', 'With cola', 'З колою', generated('red-label-cola-branded')),
+        item('Black Label', 'Mit Cola', 'With cola', 'З колою', generated('black-label-cola-branded')),
         item('Captain Morgan', 'Mit Cola', 'With cola', 'З колою'),
         item('Grey Goose', 'Mit schwarzer Dose oder Red Bull', 'With black-can energy drink or Red Bull', 'З енергетиком у чорній банці або Red Bull'),
         item('Absolut Vodka / Three Sixty · Red Bull', 'Mit Red Bull oder schwarzer Dose', 'With Red Bull or black-can energy drink', 'З Red Bull або енергетиком у чорній банці'),
@@ -49,10 +50,10 @@
       ]),
     spirits: section(['Spirituosen', 'Spirits', 'Міцні напої'],
       ['Die Auswahl aus unserer Karte · je 4 cl', 'The selection from our menu · 4 cl each', 'Напої з нашого меню · по 4 cl'], 'menu/bottles.webp',
-      ['Jack Daniel’s', 'Jim Beam', 'Absolut Vodka', 'Bombay Sapphire', 'Yeni Raki', 'Black Label'].map(name => item(name, '4 cl', '4 cl', '4 cl'))),
+      ['Jack Daniel’s', 'Jim Beam', 'Absolut Vodka', 'Bombay Sapphire', 'Yeni Raki', 'Black Label'].map(name => item(name, '4 cl', '4 cl', '4 cl', name === 'Jack Daniel’s' ? generated('jack-daniels-shot-branded') : name === 'Jim Beam' ? generated('jim-beam-cola-branded') : name === 'Black Label' ? generated('black-label-cola-branded') : undefined))),
     shots: section(['Shots', 'Shots', 'Шоти'],
       ['Kleine Gläser, große Auswahl', 'Small glasses, plenty of choice', 'Невеликі порції, великий вибір'], 'menu/shots.webp', [
-        ...['Baileys', 'Tequila', 'Sourz', 'Jägermeister', 'Vodka', 'Jack Daniel’s'].map(name => item(name, '2 cl', '2 cl', '2 cl')),
+        ...['Baileys', 'Tequila', 'Sourz', 'Jägermeister', 'Vodka', 'Jack Daniel’s'].map(name => item(name, '2 cl', '2 cl', '2 cl', name === 'Jack Daniel’s' ? generated('jack-daniels-shot-branded') : undefined)),
         item('Sambuca + Kaffeebohnen', '4 cl · mit Kaffeebohnen', '4 cl · with coffee beans', '4 cl · з кавовими зернами'),
         item('Tequila Boom', '4 cl · Tequila · Sprite oder Tonic', '4 cl · tequila · Sprite or tonic', '4 cl · текіла · Sprite або тонік')
       ]),
@@ -92,7 +93,7 @@
       ]),
     juices: section(['Säfte & Nektare', 'Juices & nectars', 'Соки й нектари'],
       ['Je 0,33 l · alle auch als 1-l-Flasche', '0.33 l each · all also available in 1 l bottles', 'По 0,33 л · усі також у пляшках по 1 л'], 'menu/juices.webp', [
-        item('Orangensaft', 'Orange', 'Orange juice', 'Апельсиновий сік'),
+        item('Orangensaft', 'Orange', 'Orange juice', 'Апельсиновий сік', generated('orange-juice')),
         item('KiBa', 'Kirsch-Banane', 'Cherry and banana', 'Вишня та банан'),
         item('Maracujanektar', 'Maracuja', 'Passion fruit nectar', 'Нектар маракуї'),
         item('Kirschsaft', 'Kirsche', 'Cherry juice', 'Вишневий сік'),
@@ -114,22 +115,23 @@
       ['Vanille', 'Schoko', 'Erdbeere', 'Stracciatella', 'Kinder Bueno'].map((name, i) => item(name,
         'Milchshake · ' + name,
         'Milkshake · ' + ['vanilla', 'chocolate', 'strawberry', 'stracciatella', 'Kinder Bueno'][i],
-        'Молочний коктейль · ' + ['ваніль', 'шоколад', 'полуниця', 'страчатела', 'Kinder Bueno'][i]))),
+        'Молочний коктейль · ' + ['ваніль', 'шоколад', 'полуниця', 'страчатела', 'Kinder Bueno'][i], i === 0 ? generated('vanilla-milkshake') : i === 1 ? generated('chocolate-milkshake') : undefined))),
     icecream: section(['Eiscreme', 'Ice cream', 'Морозиво'],
       ['Fünf Sorten · Portion mit 5 Kugeln', 'Five flavours · 5 scoops per serving', 'П’ять смаків · порція з 5 кульок'], 'menu/icecream.webp',
       ['Vanille', 'Schoko', 'Erdbeere', 'Stracciatella', 'Kinder Bueno'].map((name, i) => item(name,
         '5 Kugeln · ' + name,
         '5 scoops · ' + ['vanilla', 'chocolate', 'strawberry', 'stracciatella', 'Kinder Bueno'][i],
-        '5 кульок · ' + ['ваніль', 'шоколад', 'полуниця', 'страчатела', 'Kinder Bueno'][i]))),
+        '5 кульок · ' + ['ваніль', 'шоколад', 'полуниця', 'страчатела', 'Kinder Bueno'][i], i === 0 ? generated('vanilla-icecream') : undefined))),
     shisha: section(['Shisha', 'Shisha', 'Кальяни'],
       ['Classic & Premium · alle Sorten aus unserer Karte', 'Classic & Premium · every flavour from our menu', 'Classic і Premium · усі смаки з меню'], 'menu/shisha.webp', [
-        ...['Wassermelone', 'Doppelapfel', 'Traube Minze', 'Ice Bonbon / Lemon', 'Blueberry Minze', 'Zitrone Minze', 'Love 66', 'Love Bavaria', 'Watermelon', 'Mango Tango', 'Moloko', 'Baya Blue', 'Cinderella', 'Arctic Line', 'Istanbul', 'Akram Spezial'].map(name => item(name, 'Classic', 'Classic', 'Classic')),
+        ...['Wassermelone', 'Doppelapfel', 'Traube Minze', 'Ice Bonbon / Lemon', 'Blueberry Minze', 'Zitrone Minze', 'Love 66', 'Love Bavaria', 'Watermelon', 'Mango Tango', 'Moloko', 'Baya Blue', 'Cinderella', 'Arctic Line', 'Istanbul', 'Akram Spezial'].map(name => item(name, 'Classic', 'Classic', 'Classic', ['Wassermelone','Watermelon'].includes(name) ? generated('watermelon-shisha') : undefined)),
         ...['African Queen', 'Lemon Chill', 'Eis Kaktus', 'Sommer in Beirut', 'Black Nana'].map(name => item(name, 'Premium', 'Premium', 'Premium'))
       ]),
     bottles: section(['Flaschen & Sets', 'Bottles & sets', 'Пляшки та набори'],
       ['Flaschenangebote mit den Beilagen aus unserer Karte', 'Bottle selections with the accompaniments listed in our menu', 'Пляшки з доповненнями, зазначеними в меню'], 'menu/bottles.webp', [
         ...['Chivas', 'Jack Daniel’s', 'Jim Beam', 'Red Label', 'Black Label', 'Jack Daniel’s (Single)', 'Bacardi'].map(name => item(name,
-          '1 Fl. Cola · 1 Shisha · Pistazien · Chips', '1 bottle of cola · 1 shisha · pistachios · crisps', '1 пляшка коли · 1 кальян · фісташки · чипси')),
+          '1 Fl. Cola · 1 Shisha · Pistazien · Chips', '1 bottle of cola · 1 shisha · pistachios · crisps', '1 пляшка коли · 1 кальян · фісташки · чипси',
+          name.startsWith('Jack Daniel’s') ? generated('jack-daniels-cola-branded') : name === 'Jim Beam' ? generated('jim-beam-cola-branded') : name === 'Red Label' ? generated('red-label-cola-branded') : name === 'Black Label' ? generated('black-label-cola-branded') : undefined)),
         item('Grey Goose', '4 Red Bull · 1 Shisha · Pistazien', '4 Red Bull · 1 shisha · pistachios', '4 Red Bull · 1 кальян · фісташки'),
         ...['Three Sixty', 'Absolut Vodka'].map(name => item(name, '1 Fl. Energy · 1 Shisha · Pistazien · Chips', '1 bottle of energy drink · 1 shisha · pistachios · crisps', '1 пляшка енергетика · 1 кальян · фісташки · чипси')),
         item('Yeni Raki', '4 Wasser · 1 Shisha · Pistazien', '4 waters · 1 shisha · pistachios', '4 води · 1 кальян · фісташки')
@@ -162,3 +164,4 @@
   root.BAVARIA_MENU_PDF = 'menu/bavaria-menu.pdf';
   if (typeof module !== 'undefined' && module.exports) module.exports = menu;
 })(typeof window !== 'undefined' ? window : globalThis);
+

@@ -237,6 +237,7 @@ body.nav-open{position:fixed;left:0;right:0;width:100%;overflow:hidden;overscrol
  #smoke-atmosphere .smoke-cloud:nth-child(n+5){display:none}
 }
 /* Let menu artwork keep its intrinsic ratio on narrow screens. */
+.menu-visual .menu-generated{object-fit:cover;object-position:center;filter:saturate(1.02) contrast(1.02)}
 @media(max-width:600px){
  .menu-book .menu-visual{height:auto;min-height:0;overflow:visible}
  .menu-book .drink-preview{height:auto;aspect-ratio:1;overflow:hidden}
@@ -341,3 +342,4 @@ body.is-arabic .section-label{direction:rtl;justify-content:flex-start}body.is-a
  .menu-download{justify-content:stretch}
  .menu-download .button{width:100%}
 }
+

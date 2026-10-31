@@ -110,7 +110,10 @@ function paintMenuRegion(root,file,cell){
 function paintMenuArtwork(root,index){
  const data=menu[category],artwork=data.items[index].artwork;
  root.classList.remove('is-party');
- if(artwork){paintMenuRegion(root,artwork.file,artwork.cell);return;}
+ if(artwork){
+  if(Number.isInteger(artwork.cell)){paintMenuRegion(root,artwork.file,artwork.cell);return;}
+  const generated=document.createElement('img');generated.className='menu-single menu-generated';generated.src=asset(artwork.file);generated.alt='';generated.decoding='async';root.replaceChildren(generated);return;
+ }
  const photo=document.createElement('img');photo.className='menu-single';photo.src=asset(data.image);photo.alt='';photo.decoding='async';root.replaceChildren(photo);
 }
 function showMenuItem(item,index){
@@ -240,4 +243,5 @@ if('IntersectionObserver' in window&&!reduced.matches){
 }
 
 $$('a[href="#top"]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,left:0,behavior:reduced.matches?'instant':'smooth'});}));
+
 
