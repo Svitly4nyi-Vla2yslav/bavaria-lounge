@@ -61,20 +61,20 @@
       ]),
     beer: section(['Bier', 'Beer', 'Пиво'],
       ['Pils, Radler, Weizen und alkoholfreie Auswahl', 'Pilsner, radler, wheat beer and alcohol-free options', 'Пільзнер, радлер, пшеничне й безалкогольне'], 'menu/beer.webp', [
-        item('Beck’s', '0,33 l · Gold, Lemon, Ice oder alkoholfrei', '0.33 l · Gold, Lemon, Ice or alcohol-free', '0,33 л · Gold, Lemon, Ice або безалкогольне'),
-        item('Krombacher', '0,33 l · Pils oder Radler', '0.33 l · pilsner or radler', '0,33 л · пільзнер або радлер'),
-        item('Desperados', '0,33 l', '0.33 l', '0,33 л'),
-        item('Corona', '0,33 l', '0.33 l', '0,33 л'),
-        item('Heineken', '0,25 l', '0.25 l', '0,25 л'),
-        item('Weizenbier', '0,5 l', '0.5 l', '0,5 л')
+        item('Beck’s', '0,33 l · Gold, Lemon, Ice oder alkoholfrei', '0.33 l · Gold, Lemon, Ice or alcohol-free', '0,33 л · Gold, Lemon, Ice або безалкогольне', generated('beer-becks-variants')),
+        item('Krombacher', '0,33 l · Pils oder Radler', '0.33 l · pilsner or radler', '0,33 л · пільзнер або радлер', generated('beer-krombacher')),
+        item('Desperados', '0,33 l', '0.33 l', '0,33 л', generated('beer-desperados')),
+        item('Corona', '0,33 l', '0.33 l', '0,33 л', generated('beer-corona')),
+        item('Heineken', '0,25 l', '0.25 l', '0,25 л', generated('beer-heineken-025')),
+        item('Weizenbier', '0,5 l · naturtrüb', '0.5 l · naturally cloudy', '0,5 л · нефільтроване', generated('beer-weizenbier'))
       ]),
     wine: section(['Wein & Aperitif', 'Wine & aperitifs', 'Вино й аперитиви'],
       ['Rot, weiß oder als Aperitif', 'Red, white or an aperitif', 'Червоне, біле або аперитив'], 'menu/wine.webp', [
-        item('Rotwein', '0,2 l oder 0,4 l', '0.2 l or 0.4 l', '0,2 л або 0,4 л'),
-        item('Weißwein', '0,2 l oder 0,4 l', '0.2 l or 0.4 l', '0,2 л або 0,4 л'),
-        item('Weinschorle', '0,2 l oder 0,4 l', '0.2 l or 0.4 l', '0,2 л або 0,4 л'),
-        item('Hugo', '0,2 l oder 0,4 l', '0.2 l or 0.4 l', '0,2 л або 0,4 л'),
-        item('Aperol Spritz', 'Aperitif · Zutaten bitte vor Ort erfragen', 'Aperitif · Ask the team about ingredients', 'Аперитив · Склад уточнюйте у закладі', original('drinks-premium-1.webp', 6))
+        item('Rotwein', '0,2 l oder 0,4 l', '0.2 l or 0.4 l', '0,2 л або 0,4 л', generated('wine-red-02-04')),
+        item('Weißwein', '0,2 l oder 0,4 l', '0.2 l or 0.4 l', '0,2 л або 0,4 л', generated('wine-white-02-04')),
+        item('Weinschorle', '0,2 l oder 0,4 l', '0.2 l or 0.4 l', '0,2 л або 0,4 л', generated('wine-schorle-02-04')),
+        item('Hugo', '0,2 l oder 0,4 l · Prosecco · Holunder · Limette · Minze', '0.2 l or 0.4 l · prosecco · elderflower · lime · mint', '0,2 л або 0,4 л · просеко · бузина · лайм · м’ята', generated('wine-hugo-02-04')),
+        item('Aperol Spritz', 'Aperol · Prosecco · Soda · Orange', 'Aperol · prosecco · soda · orange', 'Aperol · просеко · содова · апельсин', generated('wine-aperol-spritz-bottle'))
       ]),
     softdrinks: section(['Softdrinks', 'Soft drinks', 'Безалкогольні напої'],
       ['Erfrischungen, Energy und Wasser', 'Refreshments, energy drinks and water', 'Прохолодні напої, енергетики й вода'], 'menu/softdrinks.webp', [
