@@ -15,13 +15,13 @@
         item('Long Island Iced Tea', 'Tequila · Wodka · Rum · Cointreau · Gin · Lime Juice · Cola', 'Tequila · vodka · rum · Cointreau · gin · lime juice · cola', 'Текіла · горілка · ром · Cointreau · джин · сік лайма · кола', original('drinks-premium-2.webp', 4)),
         item('Blue Lagoon', 'Wodka · Sprite · Blue Curaçao', 'Vodka · Sprite · blue curaçao', 'Горілка · Sprite · блакитний кюрасао', generated('blue-lagoon')),
         item('Mojito', 'Bio-Limette · Minze · brauner Rohrzucker · Soda · Rum · Lime Juice · Ginger Ale', 'Organic lime · mint · brown cane sugar · soda · rum · lime juice · ginger ale', 'Органічний лайм · м’ята · тростинний цукор · содова · ром · сік лайма · імбирний ель', original('drinks-premium-1.webp', 0)),
-        item('Sunrise', 'Tequila · Orangensaft · Grenadine', 'Tequila · orange juice · grenadine', 'Текіла · апельсиновий сік · гренадин'),
+        item('Sunrise', 'Tequila · Orangensaft · Grenadine', 'Tequila · orange juice · grenadine', 'Текіла · апельсиновий сік · гренадин', generated('sunrise')),
         item('Piña Colada', 'Rum · Ananassaft · Sahne · Kokossirup', 'Rum · pineapple juice · cream · coconut syrup', 'Ром · ананасовий сік · вершки · кокосовий сироп', original('drinks-premium-1.webp', 3)),
         item('Sex on the Beach', 'Wodka · Pfirsichlikör · Orangensaft · Cranberrysirup · Limesirup', 'Vodka · peach liqueur · orange juice · cranberry syrup · lime syrup', 'Горілка · персиковий лікер · апельсиновий сік · журавлинний сироп · сироп лайма', original('drinks-premium-1.webp', 7)),
-        item('Bavaria Cocktail', 'Hauscocktail · Zutaten bitte vor Ort erfragen', 'House cocktail · Ask the team about ingredients', 'Фірмовий коктейль · Склад уточнюйте у закладі'),
-        item('Ukrainischer Cocktail', 'Orangensaft · Ananassaft · Bananennektar · Kokossirup · Gin · Bardinet-Sirup', 'Orange juice · pineapple juice · banana nectar · coconut syrup · gin · Bardinet syrup', 'Апельсиновий та ананасовий соки · банановий нектар · кокосовий сироп · джин · сироп Bardinet'),
-        item('Bloody Mary', 'Tomatensaft · Wodka · Tabasco · Salz · Pfeffer', 'Tomato juice · vodka · Tabasco · salt · pepper', 'Томатний сік · горілка · Tabasco · сіль · перець'),
-        item('Smoke Cherry', 'Bacardi · Captain Morgan · Grenadinesirup · Kirschsaft', 'Bacardi · Captain Morgan · grenadine syrup · cherry juice', 'Bacardi · Captain Morgan · гренадин · вишневий сік')
+        item('Bavaria Cocktail', 'Hauscocktail · Geheimnis des Barkeepers', 'House cocktail · Bartender’s secret', 'Фірмовий коктейль · Таємниця бармена', generated('bavaria-cocktail')),
+        item('Ukrainischer Cocktail', 'Orangensaft · Ananassaft · Bananennektar · Kokossirup · Gin · Bardinet-Sirup', 'Orange juice · pineapple juice · banana nectar · coconut syrup · gin · Bardinet syrup', 'Апельсиновий та ананасовий соки · банановий нектар · кокосовий сироп · джин · сироп Bardinet', generated('ukrainian-cocktail')),
+        item('Bloody Mary', 'Tomatensaft · Wodka · Tabasco · Salz · Pfeffer', 'Tomato juice · vodka · Tabasco · salt · pepper', 'Томатний сік · горілка · Tabasco · сіль · перець', generated('bloody-mary')),
+        item('Smoke Cherry', 'Bacardi · Captain Morgan · Grenadinesirup · Kirschsaft', 'Bacardi · Captain Morgan · grenadine syrup · cherry juice', 'Bacardi · Captain Morgan · гренадин · вишневий сік', generated('smoke-cherry'))
       ]),
     zero: section(['Alkoholfreie Cocktails', 'Alcohol-free cocktails', 'Безалкогольні коктейлі'],
       ['Drei Alternativen ohne Alkohol', 'Three alcohol-free alternatives', 'Три варіанти без алкоголю'], 'menu/softdrinks.webp', [
@@ -32,7 +32,7 @@
     longdrinks: section(['Longdrinks', 'Long drinks', 'Лонгдрінки'],
       ['Spirituosen und ihre Begleiter', 'Spirits and their mixers', 'Міцні напої з міксерами'], 'menu/longdrinks.webp', [
         item('Jack Daniel’s', 'Mit Cola', 'With cola', 'З колою', generated('jack-daniels-cola-branded')),
-        item('Jack Daniel’s (Single)', 'Mit Cola', 'With cola', 'З колою', generated('jack-daniels-cola-branded')),
+        item('Jack Daniel’s (Single)', 'Single Barrel Select · mit Cola', 'Single Barrel Select · with cola', 'Single Barrel Select · з колою', generated('jack-daniels-single-barrel')),
         item('Jim Beam', 'Mit Cola', 'With cola', 'З колою', generated('jim-beam-cola-branded')),
         item('Red Label', 'Mit Cola', 'With cola', 'З колою', generated('red-label-cola-branded')),
         item('Black Label', 'Mit Cola', 'With cola', 'З колою', generated('black-label-cola-branded')),
@@ -131,7 +131,7 @@
       ['Flaschenangebote mit den Beilagen aus unserer Karte', 'Bottle selections with the accompaniments listed in our menu', 'Пляшки з доповненнями, зазначеними в меню'], 'menu/bottles.webp', [
         ...['Chivas', 'Jack Daniel’s', 'Jim Beam', 'Red Label', 'Black Label', 'Jack Daniel’s (Single)', 'Bacardi'].map(name => item(name,
           '1 Fl. Cola · 1 Shisha · Pistazien · Chips', '1 bottle of cola · 1 shisha · pistachios · crisps', '1 пляшка коли · 1 кальян · фісташки · чипси',
-          name.startsWith('Jack Daniel’s') ? generated('jack-daniels-cola-branded') : name === 'Jim Beam' ? generated('jim-beam-cola-branded') : name === 'Red Label' ? generated('red-label-cola-branded') : name === 'Black Label' ? generated('black-label-cola-branded') : undefined)),
+          name === 'Jack Daniel’s (Single)' ? generated('jack-daniels-single-barrel') : name === 'Jack Daniel’s' ? generated('jack-daniels-cola-branded') : name === 'Jim Beam' ? generated('jim-beam-cola-branded') : name === 'Red Label' ? generated('red-label-cola-branded') : name === 'Black Label' ? generated('black-label-cola-branded') : undefined)),
         item('Grey Goose', '4 Red Bull · 1 Shisha · Pistazien', '4 Red Bull · 1 shisha · pistachios', '4 Red Bull · 1 кальян · фісташки'),
         ...['Three Sixty', 'Absolut Vodka'].map(name => item(name, '1 Fl. Energy · 1 Shisha · Pistazien · Chips', '1 bottle of energy drink · 1 shisha · pistachios · crisps', '1 пляшка енергетика · 1 кальян · фісташки · чипси')),
         item('Yeni Raki', '4 Wasser · 1 Shisha · Pistazien', '4 waters · 1 shisha · pistachios', '4 води · 1 кальян · фісташки')
