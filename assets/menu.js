@@ -139,12 +139,16 @@
         item('Watermelon', 'Wassermelone', 'Watermelon', 'Кавун', generated('watermelon-shisha')),
         item('Mango Tango', 'Mango · Maracuja', 'Mango · passion fruit', 'Манго · маракуя', generated('shisha-mango-tango')),
         item('Moloko', 'Milch statt Wasser in der Bowl · kombinierbar mit dem gewünschten Geschmack', 'Milk instead of water in the base · can be combined with the chosen flavour', 'Молоко замість води в колбі · можна поєднати з обраним смаком', generated('shisha-moloko')),
-        item('Baya Blue', 'Blaue Hausmischung · Zusammensetzung bitte vor Ort erfragen', 'Blue house blend · ask the team about the composition', 'Синя авторська суміш · склад уточнюйте у закладі', generated('shisha-baya-blue')),
+        item('Baya Blue', 'Geheime blaue Hausmischung des Gründers · Zutaten werden nicht verraten', 'Founder’s secret blue house blend · ingredients are not disclosed', 'Секретна синя суміш засновника · склад не розголошується', generated('shisha-baya-blue-akram')),
         item('Cinderella', 'Beeren · Wassermelone · Honigmelone · Mango · Maracuja', 'Berries · watermelon · honeydew melon · mango · passion fruit', 'Ягоди · кавун · диня · манго · маракуя', generated('shisha-cinderella')),
         item('Arctic Line', 'Limette · Menthol', 'Lime · menthol', 'Лайм · ментол', generated('shisha-arctic-line')),
         item('Istanbul', 'Rote Traube · Blaubeere · Himbeere · Erdbeere · Menthol', 'Red grape · blueberry · raspberry · strawberry · menthol', 'Червоний виноград · чорниця · малина · полуниця · ментол', generated('shisha-istanbul')),
         item('Akram Spezial', 'Persönliche Geheimrezeptur von Akram · Zutaten werden nicht verraten', 'Akram’s personal secret recipe · ingredients are not disclosed', 'Особистий секретний рецепт Акрама · склад не розголошується', generated('shisha-akram-special')),
-        ...['African Queen', 'Lemon Chill', 'Eis Kaktus', 'Sommer in Beirut', 'Black Nana'].map(name => item(name, 'Premium', 'Premium', 'Premium'))
+        item('African Queen', 'Beeren · schwarze Johannisbeere · Traube · Kokos · Gewürze · Frische', 'Berries · blackcurrant · grape · coconut · spice · cooling freshness', 'Ягоди · чорна смородина · виноград · кокос · спеції · прохолода', generated('shisha-african-queen')),
+        item('Lemon Chill', 'Zitrone · Minze · Frische', 'Lemon · mint · cooling freshness', 'Лимон · м’ята · прохолода', generated('shisha-lemon-chill')),
+        item('Eis Kaktus', 'Kaktusfeige · Eis', 'Prickly pear · ice', 'Опунція · лід', generated('shisha-ice-cactus')),
+        item('Sommer in Beirut', 'Himbeere · Wassermelone · Zitrone', 'Raspberry · watermelon · lemon', 'Малина · кавун · лимон', generated('shisha-summer-beirut')),
+        item('Black Nana', 'Schwarze Traube · Minze', 'Black grape · mint', 'Чорний виноград · м’ята', generated('shisha-black-nana'))
       ]),
     bottles: section(['Flaschen & Sets', 'Bottles & sets', 'Пляшки та набори'],
       ['Flaschenangebote mit den Beilagen aus unserer Karte', 'Bottle selections with the accompaniments listed in our menu', 'Пляшки з доповненнями, зазначеними в меню'], 'menu/bottles.webp', [
