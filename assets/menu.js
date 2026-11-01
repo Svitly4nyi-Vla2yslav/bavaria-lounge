@@ -161,12 +161,12 @@
       ]),
     snacks: section(['Snacks & Obst', 'Snacks & fruit', 'Снеки та фрукти'],
       ['Für zwischendurch oder für die Runde', 'A little something for yourself or the group', 'Для себе або на компанію'], 'menu/snacks.webp', [
-        item('Pistazien', 'Pistazien', 'Pistachios', 'Фісташки'),
-        item('Erdnüsse', 'Erdnüsse', 'Peanuts', 'Арахіс'),
-        item('Tortilla Chips', 'Tortilla Chips', 'Tortilla chips', 'Кукурудзяні чипси'),
-        item('Salzstangen', 'Salzstangen', 'Pretzel sticks', 'Солона соломка'),
-        item('Chips', 'Chips', 'Crisps', 'Чипси'),
-        item('Obstteller', 'Obstteller · Auswahl bitte vor Ort erfragen', 'Fruit platter · Ask the team about the selection', 'Фруктова тарілка · Асортимент уточнюйте у закладі')
+        item('Pistazien', 'Pistazien', 'Pistachios', 'Фісташки', generated('snack-pistachios')),
+        item('Erdnüsse', 'Erdnüsse', 'Peanuts', 'Арахіс', generated('snack-peanuts')),
+        item('Tortilla Chips', 'Tortilla Chips', 'Tortilla chips', 'Кукурудзяні чипси', generated('snack-tortilla-chips')),
+        item('Salzstangen', 'Salzstangen', 'Pretzel sticks', 'Солона соломка', generated('snack-pretzel-sticks')),
+        item('Chips', 'Chips', 'Crisps', 'Чипси', generated('snack-potato-chips')),
+        item('Obstteller', 'Obstteller · Auswahl bitte vor Ort erfragen', 'Fruit platter · Ask the team about the selection', 'Фруктова тарілка · Асортимент уточнюйте у закладі', generated('snack-fruit-platter'))
       ])
   };
 
