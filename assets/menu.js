@@ -154,7 +154,7 @@
       ['Flaschenangebote mit den Beilagen aus unserer Karte', 'Bottle selections with the accompaniments listed in our menu', 'Пляшки з доповненнями, зазначеними в меню'], 'menu/bottles.webp', [
         ...['Chivas', 'Jack Daniel’s', 'Jim Beam', 'Red Label', 'Black Label', 'Jack Daniel’s (Single)', 'Bacardi'].map(name => item(name,
           '1 Fl. Cola · 1 Shisha · Pistazien · Chips', '1 bottle of cola · 1 shisha · pistachios · crisps', '1 пляшка коли · 1 кальян · фісташки · чипси',
-          name === 'Jack Daniel’s (Single)' ? generated('jack-daniels-single-barrel') : name === 'Jack Daniel’s' ? generated('jack-daniels-cola-branded') : name === 'Jim Beam' ? generated('jim-beam-cola-branded') : name === 'Red Label' ? generated('red-label-cola-branded') : name === 'Black Label' ? generated('black-label-cola-branded') : undefined)),
+          name === 'Chivas' ? generated('set-chivas-complete') : name === 'Jack Daniel’s' ? generated('set-jack-daniels-complete') : name === 'Jim Beam' ? generated('set-jim-beam-complete') : name === 'Red Label' ? generated('set-red-label-complete') : name === 'Black Label' ? generated('set-black-label-complete') : name === 'Jack Daniel’s (Single)' ? generated('jack-daniels-single-barrel') : undefined)),
         item('Grey Goose', '4 Red Bull · 1 Shisha · Pistazien', '4 Red Bull · 1 shisha · pistachios', '4 Red Bull · 1 кальян · фісташки'),
         ...['Three Sixty', 'Absolut Vodka'].map(name => item(name, '1 Fl. Energy · 1 Shisha · Pistazien · Chips', '1 bottle of energy drink · 1 shisha · pistachios · crisps', '1 пляшка енергетика · 1 кальян · фісташки · чипси')),
         item('Yeni Raki', '4 Wasser · 1 Shisha · Pistazien', '4 waters · 1 shisha · pistachios', '4 води · 1 кальян · фісташки')
