@@ -137,7 +137,12 @@
         item('Love 66', 'Wassermelone · Maracuja · Honigmelone · Minze', 'Watermelon · passion fruit · honeydew melon · mint', 'Кавун · маракуя · диня · м’ята', generated('shisha-love66')),
         item('Love Bavaria', 'Geheime Mischung des Gründers · Zutaten werden nicht verraten', 'Founder’s secret blend · ingredients are not disclosed', 'Секретна суміш засновника · склад не розголошується', generated('shisha-love-bavaria-akram')),
         item('Watermelon', 'Wassermelone', 'Watermelon', 'Кавун', generated('watermelon-shisha')),
-        ...['Mango Tango', 'Moloko', 'Baya Blue', 'Cinderella', 'Arctic Line', 'Istanbul'].map(name => item(name, 'Classic', 'Classic', 'Classic')),
+        item('Mango Tango', 'Mango · Maracuja', 'Mango · passion fruit', 'Манго · маракуя', generated('shisha-mango-tango')),
+        item('Moloko', 'Milch statt Wasser in der Bowl · kombinierbar mit dem gewünschten Geschmack', 'Milk instead of water in the base · can be combined with the chosen flavour', 'Молоко замість води в колбі · можна поєднати з обраним смаком', generated('shisha-moloko')),
+        item('Baya Blue', 'Blaue Hausmischung · Zusammensetzung bitte vor Ort erfragen', 'Blue house blend · ask the team about the composition', 'Синя авторська суміш · склад уточнюйте у закладі', generated('shisha-baya-blue')),
+        item('Cinderella', 'Beeren · Wassermelone · Honigmelone · Mango · Maracuja', 'Berries · watermelon · honeydew melon · mango · passion fruit', 'Ягоди · кавун · диня · манго · маракуя', generated('shisha-cinderella')),
+        item('Arctic Line', 'Limette · Menthol', 'Lime · menthol', 'Лайм · ментол', generated('shisha-arctic-line')),
+        item('Istanbul', 'Rote Traube · Blaubeere · Himbeere · Erdbeere · Menthol', 'Red grape · blueberry · raspberry · strawberry · menthol', 'Червоний виноград · чорниця · малина · полуниця · ментол', generated('shisha-istanbul')),
         item('Akram Spezial', 'Persönliche Geheimrezeptur von Akram · Zutaten werden nicht verraten', 'Akram’s personal secret recipe · ingredients are not disclosed', 'Особистий секретний рецепт Акрама · склад не розголошується', generated('shisha-akram-special')),
         ...['African Queen', 'Lemon Chill', 'Eis Kaktus', 'Sommer in Beirut', 'Black Nana'].map(name => item(name, 'Premium', 'Premium', 'Premium'))
       ]),
