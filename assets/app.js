@@ -62,6 +62,10 @@ Object.assign(copy.ru,{"menuLead": "Коктейли, напитки, калья
 Object.assign(copy.sr,{"menuLead": "Otkrijte koktele, pića, šišu i grickalice iz aktuelnog menija.", "menuDownload": "Preuzmi meni PDF", "demoMenu": "Za sastojke i alergene pitajte osoblje. Slike su primeri serviranja."});
 Object.assign(copy.ar,{"menuLead": "اكتشف الكوكتيلات والمشروبات والشيشة والوجبات الخفيفة من قائمتنا الحالية.", "menuDownload": "تحميل القائمة PDF", "demoMenu": "اسأل الفريق عن المكونات ومسببات الحساسية. الصور أمثلة للتقديم."});
 Object.assign(copy.ku,{"menuLead": "Kokteyl, vexwarin, nargîle û xwarinên sivik ên menûya me bibîne.", "menuDownload": "Menûyê wek PDF daxîne", "demoMenu": "Ji bo pêkhate û alerjenan ji tîmê bipirse. Wêne mînakên pêşkêşkirinê ne."});
+Object.assign(copy.de,{instagramLabel:'LIVE FROM INSTAGRAM',instagramTitle:'Bavaria Moments.',instagramTitle2:'Direkt aus der Lounge.',instagramLead:'Aktuelle Stories, Reels und Posts von Bavaria — automatisch synchronisiert.',instagramFollow:'Auf Instagram folgen',instagramStories:'AKTUELLE STORIES',instagramFallbackTitle:'Instagram wird verbunden',instagramFallbackText:'Bis dahin findest du alle aktuellen Momente direkt auf unserem Profil.',instagramPosts:'aktuelle Beiträge',instagramOpen:'Beitrag auf Instagram öffnen'});
+Object.assign(copy.en,{instagramLabel:'LIVE FROM INSTAGRAM',instagramTitle:'Bavaria moments.',instagramTitle2:'Straight from the lounge.',instagramLead:'Current stories, reels and posts from Bavaria — synced automatically.',instagramFollow:'Follow on Instagram',instagramStories:'CURRENT STORIES',instagramFallbackTitle:'Instagram is being connected',instagramFallbackText:'Until then, find every current moment directly on our profile.',instagramPosts:'recent posts',instagramOpen:'Open post on Instagram'});
+Object.assign(copy.uk,{instagramLabel:'НАЖИВО З INSTAGRAM',instagramTitle:'Миті Bavaria.',instagramTitle2:'Просто з лаунжу.',instagramLead:'Актуальні історії, Reels і дописи Bavaria — синхронізуються автоматично.',instagramFollow:'Підписатися в Instagram',instagramStories:'АКТУАЛЬНІ ІСТОРІЇ',instagramFallbackTitle:'Instagram підключається',instagramFallbackText:'Поки що всі актуальні миті можна побачити безпосередньо в нашому профілі.',instagramPosts:'актуальних дописів',instagramOpen:'Відкрити допис в Instagram'});
+for(const code of supportedLanguages){for(const [key,value] of Object.entries(copy.en)){if(!(key in copy[code]))copy[code][key]=value;}}
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 let galleryMotion=null;
 function applyLanguage(next){
@@ -184,6 +188,27 @@ window.addEventListener('resize',()=>{if(window.innerWidth>1100)closeNav();});
 updateHeader();
 $$('[data-event]').forEach(link=>link.addEventListener('click',()=>{$('select[name="occasion"]').value=link.dataset.event;}));
 function safeUrl(raw,media=false){try{const u=new URL(raw,location.href);if(u.protocol!=='https:')return null;if(!media&&!['www.instagram.com','instagram.com'].includes(u.hostname))return null;return u.href;}catch{return null;}}
+const instagramEndpoint='/.netlify/functions/instagram-feed';
+function instagramImage(item){return safeUrl(item.thumbnail_url||item.media_url,true);}
+function renderInstagram(feed){
+ const grid=$('#instagram-grid'),fallback=$('#instagram-fallback'),profile=$('#instagram-profile'),storiesBlock=$('#instagram-stories'),storiesRow=$('#instagram-stories-row');
+ const posts=(Array.isArray(feed.posts)?feed.posts:[]).filter(item=>instagramImage(item)&&safeUrl(item.permalink));
+ const stories=(Array.isArray(feed.stories)?feed.stories:[]).filter(item=>instagramImage(item));
+ grid.replaceChildren();grid.classList.remove('is-loading');grid.setAttribute('aria-busy','false');
+ if(!feed.ok||!posts.length){grid.hidden=true;fallback.hidden=false;return;}
+ fallback.hidden=true;grid.hidden=false;
+ const username=String(feed.profile?.username||'bavaria_cocktail_lounge');
+ profile.replaceChildren();
+ const avatar=document.createElement('span');avatar.className='instagram-avatar';
+ const avatarUrl=safeUrl(feed.profile?.profile_picture_url,true);if(avatarUrl){const image=document.createElement('img');image.src=avatarUrl;image.alt='';avatar.append(image);}else avatar.textContent='◎';
+ const profileText=document.createElement('span'),profileName=document.createElement('strong'),profileMeta=document.createElement('small');profileName.textContent='@'+username;profileMeta.textContent=`${posts.length} ${t('instagramPosts')}`;profileText.append(profileName,profileMeta);profile.append(avatar,profileText);profile.hidden=false;
+ if(stories.length){storiesRow.replaceChildren();stories.forEach((story,index)=>{const link=document.createElement(story.permalink?'a':'span');link.className='instagram-story';if(story.permalink){link.href=safeUrl(story.permalink)||'#';link.target='_blank';link.rel='noopener noreferrer';}const image=document.createElement('img');image.src=instagramImage(story);image.alt=`Instagram story ${index+1}`;image.loading='lazy';link.append(image);storiesRow.append(link);});storiesBlock.hidden=false;}else storiesBlock.hidden=true;
+ posts.forEach(post=>{const link=document.createElement('a');link.className='instagram-post';link.href=safeUrl(post.permalink);link.target='_blank';link.rel='noopener noreferrer';link.setAttribute('aria-label',post.caption?.slice(0,120)||t('instagramOpen'));const image=document.createElement('img');image.src=instagramImage(post);image.alt=post.caption?.slice(0,140)||t('instagramOpen');image.loading='lazy';image.decoding='async';const overlay=document.createElement('span');overlay.className='instagram-post-overlay';const type=document.createElement('strong');type.textContent=post.media_type==='VIDEO'?'REEL':post.media_type==='CAROUSEL_ALBUM'?'CAROUSEL':'POST';const caption=document.createElement('span');caption.textContent=post.caption?.slice(0,90)||'@'+username;overlay.append(type,caption);link.append(image,overlay);grid.append(link);});
+}
+async function refreshInstagram(){
+ if(location.protocol==='file:')return renderInstagram({ok:false,posts:[],stories:[]});
+ try{const response=await fetch(instagramEndpoint,{credentials:'omit',signal:AbortSignal.timeout(8000)});const payload=await response.json();renderInstagram(payload);}catch{renderInstagram({ok:false,posts:[],stories:[]});}
+}
 function renderGallery(){
  const track=$('#gallery-track'),progress=galleryMotion?.getProgress()||0;
  galleryMotion?.destroy();track.replaceChildren();
@@ -233,7 +258,7 @@ bookingForm.addEventListener('submit',async e=>{e.preventDefault();bookingPanel.
 // CSS smoke is present in the authored HTML and starts even if JavaScript is unavailable.
 // The optional intro canvas adds detail; CSS owns the reveal and its four-second lifetime.
 setTimeout(()=>{$('#entrance').hidden=true;},5600);
-applyLanguage(language);refreshSocial();setInterval(refreshSocial,300000);
+applyLanguage(language);refreshInstagram();refreshSocial();setInterval(()=>{refreshInstagram();refreshSocial();},300000);
 
 // Progressive enhancement: content stays visible if observer support is missing.
 if('IntersectionObserver' in window&&!reduced.matches){
