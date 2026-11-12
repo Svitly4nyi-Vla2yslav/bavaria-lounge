@@ -355,3 +355,5 @@ body.is-arabic .section-label{direction:rtl;justify-content:flex-start}body.is-a
  .menu-download .button{width:100%}
 }
 
+.discovery-heading{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);gap:clamp(2rem,6vw,7rem);align-items:end;margin-bottom:2.5rem}.discovery-heading h2{margin:0}.discovery-heading p{margin:0 0 .45rem}.discovery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.discovery-grid article{padding:clamp(1.4rem,2.6vw,2.2rem);border-radius:1.25rem}.discovery-grid h3{margin:.8rem 0 1rem;font-size:clamp(1.25rem,2vw,1.65rem)}.discovery-grid p{margin:0;color:var(--muted);line-height:1.75}.discovery-grid strong{color:#f3ead6;font-weight:600}@media(max-width:900px){.discovery-heading,.discovery-grid{grid-template-columns:1fr}}
+

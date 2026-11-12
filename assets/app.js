@@ -87,11 +87,11 @@ function applyLanguage(next){
   $('#gallery-track').setAttribute('aria-label',language==='de'?'Bavaria Fotogalerie':'Bavaria photo gallery');
   $('#lightbox').setAttribute('aria-label',language==='de'?'Bavaria Galerie':'Bavaria gallery');
 
- document.title=language==='de'?'Bavaria | Cocktail Lounge · Shisha · Hildesheim':'Bavaria | Cocktail lounge · Shisha · Hildesheim';
- const description=language==='de'?'Bavaria Cocktail Lounge in Hildesheim. Shisha, Cocktails und besondere Abende am Angoulemeplatz 3.':'Bavaria Cocktail Lounge in Hildesheim. Shisha, cocktails and memorable evenings at Angoulemeplatz 3.';
+ document.title=language==='de'?'Bavaria Lounge Hildesheim | Shisha Bar, Cocktails & Eiscreme':'Bavaria Lounge Hildesheim | Hookah, Cocktails & Ice Cream';
+ const description=language==='de'?'Bavaria Lounge Hildesheim: Shisha Bar, Hookah Lounge und Cocktailbar mit Wasserpfeife, Cocktails, Mocktails, alkoholfreien Drinks und Eiscreme. Täglich ab 11:30 Uhr bis Open End.':'Bavaria Lounge Hildesheim: shisha and hookah bar, cocktail lounge, mocktails, alcohol-free drinks and ice cream. Open daily from 11:30 until open end.';
  $('meta[name="description"]').content=description;
  if(language==='uk'){
- document.title='Bavaria | Коктейлі · Кальян · Хільдесгайм';$('meta[name="description"]').content='Bavaria у Хільдесгаймі: коктейлі, кальян і особливі вечори на Angoulemeplatz 3.';
+ document.title='Bavaria Lounge Хільдесгайм | Кальян, коктейлі та морозиво';$('meta[name="description"]').content='Bavaria Lounge у Хільдесгаймі: кальян-бар, коктейлі та моктейлі, безалкогольні напої, морозиво й лаунж для відпочинку. Щодня з 11:30 до закриття.';
  $('.main-nav').setAttribute('aria-label','Головна навігація');$('.mobile-nav').setAttribute('aria-label','Мобільна навігація');$('.menu-tabs').setAttribute('aria-label','Категорії меню');$('#gallery-track').setAttribute('aria-label','Фотогалерея Bavaria');$('.brand').setAttribute('aria-label','Bavaria — головна');$('#lightbox').setAttribute('aria-label','Галерея Bavaria');
  $('.hero-image').alt='Золотий кальян і коктейлі в атмосфері лаунжу';$('.lounge-photo img').alt='Інтер’єр Bavaria';$('.booking-image img').alt='Напої та кальян на столі Bavaria';
  }
@@ -268,5 +268,6 @@ if('IntersectionObserver' in window&&!reduced.matches){
 }
 
 $$('a[href="#top"]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,left:0,behavior:reduced.matches?'instant':'smooth'});}));
+
 
 
