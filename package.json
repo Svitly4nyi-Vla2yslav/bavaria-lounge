@@ -5,6 +5,6 @@
   "scripts": {
     "build": "python build-preview.py",
     "deploy": "npx -y firebase-tools@latest deploy --only hosting",
-    "test": "node --test checks/reservation-function.test.mjs checks/instagram-function.test.mjs && node checks/booking.test.cjs && node checks/motion.test.cjs"
+    "test": "node --test checks/seo.test.mjs checks/reservation-function.test.mjs checks/instagram-function.test.mjs && node checks/booking.test.cjs && node checks/motion.test.cjs"
   }
 }
