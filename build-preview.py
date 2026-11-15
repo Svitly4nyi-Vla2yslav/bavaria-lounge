@@ -25,7 +25,7 @@ root_html = re.sub(
 (root / 'index.html').write_text(root_html, encoding='utf-8')
 css = (root / 'assets/style.css').read_text(encoding='utf-8')
 css = re.sub(r'@import url\([^\n]+\);\n', '', css, count=1)
-js = '\n'.join((root / path).read_text(encoding='utf-8') for path in ['assets/motion.js', 'assets/booking.js', 'assets/menu.js', 'assets/app.js'])
+js = '\n'.join((root / path).read_text(encoding='utf-8') for path in ['assets/motion.js', 'assets/booking.js', 'assets/menu.js', 'assets/app.js', 'assets/consent.js'])
 assets = {
     file.relative_to(root / 'assets').as_posix(): 'data:image/webp;base64,' + base64.b64encode(file.read_bytes()).decode()
     for file in (root / 'assets').rglob('*.webp')
@@ -33,7 +33,7 @@ assets = {
 html = re.sub(r'  <link rel="preload"[^>]+>\n', '', html)
 html = html.replace('{{reservation.apiBase}}', html_module.escape(reservation_api_base, quote=True))
 html = re.sub(r'  <link rel="stylesheet" href="{{assets.base}}/style\.css(?:\?[^"]*)?">', lambda _: '<style>' + css + '</style>', html)
-html = re.sub(r'  <script src="\{\{assets.base\}\}/(?:motion|booking|menu|app)\.js(?:\?[^"\n]*)?" defer></script>', '', html)
+html = re.sub(r'  <script src="\{\{assets.base\}\}/(?:motion|booking|menu|app|consent)\.js(?:\?[^"\n]*)?" defer></script>', '', html)
 pdf_path = root / 'assets/menu/bavaria-menu.pdf'
 if pdf_path.is_file():
     html = html.replace('{{assets.base}}/menu/bavaria-menu.pdf', 'data:application/pdf;base64,' + base64.b64encode(pdf_path.read_bytes()).decode())

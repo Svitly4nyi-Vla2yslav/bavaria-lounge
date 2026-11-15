@@ -195,6 +195,7 @@ function safeUrl(raw,media=false){try{const u=new URL(raw,location.href);if(u.pr
 const instagramEndpoint='/.netlify/functions/instagram-feed';
 function instagramImage(item){return safeUrl(item.thumbnail_url||item.media_url,true);}
 function renderInstagram(feed){
+ if(!window.BavariaConsent?.has('externalMedia'))return;
  const grid=$('#instagram-grid'),fallback=$('#instagram-fallback'),profile=$('#instagram-profile'),storiesBlock=$('#instagram-stories'),storiesRow=$('#instagram-stories-row');
  const posts=(Array.isArray(feed.posts)?feed.posts:[]).filter(item=>instagramImage(item)&&safeUrl(item.permalink));
  const stories=(Array.isArray(feed.stories)?feed.stories:[]).filter(item=>instagramImage(item));
@@ -241,7 +242,7 @@ function renderGallery(){
 $('#close-lightbox').addEventListener('click',()=>$('#lightbox').close());$('#lightbox').addEventListener('click',event=>{if(event.target===$('#lightbox'))$('#lightbox').close();});$('#lightbox').addEventListener('close',()=>{lightboxTrigger?.focus({preventScroll:true});});
 async function refreshSocial(){
  if(!socialConfig.enabled||document.hidden||location.protocol==='file:')return;
- try{const endpoint=new URL(socialConfig.endpoint,location.href);if(endpoint.protocol!=='https:'&&endpoint.hostname!=='localhost')return;const response=await fetch(endpoint,{credentials:'omit',cache:'no-store',signal:AbortSignal.timeout(8000)});if(!response.ok)return;const payload=await response.json();if(!Array.isArray(payload.items))return;const items=payload.items.slice(0,12).map(p=>({media_url:safeUrl(p.thumbnail_url||p.media_url,true),permalink:safeUrl(p.permalink),caption:[String(p.caption||'Bavaria on Instagram').slice(0,90),String(p.caption||'Bavaria on Instagram').slice(0,90)]})).filter(p=>p.media_url&&p.permalink);if(items.length){activeGallery=items;liveFeed=true;renderGallery();}}catch{ /* Keep the real venue gallery on provider failure. */ }
+ try{const endpoint=new URL(socialConfig.endpoint,location.href);if(endpoint.protocol!=='https:'&&endpoint.hostname!=='localhost')return;const response=await fetch(endpoint,{credentials:'omit',cache:'no-store',signal:AbortSignal.timeout(8000)});if(!response.ok)return;const payload=await response.json();if(!Array.isArray(payload.items))return;const items=payload.items.slice(0,12).map(p=>({media_url:safeUrl(p.thumbnail_url||p.media_url,true),permalink:safeUrl(p.permalink),caption:[String(p.caption||'Bavaria on Instagram').slice(0,90),String(p.caption||'Bavaria on Instagram').slice(0,90)]})).filter(p=>p.media_url&&p.permalink);if(items.length&&window.BavariaConsent?.has('externalMedia')){activeGallery=items;liveFeed=true;renderGallery();}}catch{ /* Keep the real venue gallery on provider failure. */ }
 }
 const dateInput=$('input[name="date"]');const today=new Date();dateInput.min=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
 const bookingForm=$('#booking-form'),bookingPanel=$('#booking-feedback'),bookingButton=bookingForm.querySelector('button[type="submit"]'),bookingButtonLabel=bookingButton.querySelector('[data-i18n="prepareRequest"]');
@@ -262,7 +263,16 @@ bookingForm.addEventListener('submit',async e=>{e.preventDefault();bookingPanel.
 // CSS smoke is present in the authored HTML and starts even if JavaScript is unavailable.
 // The optional intro canvas adds detail; CSS owns the reveal and its four-second lifetime.
 setTimeout(()=>{$('#entrance').hidden=true;},5600);
-applyLanguage(language);refreshInstagram();refreshSocial();setInterval(()=>{refreshInstagram();refreshSocial();},300000);
+applyLanguage(language);
+function startOptionalMedia(){refreshInstagram();refreshSocial();}
+function stopOptionalMedia(){
+ const grid=$('#instagram-grid'),fallback=$('#instagram-fallback');
+ $('#instagram-profile').hidden=true;$('#instagram-stories').hidden=true;grid.replaceChildren();grid.hidden=true;grid.classList.remove('is-loading');grid.setAttribute('aria-busy','false');fallback.hidden=false;
+ if(liveFeed){activeGallery=gallery;liveFeed=false;renderGallery();}
+}
+if(window.BavariaConsent?.has('externalMedia'))startOptionalMedia();
+window.addEventListener('bavaria:consent',event=>{if(event.detail?.externalMedia)startOptionalMedia();else stopOptionalMedia();});
+setInterval(()=>{if(window.BavariaConsent?.has('externalMedia'))startOptionalMedia();},300000);
 
 // Progressive enhancement: content stays visible if observer support is missing.
 if('IntersectionObserver' in window&&!reduced.matches){

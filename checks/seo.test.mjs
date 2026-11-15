@@ -64,10 +64,12 @@ test('robots.txt allows crawling and advertises the canonical sitemap', () => {
   assert.doesNotMatch(robots, /Disallow:\s*\//i);
 });
 
-test('sitemap contains only the canonical production URL', () => {
+test('sitemap contains the canonical production and legal URLs', () => {
   assert.match(sitemap, /<loc>https:\/\/bavaria-lounge\.de\/<\/loc>/);
   assert.match(sitemap, /<lastmod>2026-11-13<\/lastmod>/);
-  assert.equal(count(sitemap, /<url>/g), 1);
+  assert.match(sitemap, /<loc>https:\/\/bavaria-lounge\.de\/impressum\.html<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/bavaria-lounge\.de\/datenschutz\.html<\/loc>/);
+  assert.equal(count(sitemap, /<url>/g), 3);
   assert.doesNotMatch(sitemap, /localhost|netlify\.app|\?utm_/i);
 });
 
