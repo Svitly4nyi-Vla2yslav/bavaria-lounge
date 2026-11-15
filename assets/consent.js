@@ -34,5 +34,6 @@
   const stored=read();if(stored)preferences={necessary:true,externalMedia:!!stored.externalMedia,statistics:!!stored.statistics};
   window.BavariaConsent={has,open,get:()=>({...preferences})};
   document.addEventListener('click',event=>{if(event.target.closest('[data-open-consent]'))open();});
-  window.addEventListener('load',()=>setTimeout(()=>{if(!stored)open();else emit();},600),{once:true});
+  window.addEventListener('load',()=>setTimeout(()=>{if(!stored)open();else emit();},8000),{once:true});
 })();
+
