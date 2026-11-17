@@ -66,10 +66,12 @@ test('robots.txt allows crawling and advertises the canonical sitemap', () => {
 
 test('sitemap contains the canonical production and legal URLs', () => {
   assert.match(sitemap, /<loc>https:\/\/bavaria-lounge\.de\/<\/loc>/);
-  assert.match(sitemap, /<lastmod>2026-11-13<\/lastmod>/);
+  assert.match(sitemap, /<lastmod>2026-11-17<\/lastmod>/);
   assert.match(sitemap, /<loc>https:\/\/bavaria-lounge\.de\/impressum\.html<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/bavaria-lounge\.de\/datenschutz\.html<\/loc>/);
-  assert.equal(count(sitemap, /<url>/g), 3);
+  assert.equal(count(sitemap, /<url>/g), 5);
+  assert.match(sitemap, /https:\/\/bavaria-lounge\.de\/angebote\.html/);
+  assert.match(sitemap, /https:\/\/bavaria-lounge\.de\/veranstaltungen\.html/);
   assert.doesNotMatch(sitemap, /localhost|netlify\.app|\?utm_/i);
 });
 
@@ -88,6 +90,10 @@ test('source and generated HTML contain the same SEO facts', () => {
 
 test('critical local assets exist', () => {
   for (const path of [
+    'assets/favicon-512.png',
+    'assets/apple-touch-icon.png',
+    'angebote.html',
+    'veranstaltungen.html',
     'assets/app.js',
     'assets/booking.js',
     'assets/menu.js',
