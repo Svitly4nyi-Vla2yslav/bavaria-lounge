@@ -30,3 +30,28 @@ if (!verified) {
   console.error('Production Instagram feed did not return posts. Check Netlify deploy and environment variables.');
   process.exitCode = 1;
 }
+
+const avatarEndpoint = new URL('/.netlify/functions/instagram-avatar', endpoint).href;
+let verifiedAvatar = false;
+for (let attempt = 1; attempt <= 12; attempt++) {
+  try {
+    const response = await fetch(avatarEndpoint, {
+      redirect: 'manual',
+      headers: { Accept: 'image/*' },
+      signal: AbortSignal.timeout(15000),
+    });
+    const type = response.headers.get('content-type') || '';
+    console.log('Avatar attempt', attempt, 'status', response.status, 'type', type || 'none');
+    if (response.status === 200 && type.startsWith('image/')) {
+      verifiedAvatar = true;
+      break;
+    }
+  } catch (error) {
+    console.log('Avatar attempt', attempt, 'request failed:', error.name);
+  }
+  if (attempt < 12) await new Promise(resolve => setTimeout(resolve, 15000));
+}
+if (!verifiedAvatar) {
+  console.error('Instagram profile picture not served from Meta; the site will show the Bavaria crest fallback.');
+  process.exitCode = 1;
+}

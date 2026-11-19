@@ -344,13 +344,25 @@ function renderInstagram(feed) {
   profile.replaceChildren();
   const avatar = document.createElement('span');
   avatar.className = 'instagram-avatar';
-  const avatarUrl = safeUrl(feed.profile?.profile_picture_url, true);
-  if (avatarUrl) {
-    const picture = document.createElement('img');
-    picture.src = avatarUrl;
-    picture.alt = '';
-    avatar.append(picture);
-  } else avatar.textContent = '◎';
+  // Keep the brand crest visible while the real Instagram avatar is loading.
+  // The image is delivered through a same-origin Netlify function: no token in the browser,
+  // and no broken-image icon if Meta temporarily changes its CDN URL.
+  const brandImage = document.createElement('img');
+  brandImage.src = asset('bavaria-royal-crest.webp');
+  brandImage.alt = '';
+  brandImage.dataset.avatarFallback = 'true';
+  brandImage.addEventListener('error', () => { avatar.textContent = '◎'; }, { once: true });
+  avatar.append(brandImage);
+  const instagramAvatar = new Image();
+  instagramAvatar.alt = '';
+  instagramAvatar.decoding = 'async';
+  instagramAvatar.addEventListener('load', () => {
+    if (avatar.isConnected) avatar.replaceChildren(instagramAvatar);
+  }, { once: true });
+  instagramAvatar.addEventListener('error', () => {
+    console.warn('Instagram avatar could not be loaded; keeping Bavaria logo');
+  }, { once: true });
+  instagramAvatar.src = '/.netlify/functions/instagram-avatar';
   const profileText = document.createElement('span');
   const profileName = document.createElement('strong');
   const profileMeta = document.createElement('small');
