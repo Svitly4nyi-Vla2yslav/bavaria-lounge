@@ -423,3 +423,7 @@ body.is-arabic .section-label{direction:rtl;justify-content:flex-start}body.is-a
   .instagram-post-caption { font-size:13px; }
 }
 @media(prefers-reduced-motion:reduce) { .instagram-post-media img { transition:none; } }
+
+/* Reserve a polished brand mark until the live Instagram avatar has loaded. */
+.instagram-avatar{background:#171410;flex:0 0 45px;}
+.instagram-avatar img[data-avatar-fallback="true"]{object-fit:contain;padding:6px;}
