@@ -38,7 +38,9 @@ export async function handler(event) {
 
   const base = `https://graph.facebook.com/${apiVersion}`;
   const profileUrl = new URL(`${base}/${userId}`);
-  profileUrl.searchParams.set('fields', 'id,username');
+  profileUrl.searchParams.set('fields', 'id,username,profile_picture_url');
+  const fallbackProfileUrl = new URL(profileUrl);
+  fallbackProfileUrl.searchParams.set('fields', 'id,username');
   const postsUrl = new URL(`${base}/${userId}/media`);
   const mediaFields = 'id,caption,media_type,media_product_type,media_url,permalink,thumbnail_url,timestamp';
   postsUrl.searchParams.set('fields', `${mediaFields},like_count,comments_count`);
@@ -52,7 +54,11 @@ export async function handler(event) {
 
   try {
     const [profile, posts, stories] = await Promise.all([
-      instagramRequest(profileUrl, token),
+      instagramRequest(profileUrl, token).catch((error) => {
+        if (error.status !== 400) throw error;
+        console.warn('Instagram profile picture field unavailable; falling back to profile basics');
+        return instagramRequest(fallbackProfileUrl, token);
+      }),
       instagramRequest(postsUrl, token).catch((error) => {
         if (error.status !== 400) throw error;
         console.warn('Instagram engagement fields unavailable; retrying posts without counts');

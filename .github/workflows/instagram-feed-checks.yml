@@ -6,7 +6,9 @@ on:
       - 'assets/app.js'
       - 'assets/style.css'
       - 'netlify/functions/instagram-feed.mjs'
+      - 'netlify/functions/instagram-avatar.mjs'
       - 'checks/instagram-function.test.mjs'
+      - 'checks/instagram-avatar.test.mjs'
       - '.github/workflows/instagram-feed-checks.yml'
   push:
     branches: [main]
@@ -14,7 +16,9 @@ on:
       - 'assets/app.js'
       - 'assets/style.css'
       - 'netlify/functions/instagram-feed.mjs'
+      - 'netlify/functions/instagram-avatar.mjs'
       - 'checks/instagram-function.test.mjs'
+      - 'checks/instagram-avatar.test.mjs'
       - '.github/workflows/instagram-feed-checks.yml'
 
 jobs:
@@ -31,5 +35,6 @@ jobs:
         run: |
           node --check assets/app.js
           node --check netlify/functions/instagram-feed.mjs
+          node --check netlify/functions/instagram-avatar.mjs
       - name: All project tests
         run: npm test
