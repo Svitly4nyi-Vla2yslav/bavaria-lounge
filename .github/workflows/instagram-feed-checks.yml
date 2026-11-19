@@ -16,6 +16,7 @@ on:
       - 'assets/app.js'
       - 'assets/style.css'
       - 'netlify/functions/instagram-feed.mjs'
+      - 'netlify/functions/instagram-avatar.mjs'
       - 'checks/instagram-function.test.mjs'
       - 'checks/instagram-avatar.test.mjs'
       - '.github/workflows/instagram-feed-checks.yml'
