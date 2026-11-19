@@ -69,6 +69,10 @@ Object.assign(copy.ku,{"menuLead": "Kokteyl, vexwarin, nargîle û xwarinên siv
 Object.assign(copy.de,{instagramLabel:'LIVE FROM INSTAGRAM',instagramTitle:'Bavaria Moments.',instagramTitle2:'Direkt aus der Lounge.',instagramLead:'Aktuelle Stories, Reels und Posts von Bavaria — automatisch synchronisiert.',instagramFollow:'Auf Instagram folgen',instagramStories:'AKTUELLE STORIES',instagramFallbackTitle:'Instagram wird verbunden',instagramFallbackText:'Bis dahin findest du alle aktuellen Momente direkt auf unserem Profil.',instagramPosts:'aktuelle Beiträge',instagramOpen:'Beitrag auf Instagram öffnen'});
 Object.assign(copy.en,{instagramLabel:'LIVE FROM INSTAGRAM',instagramTitle:'Bavaria moments.',instagramTitle2:'Straight from the lounge.',instagramLead:'Current stories, reels and posts from Bavaria — synced automatically.',instagramFollow:'Follow on Instagram',instagramStories:'CURRENT STORIES',instagramFallbackTitle:'Instagram is being connected',instagramFallbackText:'Until then, find every current moment directly on our profile.',instagramPosts:'recent posts',instagramOpen:'Open post on Instagram'});
 Object.assign(copy.uk,{instagramLabel:'НАЖИВО З INSTAGRAM',instagramTitle:'Миті Bavaria.',instagramTitle2:'Просто з лаунжу.',instagramLead:'Актуальні історії, Reels і дописи Bavaria — синхронізуються автоматично.',instagramFollow:'Підписатися в Instagram',instagramStories:'АКТУАЛЬНІ ІСТОРІЇ',instagramFallbackTitle:'Instagram підключається',instagramFallbackText:'Поки що всі актуальні миті можна побачити безпосередньо в нашому профілі.',instagramPosts:'актуальних дописів',instagramOpen:'Відкрити допис в Instagram'});
+
+Object.assign(copy.de,{instagramLoadMore:'Weitere 3 Beiträge anzeigen',instagramReadMore:'Mehr lesen',instagramReadLess:'Weniger anzeigen',instagramLikes:'Gefällt mir',instagramComments:'Kommentare',instagramReel:'REEL',instagramCarousel:'KARUSSELL',instagramPhoto:'BEITRAG'});
+Object.assign(copy.en,{instagramLoadMore:'Show 3 more posts',instagramReadMore:'Read more',instagramReadLess:'Show less',instagramLikes:'Likes',instagramComments:'Comments',instagramReel:'REEL',instagramCarousel:'CAROUSEL',instagramPhoto:'POST'});
+Object.assign(copy.uk,{instagramLoadMore:'Показати ще 3 публікації',instagramReadMore:'Читати далі',instagramReadLess:'Згорнути',instagramLikes:'Вподобання',instagramComments:'Коментарі',instagramReel:'REELS',instagramCarousel:'КАРУСЕЛЬ',instagramPhoto:'ДОПИС'});
 for(const code of supportedLanguages){for(const [key,value] of Object.entries(copy.en)){if(!(key in copy[code]))copy[code][key]=value;}}
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 let galleryMotion=null;
@@ -192,27 +196,212 @@ window.addEventListener('resize',()=>{if(window.innerWidth>1100)closeNav();});
 updateHeader();
 $$('[data-event]').forEach(link=>link.addEventListener('click',()=>{$('select[name="occasion"]').value=link.dataset.event;}));
 function safeUrl(raw,media=false){try{const u=new URL(raw,location.href);if(u.protocol!=='https:')return null;if(!media&&!['www.instagram.com','instagram.com'].includes(u.hostname))return null;return u.href;}catch{return null;}}
-const instagramEndpoint='/.netlify/functions/instagram-feed';
+const instagramEndpoint=document.querySelector('meta[name="bavaria-instagram-feed-url"]')?.content?.trim()||'/.netlify/functions/instagram-feed';
 function instagramImage(item){return safeUrl(item.thumbnail_url||item.media_url,true);}
-function renderInstagram(feed){
- if(!window.BavariaConsent?.has('externalMedia'))return;
- const grid=$('#instagram-grid'),fallback=$('#instagram-fallback'),profile=$('#instagram-profile'),storiesBlock=$('#instagram-stories'),storiesRow=$('#instagram-stories-row');
- const posts=(Array.isArray(feed.posts)?feed.posts:[]).filter(item=>instagramImage(item)&&safeUrl(item.permalink));
- const stories=(Array.isArray(feed.stories)?feed.stories:[]).filter(item=>instagramImage(item));
- grid.replaceChildren();grid.classList.remove('is-loading');grid.setAttribute('aria-busy','false');
- if(!feed.ok||!posts.length){grid.hidden=true;fallback.hidden=false;return;}
- fallback.hidden=true;grid.hidden=false;
- const username=String(feed.profile?.username||'bavaria_cocktail_lounge');
- profile.replaceChildren();
- const avatar=document.createElement('span');avatar.className='instagram-avatar';
- const avatarUrl=safeUrl(feed.profile?.profile_picture_url,true);if(avatarUrl){const image=document.createElement('img');image.src=avatarUrl;image.alt='';avatar.append(image);}else avatar.textContent='◎';
- const profileText=document.createElement('span'),profileName=document.createElement('strong'),profileMeta=document.createElement('small');profileName.textContent='@'+username;profileMeta.textContent=`${posts.length} ${t('instagramPosts')}`;profileText.append(profileName,profileMeta);profile.append(avatar,profileText);profile.hidden=false;
- if(stories.length){storiesRow.replaceChildren();stories.forEach((story,index)=>{const link=document.createElement(story.permalink?'a':'span');link.className='instagram-story';if(story.permalink){link.href=safeUrl(story.permalink)||'#';link.target='_blank';link.rel='noopener noreferrer';}const image=document.createElement('img');image.src=instagramImage(story);image.alt=`Instagram story ${index+1}`;image.loading='lazy';link.append(image);storiesRow.append(link);});storiesBlock.hidden=false;}else storiesBlock.hidden=true;
- posts.forEach(post=>{const link=document.createElement('a');link.className='instagram-post';link.href=safeUrl(post.permalink);link.target='_blank';link.rel='noopener noreferrer';link.setAttribute('aria-label',post.caption?.slice(0,120)||t('instagramOpen'));const image=document.createElement('img');image.src=instagramImage(post);image.alt=post.caption?.slice(0,140)||t('instagramOpen');image.loading='lazy';image.decoding='async';const overlay=document.createElement('span');overlay.className='instagram-post-overlay';const type=document.createElement('strong');type.textContent=post.media_type==='VIDEO'?'REEL':post.media_type==='CAROUSEL_ALBUM'?'CAROUSEL':'POST';const caption=document.createElement('span');caption.textContent=post.caption?.slice(0,90)||'@'+username;overlay.append(type,caption);link.append(image,overlay);grid.append(link);});
+
+let instagramVisibleCount = 3;
+let instagramPosts = [];
+let instagramAccount = 'bavaria_cocktail_lounge';
+let instagramMoreButton = null;
+
+function instagramStat(number, label, symbol) {
+  if (!Number.isFinite(number) || number < 0) return null;
+  const stat = document.createElement('span');
+  stat.className = 'instagram-post-stat';
+  const icon = document.createElement('span');
+  icon.className = 'instagram-post-stat-icon';
+  icon.setAttribute('aria-hidden', 'true');
+  icon.textContent = symbol;
+  const count = document.createElement('span');
+  count.textContent = new Intl.NumberFormat(language === 'de' ? 'de-DE' : language === 'uk' ? 'uk-UA' : 'en-US').format(number);
+  stat.append(icon, count);
+  stat.setAttribute('aria-label', label + ': ' + number);
+  return stat;
 }
+
+function instagramCard(post) {
+  const card = document.createElement('article');
+  card.className = 'instagram-post';
+  const link = document.createElement('a');
+  link.className = 'instagram-post-media';
+  link.href = safeUrl(post.permalink);
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.setAttribute('aria-label', t('instagramOpen'));
+
+  const image = document.createElement('img');
+  image.src = instagramImage(post);
+  image.alt = String(post.caption || t('instagramOpen')).slice(0, 150);
+  image.loading = 'lazy';
+  image.decoding = 'async';
+  const type = document.createElement('span');
+  type.className = 'instagram-post-type';
+  const typeKey = post.media_product_type === 'REELS' ? 'instagramReel' :
+    post.media_type === 'CAROUSEL_ALBUM' ? 'instagramCarousel' : 'instagramPhoto';
+  type.dataset.i18n = typeKey;
+  type.textContent = t(typeKey);
+  link.append(image, type);
+
+  const details = document.createElement('div');
+  details.className = 'instagram-post-details';
+  const header = document.createElement('div');
+  header.className = 'instagram-post-header';
+  const handle = document.createElement('strong');
+  handle.textContent = '@' + instagramAccount;
+  const date = document.createElement('time');
+  const posted = new Date(post.timestamp);
+  if (Number.isFinite(posted.getTime())) {
+    date.dateTime = posted.toISOString();
+    date.textContent = new Intl.DateTimeFormat(
+      language === 'de' ? 'de-DE' : language === 'uk' ? 'uk-UA' : 'en-US',
+      { day: 'numeric', month: 'short', year: 'numeric' }
+    ).format(posted);
+  }
+  header.append(handle, date);
+  details.append(header);
+
+  const engagement = document.createElement('div');
+  engagement.className = 'instagram-post-engagement';
+  const likes = instagramStat(post.like_count, t('instagramLikes'), '♡');
+  const comments = instagramStat(post.comments_count, t('instagramComments'), '◌');
+  if (likes) engagement.append(likes);
+  if (comments) engagement.append(comments);
+  if (engagement.childNodes.length) details.append(engagement);
+
+  const captionText = String(post.caption || '').trim();
+  if (captionText) {
+    const caption = document.createElement('p');
+    caption.className = 'instagram-post-caption';
+    caption.textContent = captionText;
+    details.append(caption);
+    if (captionText.length > 145 || captionText.includes('\n')) {
+      card.classList.add('has-long-caption');
+      const toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'instagram-caption-toggle';
+      toggle.dataset.i18n = 'instagramReadMore';
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = t('instagramReadMore');
+      toggle.addEventListener('click', () => {
+        const expanded = card.classList.toggle('is-expanded');
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.dataset.i18n = expanded ? 'instagramReadLess' : 'instagramReadMore';
+        toggle.textContent = t(toggle.dataset.i18n);
+      });
+      details.append(toggle);
+    }
+  }
+
+  const open = document.createElement('a');
+  open.className = 'instagram-post-open';
+  open.href = link.href;
+  open.target = '_blank';
+  open.rel = 'noopener noreferrer';
+  open.dataset.i18n = 'instagramOpen';
+  open.textContent = t('instagramOpen');
+  details.append(open);
+  card.append(link, details);
+  return card;
+}
+
+function updateInstagramMoreButton() {
+  if (!instagramMoreButton) return;
+  instagramMoreButton.parentElement.hidden = instagramVisibleCount >= instagramPosts.length;
+  instagramMoreButton.textContent = t('instagramLoadMore');
+}
+
+function appendInstagramPosts(fromIndex = 0) {
+  const grid = $('#instagram-grid');
+  instagramPosts.slice(fromIndex, instagramVisibleCount)
+    .forEach(post => grid.append(instagramCard(post)));
+  updateInstagramMoreButton();
+}
+
+function renderInstagram(feed) {
+  if (!window.BavariaConsent?.has('externalMedia')) return;
+  const grid = $('#instagram-grid'), fallback = $('#instagram-fallback'),
+    profile = $('#instagram-profile'), storiesBlock = $('#instagram-stories'),
+    storiesRow = $('#instagram-stories-row');
+  instagramPosts = (Array.isArray(feed.posts) ? feed.posts : [])
+    .filter(item => instagramImage(item) && safeUrl(item.permalink));
+  const stories = (Array.isArray(feed.stories) ? feed.stories : [])
+    .filter(item => instagramImage(item));
+  grid.replaceChildren();
+  grid.classList.remove('is-loading');
+  grid.setAttribute('aria-busy', 'false');
+
+  if (!feed.ok || !instagramPosts.length) {
+    grid.hidden = true;
+    fallback.hidden = false;
+    profile.hidden = true;
+    storiesBlock.hidden = true;
+    if (instagramMoreButton) instagramMoreButton.parentElement.hidden = true;
+    return;
+  }
+  fallback.hidden = true;
+  grid.hidden = false;
+  instagramAccount = String(feed.profile?.username || 'bavaria_cocktail_lounge');
+  profile.replaceChildren();
+  const avatar = document.createElement('span');
+  avatar.className = 'instagram-avatar';
+  const avatarUrl = safeUrl(feed.profile?.profile_picture_url, true);
+  if (avatarUrl) {
+    const picture = document.createElement('img');
+    picture.src = avatarUrl;
+    picture.alt = '';
+    avatar.append(picture);
+  } else avatar.textContent = '◎';
+  const profileText = document.createElement('span');
+  const profileName = document.createElement('strong');
+  const profileMeta = document.createElement('small');
+  profileName.textContent = '@' + instagramAccount;
+  profileMeta.textContent = instagramPosts.length + ' ' + t('instagramPosts');
+  profileText.append(profileName, profileMeta);
+  profile.append(avatar, profileText);
+  profile.hidden = false;
+
+  storiesRow.replaceChildren();
+  if (stories.length) {
+    stories.forEach((story, index) => {
+      const storyUrl = safeUrl(story.permalink);
+      const item = document.createElement(storyUrl ? 'a' : 'span');
+      item.className = 'instagram-story';
+      if (storyUrl) {
+        item.href = storyUrl;
+        item.target = '_blank';
+        item.rel = 'noopener noreferrer';
+      }
+      const image = document.createElement('img');
+      image.src = instagramImage(story);
+      image.alt = 'Instagram story ' + (index + 1);
+      image.loading = 'lazy';
+      item.append(image);
+      storiesRow.append(item);
+    });
+    storiesBlock.hidden = false;
+  } else storiesBlock.hidden = true;
+
+  if (!instagramMoreButton) {
+    const moreWrap = document.createElement('div');
+    moreWrap.className = 'instagram-more-wrap';
+    instagramMoreButton = document.createElement('button');
+    instagramMoreButton.type = 'button';
+    instagramMoreButton.className = 'button outline-button instagram-more';
+    instagramMoreButton.addEventListener('click', () => {
+      const previous = instagramVisibleCount;
+      instagramVisibleCount = Math.min(instagramPosts.length, previous + 3);
+      appendInstagramPosts(previous);
+    });
+    moreWrap.append(instagramMoreButton);
+    grid.after(moreWrap);
+  }
+  instagramVisibleCount = Math.min(Math.max(3, instagramVisibleCount), instagramPosts.length);
+  appendInstagramPosts(0);
+}
+
 async function refreshInstagram(){
  if(location.protocol==='file:')return renderInstagram({ok:false,posts:[],stories:[]});
- try{const response=await fetch(instagramEndpoint,{credentials:'omit',signal:AbortSignal.timeout(8000)});const payload=await response.json();renderInstagram(payload);}catch{renderInstagram({ok:false,posts:[],stories:[]});}
+ try{const response=await fetch(instagramEndpoint,{credentials:'omit',signal:AbortSignal.timeout(15000)});if(!response.ok||!response.headers.get('content-type')?.includes('application/json'))throw new Error('Instagram feed HTTP '+response.status);const payload=await response.json();renderInstagram(payload);}catch(error){console.warn('Instagram feed not available:',error.message);renderInstagram({ok:false,posts:[],stories:[]});}
 }
 function renderGallery(){
  const track=$('#gallery-track'),progress=galleryMotion?.getProgress()||0;
