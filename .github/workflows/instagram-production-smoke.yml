@@ -1,0 +1,23 @@
+name: Verify production Instagram feed
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'checks/instagram-production-smoke.mjs'
+      - '.github/workflows/instagram-production-smoke.yml'
+      - 'netlify/functions/instagram-feed.mjs'
+      - 'assets/app.js'
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node checks/instagram-production-smoke.mjs
