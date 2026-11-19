@@ -1,25 +1,54 @@
-# Instagram на сайті Bavaria Lounge
+# Instagram у Bavaria Lounge: Unified Login
 
-Інтеграція використовує офіційний Instagram API with Instagram Login. Токен зберігається лише в Netlify, а браузер звертається до `/.netlify/functions/instagram-feed`.
+## Актуальна схема
 
-## Що вже підготовлено
+- Meta app Bavaria2026, Instagram Business: `bavaria_cocktail_lounge`
+- Instagram User ID: `17841403390955028`
+- Unified Login працює з `https://graph.facebook.com/v27.0` і заголовком `Authorization: Bearer <token>`
+- Приватні значення живуть тільки в серверному середовищі. Ні API-токен, ні ключі Netlify не додаються до Git.
+- Фронтенд звертається до `/.netlify/functions/instagram-feed`.
+- Після згоди на «Externe Medien» у cookie-банері відображається стрічка.
+- Спершу видно 3 дописи, кнопка «Weitere 3 Beiträge anzeigen» додає наступні 3. При оновленні сторінки лічильник починається з 3.
+- Кожен допис містить фото/Reels-прев'ю, тип, дату, повний текст зі згортанням, перехід у Instagram, лайки/коментарі **тільки за наявності реальних значень у Meta API**. Якщо Meta відмовляє в доступі до полів статистики, сервер повторює запит без них.
+- Stories повертаються лише поки активні; порожній `stories: []` не означає помилку.
 
-- секція одразу після hero з активними Stories і 12 останніми публікаціями;
-- підтримка фото, Reels/відео та каруселей;
-- адаптивні loading, empty і error/fallback стани;
-- серверне кешування та прихований від браузера access token;
-- автоматичне оновлення під час відкриття сторінки (CDN-кеш до 5 хвилин).
+## Локальний запуск
 
-## Змінні Netlify
+Приватний `.env` в корені (вже у `.gitignore`):
 
-Відкрийте **Netlify → Site configuration → Environment variables** і додайте:
-
-```text
-INSTAGRAM_ACCESS_TOKEN=<long-lived token>
-INSTAGRAM_USER_ID=<Instagram User ID; необов'язково, якщо працює /me>
-INSTAGRAM_API_VERSION=v26.0
+```dotenv
+INSTAGRAM_ACCESS_TOKEN=PRIVATE_TOKEN_NOT_FOR_GIT
+INSTAGRAM_USER_ID=17841403390955028
+INSTAGRAM_API_VERSION=v27.0
 ```
 
-Після збереження змінних запустіть новий deploy. Перевірте `/.netlify/functions/instagram-feed`: відповідь повинна містити `"ok":true`. У браузері токен і прямі запити до `graph.instagram.com` з'являтися не повинні.
+```bash
+npx netlify-cli dev
+```
 
-Для читання власного професійного акаунта потрібен дозвіл `instagram_business_basic`. Stories доступні лише поки вони активні (приблизно 24 години); архів Stories API не повертає. Long-lived token потрібно оновлювати до завершення строку його дії.
+Відкрий `http://localhost:8888/.netlify/functions/instagram-feed`. Очікуємо JSON `ok:true`, `configured:true`, `posts` і `stories`. Для перегляду карток на сайті дозволь категорію «Externe Medien». Звичайний Live Server у VS Code не запускає Netlify Functions.
+
+## Production на Netlify
+
+Netlify-проєкт `bavaria-lounge` прив'язаний до GitHub і використовує `bavaria-lounge.de`. Гілка `main` автоматично деплоїться на продакшен, а Pull Request створює Deploy Preview. Якщо API є лише локально, насамперед перевір, що саме `main` містить Unified Login-виправлення.
+
+У Netlify → Project configuration → Environment variables для **Production / Functions** повинні бути `INSTAGRAM_ACCESS_TOKEN`, `INSTAGRAM_USER_ID`, `INSTAGRAM_API_VERSION`. Після зміни серверних змінних потрібно перевірити новий deploy.
+
+Перевірити у браузері: `https://bavaria-lounge.de/.netlify/functions/instagram-feed`.
+
+- `503 configured:false`: не вистачає токена, User ID або невірний формат API version.
+- `502 ok:false`: Meta API помилка; дивись Netlify Function logs. Не публікуй токен у логах.
+- `200 ok:true`, але немає карток: перевір cookies «Externe Medien», консоль, network.
+- `200 ok:true`, але без лайків/коментарів: Meta не повертає ці поля, сервер показує доступні пости без вигаданих чисел.
+
+У репозиторії також існує Firebase Hosting, але публічний домен цього Netlify-проєкту розгортається через Netlify. `integration/instagram-worker.mjs` не використовується основною стрічкою (окремий optional adapter), не вмикай його паралельно.
+
+## Перевірки
+
+```bash
+node --test checks/instagram-function.test.mjs
+node --check assets/app.js
+npm test
+```
+
+Жоден тест не повинен робити реальних запитів до Instagram або виводити секрети.
